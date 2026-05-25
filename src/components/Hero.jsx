@@ -1,0 +1,391 @@
+import { useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
+import { ArrowUpRight, Award } from 'lucide-react';
+import gsap from 'gsap';
+
+export default function Hero() {
+  const containerRef = useRef(null);
+  const titleRef = useRef(null);
+  const imgWrapperRef = useRef(null);
+  const imgRef = useRef(null);
+  const ctaRef = useRef(null);
+
+  useEffect(() => {
+    // 3D Mouse Parallax Effect on Hero Image
+    const handleMouseMove = (e) => {
+      if (!imgWrapperRef.current || !imgRef.current) return;
+      const rect = imgWrapperRef.current.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+
+      // Subtle tilt and translate
+      gsap.to(imgRef.current, {
+        x: x * -0.05,
+        y: y * -0.05,
+        rotationY: x * 0.03,
+        rotationX: y * -0.03,
+        duration: 0.6,
+        ease: 'power2.out',
+      });
+    };
+
+    const handleMouseLeave = () => {
+      if (!imgRef.current) return;
+      gsap.to(imgRef.current, {
+        x: 0,
+        y: 0,
+        rotationY: 0,
+        rotationX: 0,
+        duration: 0.8,
+        ease: 'power2.out',
+      });
+    };
+
+    const container = containerRef.current;
+    if (container) {
+      container.addEventListener('mousemove', handleMouseMove);
+      container.addEventListener('mouseleave', handleMouseLeave);
+    }
+
+    // Magnetic Button Effect on CTA
+    const handleCtaMove = (e) => {
+      const btn = ctaRef.current;
+      if (!btn) return;
+      const rect = btn.getBoundingClientRect();
+      const btnX = e.clientX - rect.left - rect.width / 2;
+      const btnY = e.clientY - rect.top - rect.height / 2;
+
+      gsap.to(btn, {
+        x: btnX * 0.35,
+        y: btnY * 0.35,
+        duration: 0.3,
+        ease: 'power2.out',
+      });
+    };
+
+    const handleCtaLeave = () => {
+      const btn = ctaRef.current;
+      if (!btn) return;
+      gsap.to(btn, {
+        x: 0,
+        y: 0,
+        duration: 0.5,
+        ease: 'elastic.out(1, 0.3)',
+      });
+    };
+
+    const btn = ctaRef.current;
+    if (btn) {
+      btn.addEventListener('mousemove', handleCtaMove);
+      btn.addEventListener('mouseleave', handleCtaLeave);
+    }
+
+    return () => {
+      if (container) {
+        container.removeEventListener('mousemove', handleMouseMove);
+        container.removeEventListener('mouseleave', handleMouseLeave);
+      }
+      if (btn) {
+        btn.removeEventListener('mousemove', handleCtaMove);
+        btn.removeEventListener('mouseleave', handleCtaLeave);
+      }
+    };
+  }, []);
+
+  const handleClick = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  // Splitting headline text into words for stagger entry
+  const words = "Grow Your Brand with Smart Digital Marketing".split(" ");
+
+  return (
+    <section
+      ref={containerRef}
+      style={{
+        minHeight: '100vh',
+        display: 'flex',
+        alignItems: 'center',
+        padding: '8rem 2rem 4rem 2rem',
+        background: 'radial-gradient(circle at 10% 20%, rgba(140, 255, 0, 0.03) 0%, transparent 60%)',
+        overflow: 'hidden',
+        position: 'relative',
+      }}
+    >
+      {/* Decorative grids */}
+      <div
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          backgroundImage: 'radial-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px)',
+          backgroundSize: '30px 30px',
+          pointerEvents: 'none',
+          zIndex: 0,
+        }}
+      />
+
+      <div
+        style={{
+          maxWidth: '1400px',
+          width: '100%',
+          margin: '0 auto',
+          display: 'grid',
+          gridTemplateColumns: '1.2fr 0.8fr',
+          gap: '4rem',
+          alignItems: 'center',
+          position: 'relative',
+          zIndex: 1,
+        }}
+        className="hero-grid"
+      >
+        {/* Left text column */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+          {/* Main Tagline with 3D Word Reveal */}
+          <h1
+            ref={titleRef}
+            style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: 'clamp(2.8rem, 5.5vw, 5.5rem)',
+              lineHeight: 1.05,
+              fontWeight: 800,
+              display: 'flex',
+              flexWrap: 'wrap',
+              rowGap: '0.5rem',
+              columnGap: '0.8rem',
+            }}
+          >
+            {words.map((word, idx) => (
+              <span
+                key={idx}
+                style={{
+                  overflow: 'hidden',
+                  display: 'inline-block',
+                  verticalAlign: 'bottom',
+                  paddingBottom: '0.1em',
+                }}
+              >
+                <motion.span
+                  initial={{ y: '105%' }}
+                  animate={{ y: 0 }}
+                  transition={{
+                    duration: 0.85,
+                    ease: [0.16, 1, 0.3, 1], // Custom easeOutExpo
+                    delay: idx * 0.08,
+                  }}
+                  style={{ display: 'inline-block' }}
+                >
+                  {word === 'Digital' || word === 'Marketing' ? (
+                    <span style={{ color: 'var(--accent)' }}>{word}</span>
+                  ) : (
+                    word
+                  )}
+                </motion.span>
+              </span>
+            ))}
+          </h1>
+
+          {/* Subtitle */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            style={{
+              fontSize: '1.25rem',
+              color: 'var(--text-secondary)',
+              maxWidth: '600px',
+              lineHeight: 1.6,
+            }}
+          >
+            From clicks to conversions — we craft campaigns that actually work. Connect directly with your potential audience and scale.
+          </motion.p>
+
+          {/* Call to Actions & Experience Badge */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1.0 }}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '2.5rem',
+              flexWrap: 'wrap',
+              marginTop: '1rem',
+            }}
+            className="hero-actions"
+          >
+            {/* Magnetic CTA wrapper */}
+            <div style={{ display: 'inline-block' }}>
+              <button
+                ref={ctaRef}
+                onClick={handleClick}
+                className="btn-premium"
+                style={{
+                  outline: 'none',
+                  border: 'none',
+                  fontSize: '1.05rem',
+                  padding: '1.1rem 2.5rem',
+                  boxShadow: 'var(--shadow-glow)',
+                }}
+              >
+                Talk to Us Now <ArrowUpRight size={20} />
+              </button>
+            </div>
+
+            {/* Experience Counter Card */}
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '1rem',
+                background: 'rgba(255, 255, 255, 0.03)',
+                border: '1px solid rgba(255, 255, 255, 0.06)',
+                borderRadius: '16px',
+                padding: '0.8rem 1.5rem',
+                backdropFilter: 'blur(5px)',
+                transition: 'all 0.3s ease',
+              }}
+              className="experience-badge"
+            >
+              <div
+                style={{
+                  background: 'rgba(140, 255, 0, 0.1)',
+                  borderRadius: '50%',
+                  width: '45px',
+                  height: '45px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: 'var(--accent)',
+                }}
+              >
+                <Award size={24} />
+              </div>
+              <div>
+                <div style={{ fontWeight: 800, fontSize: '1.25rem', fontFamily: 'var(--font-display)' }}>10+ Years</div>
+                <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>of Proven Results</div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Right visual column */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.5 }}
+          ref={imgWrapperRef}
+          style={{
+            position: 'relative',
+            perspective: 1000,
+            transformStyle: 'preserve-3d',
+            display: 'flex',
+            justifyContent: 'center',
+          }}
+          className="hero-image-container"
+        >
+          <div
+            style={{
+              position: 'relative',
+              borderRadius: '24px',
+              overflow: 'hidden',
+              boxShadow: 'var(--shadow-lg), 0 0 60px rgba(0,0,0,0.4)',
+              border: '1px solid rgba(255, 255, 255, 0.05)',
+              width: '100%',
+              maxWidth: '600px',
+              aspectRatio: '3/2',
+            }}
+          >
+            <img
+              ref={imgRef}
+              src="https://avenirmark.com/wp-content/uploads/2025/07/ChatGPT-Image-Jul-21-2025-10_31_47-AM.webp"
+              alt="Avenirmark Agency Workspace"
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                scale: 1.02, // Minimal scale for 3D tilts
+              }}
+            />
+
+            {/* Glowing border outline */}
+            <div
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                background: 'linear-gradient(to bottom, transparent, rgba(5,5,5,0.7))',
+                pointerEvents: 'none',
+              }}
+            />
+          </div>
+
+          {/* Interactive floating card layer */}
+          <motion.div
+            animate={{
+              y: [0, -12, 0],
+            }}
+            transition={{
+              duration: 5,
+              repeat: Infinity,
+              ease: 'easeInOut',
+            }}
+            style={{
+              position: 'absolute',
+              bottom: '10%',
+              left: '-8%',
+              background: 'rgba(12, 12, 14, 0.85)',
+              border: '1px solid rgba(255, 255, 255, 0.08)',
+              backdropFilter: 'blur(15px)',
+              WebkitBackdropFilter: 'blur(15px)',
+              padding: '1.2rem 1.8rem',
+              borderRadius: '20px',
+              boxShadow: 'var(--shadow-md)',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '0.4rem',
+              pointerEvents: 'none',
+              zIndex: 3,
+            }}
+            className="floating-stats-card"
+          >
+            <span style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '1px' }}>
+              Organic Traffic Growth
+            </span>
+            <span style={{ fontSize: '2rem', fontWeight: 800, fontFamily: 'var(--font-display)', color: 'var(--accent)' }}>
+              +328%
+            </span>
+          </motion.div>
+        </motion.div>
+      </div>
+
+      <style>{`
+        @media (max-width: 1024px) {
+          .hero-grid {
+            grid-template-columns: 1fr !important;
+            gap: 4rem !important;
+            text-align: center;
+          }
+          .hero-actions {
+            justify-content: center !important;
+          }
+          .hero-image-container {
+            max-width: 420px;
+            margin: 0 auto;
+          }
+          .floating-stats-card {
+            left: 2% !important;
+            bottom: 4% !important;
+          }
+        }
+      `}</style>
+    </section>
+  );
+}
