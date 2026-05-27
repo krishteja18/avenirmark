@@ -94,7 +94,7 @@ export default function CustomCursor() {
         top: 0,
         width: isHovered ? '60px' : '36px',
         height: isHovered ? '60px' : '36px',
-        border: isHovered ? '2px solid #8CFF00' : '2px solid rgba(255, 255, 255, 0.4)',
+        border: isHovered ? '2px solid #D4AF37' : '2px solid rgba(255, 255, 255, 0.4)',
         borderRadius: '50%',
         pointerEvents: 'none',
         transform: 'translate(-50%, -50%)',
@@ -112,7 +112,7 @@ export default function CustomCursor() {
         style={{
           width: isHovered ? '12px' : '8px',
           height: isHovered ? '12px' : '8px',
-          background: 'linear-gradient(135deg, #8CFF00, #00f0ff)',
+          background: 'linear-gradient(135deg, #D4AF37, #60A5FA)',
           borderRadius: '50%',
           transition: 'width 0.3s ease, height 0.3s ease',
         }}

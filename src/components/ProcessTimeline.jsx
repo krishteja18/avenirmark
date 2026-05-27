@@ -81,7 +81,7 @@ export default function ProcessTimeline({ playSound }) {
         start: 'top 55%',
         end: 'bottom 55%',
         onEnter: () => {
-          gsap.to(dot, { backgroundColor: '#8CFF00', scale: 1.3, duration: 0.3 });
+          gsap.to(dot, { backgroundColor: '#D4AF37', scale: 1.3, duration: 0.3 });
           if (playSound) playSound('click');
         },
         onLeaveBack: () => {
@@ -177,7 +177,7 @@ export default function ProcessTimeline({ playSound }) {
                 stroke: 'var(--accent)',
                 strokeWidth: 3,
                 strokeLinecap: 'round',
-                filter: 'drop-shadow(0 0 8px rgba(140,255,0,0.5))',
+                filter: 'drop-shadow(0 0 8px rgba(212, 175, 55, 0.5))',
               }}
             />
           </svg>
@@ -265,7 +265,7 @@ export default function ProcessTimeline({ playSound }) {
                       fontFamily: 'var(--font-display)',
                       fontSize: '3rem',
                       fontWeight: 800,
-                      color: 'rgba(140, 255, 0, 0.08)',
+                      color: 'rgba(212, 175, 55, 0.08)',
                       position: 'absolute',
                       top: '1.2rem',
                       right: '2rem',

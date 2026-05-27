@@ -1,33 +1,33 @@
 :root {
   /* Colors */
-  --bg-primary: #050505;
-  --bg-secondary: #0c0c0e;
-  --bg-tertiary: #16161a;
-  --accent: #8CFF00;
-  --accent-secondary: #00E676;
+  --bg-primary: #050B14;
+  --bg-secondary: #091220;
+  --bg-tertiary: #101E35;
+  --accent: #D4AF37;
+  --accent-secondary: #E2B63B;
   --accent-purple: #8A2BE2;
-  --accent-cyan: #00f0ff;
-  --text-primary: #F5F5F7;
-  --text-secondary: #a1a1aa;
-  --text-muted: #6b7280;
-  --border: rgba(255, 255, 255, 0.08);
-  --border-focus: rgba(140, 255, 0, 0.5);
+  --accent-cyan: #60A5FA;
+  --text-primary: #F8FAFC;
+  --text-secondary: #94A3B8;
+  --text-muted: #64748B;
+  --border: rgba(212, 175, 55, 0.08);
+  --border-focus: rgba(212, 175, 55, 0.4);
   
   /* Glassmorphism */
-  --glass-bg: rgba(12, 12, 14, 0.6);
-  --glass-border: rgba(255, 255, 255, 0.06);
+  --glass-bg: rgba(16, 30, 53, 0.65);
+  --glass-border: rgba(212, 175, 55, 0.06);
   --glass-blur: blur(20px);
 
   /* Shadows */
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.5);
   --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.7);
   --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.8);
-  --shadow-glow: 0 0 30px rgba(140, 255, 0, 0.15);
-  --shadow-glow-cyan: 0 0 30px rgba(0, 240, 255, 0.15);
+  --shadow-glow: 0 0 30px rgba(212, 175, 55, 0.15);
+  --shadow-glow-cyan: 0 0 30px rgba(96, 165, 250, 0.15);
 
   /* Typography */
-  --font-display: 'Syne', sans-serif;
-  --font-body: 'Outfit', sans-serif;
+  --font-display: 'Outfit', sans-serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
 
   /* Transitions */
   --transition-fast: 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -299,7 +299,7 @@ p {
   bottom: 0;
   background: radial-gradient(
     600px circle at var(--mouse-x, 0px) var(--mouse-y, 0px),
-    rgba(140, 255, 0, 0.08),
+    rgba(212, 175, 55, 0.08),
     transparent 40%
   );
   z-index: 1;

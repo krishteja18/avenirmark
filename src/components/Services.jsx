@@ -106,7 +106,7 @@ export default function Services({ playSound }) {
           width: '400px',
           height: '400px',
           borderRadius: '50%',
-          backgroundColor: 'rgba(140, 255, 0, 0.02)',
+          backgroundColor: 'rgba(212, 175, 55, 0.02)',
           filter: 'blur(100px)',
           pointerEvents: 'none',
         }}
@@ -119,7 +119,7 @@ export default function Services({ playSound }) {
           width: '500px',
           height: '500px',
           borderRadius: '50%',
-          backgroundColor: 'rgba(0, 240, 255, 0.015)',
+          backgroundColor: 'rgba(96, 165, 250, 0.015)',
           filter: 'blur(120px)',
           pointerEvents: 'none',
         }}
@@ -204,7 +204,7 @@ export default function Services({ playSound }) {
                     alignItems: 'center',
                     justifyContent: 'center',
                     color: 'var(--accent)',
-                    boxShadow: 'inset 0 0 10px rgba(140,255,0,0.05)',
+                    boxShadow: 'inset 0 0 10px rgba(212,175,55,0.05)',
                   }}
                 >
                   <IconComponent size={28} />

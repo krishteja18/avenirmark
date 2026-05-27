@@ -196,7 +196,7 @@ export default function Portfolio({ playSound }) {
     });
 
     gsap.to(overlay, {
-      background: `radial-gradient(circle at ${e.clientX - rect.left}px ${e.clientY - rect.top}px, rgba(140, 255, 0, 0.25) 0%, transparent 60%)`,
+      background: `radial-gradient(circle at ${e.clientX - rect.left}px ${e.clientY - rect.top}px, rgba(212, 175, 55, 0.25) 0%, transparent 60%)`,
       duration: 0.2,
     });
   };

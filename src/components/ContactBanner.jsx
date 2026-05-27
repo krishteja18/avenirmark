@@ -76,7 +76,7 @@ export default function ContactBanner({ playSound }) {
           width: '600px',
           height: '600px',
           borderRadius: '50%',
-          backgroundColor: 'rgba(140, 255, 0, 0.015)',
+          backgroundColor: 'rgba(212, 175, 55, 0.015)',
           filter: 'blur(150px)',
           pointerEvents: 'none',
           zIndex: 0,
@@ -157,7 +157,7 @@ export default function ContactBanner({ playSound }) {
               }}
               className="info-item"
             >
-              <div style={{ color: 'var(--accent)', background: 'rgba(140,255,0,0.06)', padding: '0.8rem', borderRadius: '50%' }}>
+              <div style={{ color: 'var(--accent)', background: 'rgba(212,175,55,0.06)', padding: '0.8rem', borderRadius: '50%' }}>
                 <MapPin size={22} />
               </div>
               <div>
@@ -185,7 +185,7 @@ export default function ContactBanner({ playSound }) {
               }}
               className="info-item"
             >
-              <div style={{ color: 'var(--accent)', background: 'rgba(140,255,0,0.06)', padding: '0.8rem', borderRadius: '50%' }}>
+              <div style={{ color: 'var(--accent)', background: 'rgba(212,175,55,0.06)', padding: '0.8rem', borderRadius: '50%' }}>
                 <Mail size={22} />
               </div>
               <div>
@@ -215,7 +215,7 @@ export default function ContactBanner({ playSound }) {
               }}
               className="info-item"
             >
-              <div style={{ color: 'var(--accent)', background: 'rgba(140,255,0,0.06)', padding: '0.8rem', borderRadius: '50%' }}>
+              <div style={{ color: 'var(--accent)', background: 'rgba(212,175,55,0.06)', padding: '0.8rem', borderRadius: '50%' }}>
                 <Phone size={22} />
               </div>
               <div>
@@ -261,7 +261,7 @@ export default function ContactBanner({ playSound }) {
                   width: '80px',
                   height: '80px',
                   borderRadius: '50%',
-                  backgroundColor: 'rgba(140, 255, 0, 0.1)',
+                  backgroundColor: 'rgba(212, 175, 55, 0.1)',
                   color: 'var(--accent)',
                   display: 'flex',
                   alignItems: 'center',
@@ -428,7 +428,7 @@ export default function ContactBanner({ playSound }) {
         .contact-input:focus {
           border-color: var(--accent) !important;
           background: rgba(255, 255, 255, 0.04) !important;
-          box-shadow: 0 0 15px rgba(140, 255, 0, 0.1);
+          box-shadow: 0 0 15px rgba(212, 175, 55, 0.1);
         }
         .info-item:hover {
           border-color: var(--accent) !important;

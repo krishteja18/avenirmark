@@ -110,7 +110,7 @@ export default function Hero() {
         display: 'flex',
         alignItems: 'center',
         padding: '8rem 2rem 4rem 2rem',
-        background: 'radial-gradient(circle at 10% 20%, rgba(140, 255, 0, 0.03) 0%, transparent 60%)',
+        background: 'radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.03) 0%, transparent 60%)',
         overflow: 'hidden',
         position: 'relative',
       }}
