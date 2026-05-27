@@ -290,6 +290,7 @@ export default function Hero() {
           className="hero-image-container"
         >
           <div
+            className="hero-image-wrapper"
             style={{
               position: 'relative',
               borderRadius: '24px',
@@ -303,8 +304,8 @@ export default function Hero() {
           >
             <img
               ref={imgRef}
-              src="https://avenirmark.com/wp-content/uploads/2025/07/ChatGPT-Image-Jul-21-2025-10_31_47-AM.webp"
-              alt="Avenirmark Agency Workspace"
+              src="/hero-workspace.png"
+              alt="Avenirmark Premium Agency Workspace"
               style={{
                 width: '100%',
                 height: '100%',
@@ -341,7 +342,7 @@ export default function Hero() {
               position: 'absolute',
               bottom: '10%',
               left: '-8%',
-              background: '#111FA2',
+              background: '#1b2751',
               border: '1px solid rgba(255, 222, 66, 0.25)',
               backdropFilter: 'blur(15px)',
               WebkitBackdropFilter: 'blur(15px)',
@@ -382,6 +383,15 @@ export default function Hero() {
             flex-direction: column !important;
             align-items: center !important;
             gap: 1.5rem !important;
+          }
+          .hero-image-wrapper {
+            aspect-ratio: auto !important;
+            height: auto !important;
+            width: 100% !important;
+          }
+          .hero-image-wrapper img {
+            height: auto !important;
+            object-fit: contain !important;
           }
           .floating-stats-card {
             position: relative !important;

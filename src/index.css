@@ -8,21 +8,21 @@
   --accent-purple: #7020C0; /* Deep Royal Purple */
   --accent-cyan: #5478FF; /* Vibrant Royal Blue (#5478FF) */
   --accent-sky: #53CBF3; /* Electric Cyan/Sky Blue (#53CBF3) */
-  --text-primary: #111FA2; /* Deep Imperial Royal Navy (#111FA2) */
+  --text-primary: #1b2751; /* Custom Elite Slate Navy Blue (#1b2751) */
   --text-secondary: #334155; /* Soft Navy Slate Charcoal */
   --text-muted: #5478FF; /* Vibrant Royal Blue details */
-  --border: rgba(17, 31, 162, 0.08); /* Delicate Navy-Tinted border */
-  --border-focus: rgba(17, 31, 162, 0.35);
+  --border: rgba(27, 39, 81, 0.08); /* Delicate Navy-Tinted border */
+  --border-focus: rgba(27, 39, 81, 0.35);
   
   /* Glassmorphism */
   --glass-bg: rgba(255, 255, 255, 0.75);
-  --glass-border: rgba(17, 31, 162, 0.06);
+  --glass-border: rgba(27, 39, 81, 0.06);
   --glass-blur: blur(20px);
 
   /* Shadows */
-  --shadow-sm: 0 2px 8px rgba(17, 31, 162, 0.03);
-  --shadow-md: 0 10px 30px rgba(17, 31, 162, 0.04);
-  --shadow-lg: 0 20px 50px rgba(17, 31, 162, 0.06);
+  --shadow-sm: 0 2px 8px rgba(27, 39, 81, 0.03);
+  --shadow-md: 0 10px 30px rgba(27, 39, 81, 0.04);
+  --shadow-lg: 0 20px 50px rgba(27, 39, 81, 0.06);
   --shadow-glow: 0 0 30px rgba(255, 222, 66, 0.25);
   --shadow-glow-cyan: 0 0 30px rgba(84, 120, 255, 0.15);
 
