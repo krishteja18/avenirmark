@@ -1,8 +1,8 @@
 :root {
   /* Colors */
-  --bg-primary: #FAF9F6; /* Luxury Warm Cream/Ivory */
+  --bg-primary: #FFFFFF; /* Pure Brilliant White */
   --bg-secondary: #FFFFFF; /* Pure Clean White for Cards & Header */
-  --bg-tertiary: #F3F1EC; /* Soft Beige-Ivory for Alternate sections */
+  --bg-tertiary: #F5F7FA; /* Very Soft Slate-White for Alternate sections */
   --accent: #FFDE42; /* Vibrant Warm Gold (#FFDE42) */
   --accent-secondary: #FFDE42; /* Radiant Amber Gold */
   --accent-purple: #7020C0; /* Deep Royal Purple */
