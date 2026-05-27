@@ -356,10 +356,10 @@ export default function Hero() {
             }}
             className="floating-stats-card"
           >
-            <span style={{ fontSize: '0.8rem', color: '#94A3B8', textTransform: 'uppercase', letterSpacing: '1px' }}>
+            <span style={{ fontSize: '0.8rem', color: '#FFFFFF', textTransform: 'uppercase', letterSpacing: '1px', opacity: 0.85 }}>
               Organic Traffic Growth
             </span>
-            <span style={{ fontSize: '2rem', fontWeight: 800, fontFamily: 'var(--font-display)', color: 'var(--accent-secondary)' }}>
+            <span style={{ fontSize: '2rem', fontWeight: 800, fontFamily: 'var(--font-display)', color: '#FFFFFF' }}>
               +328%
             </span>
           </motion.div>
@@ -377,12 +377,19 @@ export default function Hero() {
             justify-content: center !important;
           }
           .hero-image-container {
-            max-width: 420px;
+            max-width: 600px;
             margin: 0 auto;
+            flex-direction: column !important;
+            align-items: center !important;
+            gap: 1.5rem !important;
           }
           .floating-stats-card {
-            left: 2% !important;
-            bottom: 4% !important;
+            position: relative !important;
+            left: 0 !important;
+            bottom: 0 !important;
+            width: 100% !important;
+            max-width: 600px !important;
+            margin-top: 1.5rem !important;
           }
         }
       `}</style>
