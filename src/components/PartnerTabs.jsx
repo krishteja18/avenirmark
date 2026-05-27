@@ -118,7 +118,7 @@ export default function PartnerTabs({ playSound }) {
               right: '-10%',
               width: '200px',
               height: '200px',
-              background: 'radial-gradient(circle, rgba(140, 255, 0, 0.08) 0%, transparent 70%)',
+              background: 'radial-gradient(circle, rgba(184, 137, 32, 0.08) 0%, transparent 70%)',
               pointerEvents: 'none',
             }}
           />
@@ -127,8 +127,8 @@ export default function PartnerTabs({ playSound }) {
           <div
             style={{
               display: 'flex',
-              background: 'rgba(255, 255, 255, 0.03)',
-              border: '1px solid rgba(255, 255, 255, 0.06)',
+              background: 'rgba(15, 23, 42, 0.03)',
+              border: '1px solid var(--border)',
               borderRadius: '50px',
               padding: '0.4rem',
               position: 'relative',
@@ -203,7 +203,7 @@ export default function PartnerTabs({ playSound }) {
                     fontWeight: 800,
                     textTransform: 'uppercase',
                     letterSpacing: '2px',
-                    color: 'rgba(255,255,255,0.4)',
+                    color: 'var(--text-muted)',
                   }}
                 >
                   {tabData[activeTab].highlight}

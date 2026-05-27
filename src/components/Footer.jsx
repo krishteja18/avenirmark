@@ -79,8 +79,8 @@ export default function Footer({ playSound }) {
   return (
     <footer
       style={{
-        backgroundColor: '#0c0c0e',
-        borderTop: '1px solid rgba(255, 255, 255, 0.05)',
+        backgroundColor: 'var(--bg-secondary)',
+        borderTop: '1px solid var(--border)',
         padding: '5rem 2rem 2.5rem 2rem',
         position: 'relative',
         zIndex: 5,
@@ -141,8 +141,8 @@ export default function Footer({ playSound }) {
                   onMouseEnter={handleHover}
                   style={{
                     flex: 1,
-                    background: 'rgba(255, 255, 255, 0.02)',
-                    border: '1px solid rgba(255, 255, 255, 0.08)',
+                    background: 'var(--bg-primary)',
+                    border: '1px solid var(--border)',
                     borderRadius: '8px',
                     padding: '0.8rem 1.2rem',
                     color: 'var(--text-primary)',
@@ -261,8 +261,8 @@ export default function Footer({ playSound }) {
                       width: '38px',
                       height: '38px',
                       borderRadius: '50%',
-                      background: 'rgba(255,255,255,0.03)',
-                      border: '1px solid rgba(255,255,255,0.06)',
+                      background: 'rgba(15, 23, 42, 0.03)',
+                      border: '1px solid var(--border)',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
@@ -288,8 +288,8 @@ export default function Footer({ playSound }) {
                 width: '45px',
                 height: '45px',
                 borderRadius: '50%',
-                background: 'rgba(255, 255, 255, 0.02)',
-                border: '1px solid rgba(255, 255, 255, 0.08)',
+                background: 'rgba(15, 23, 42, 0.02)',
+                border: '1px solid var(--border)',
                 color: 'var(--text-primary)',
                 display: 'flex',
                 alignItems: 'center',
@@ -314,7 +314,7 @@ export default function Footer({ playSound }) {
           maxWidth: '1400px',
           margin: '3rem auto 0 auto',
           paddingTop: '2rem',
-          borderTop: '1px solid rgba(255, 255, 255, 0.04)',
+          borderTop: '1px solid var(--border)',
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
@@ -351,7 +351,7 @@ export default function Footer({ playSound }) {
         }
         .footer-input:focus {
           border-color: var(--accent) !important;
-          background-color: rgba(255,255,255,0.04) !important;
+          background-color: var(--bg-primary) !important;
         }
         @media (max-width: 1024px) {
           .footer-grid {

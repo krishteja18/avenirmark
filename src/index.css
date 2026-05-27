@@ -1,29 +1,30 @@
 :root {
   /* Colors */
-  --bg-primary: #050B14;
-  --bg-secondary: #091220;
-  --bg-tertiary: #101E35;
-  --accent: #D4AF37;
-  --accent-secondary: #E2B63B;
-  --accent-purple: #8A2BE2;
-  --accent-cyan: #60A5FA;
-  --text-primary: #F8FAFC;
-  --text-secondary: #94A3B8;
-  --text-muted: #64748B;
-  --border: rgba(212, 175, 55, 0.08);
-  --border-focus: rgba(212, 175, 55, 0.4);
+  --bg-primary: #FAF9F6; /* Luxury Warm Cream/Ivory */
+  --bg-secondary: #FFFFFF; /* Pure Clean White for Cards & Header */
+  --bg-tertiary: #F3F1EC; /* Soft Beige-Ivory for Alternate sections */
+  --accent: #FFDE42; /* Vibrant Warm Gold (#FFDE42) */
+  --accent-secondary: #FFDE42; /* Radiant Amber Gold */
+  --accent-purple: #7020C0; /* Deep Royal Purple */
+  --accent-cyan: #5478FF; /* Vibrant Royal Blue (#5478FF) */
+  --accent-sky: #53CBF3; /* Electric Cyan/Sky Blue (#53CBF3) */
+  --text-primary: #111FA2; /* Deep Imperial Royal Navy (#111FA2) */
+  --text-secondary: #334155; /* Soft Navy Slate Charcoal */
+  --text-muted: #5478FF; /* Vibrant Royal Blue details */
+  --border: rgba(17, 31, 162, 0.08); /* Delicate Navy-Tinted border */
+  --border-focus: rgba(17, 31, 162, 0.35);
   
   /* Glassmorphism */
-  --glass-bg: rgba(16, 30, 53, 0.65);
-  --glass-border: rgba(212, 175, 55, 0.06);
+  --glass-bg: rgba(255, 255, 255, 0.75);
+  --glass-border: rgba(17, 31, 162, 0.06);
   --glass-blur: blur(20px);
 
   /* Shadows */
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.5);
-  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.7);
-  --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.8);
-  --shadow-glow: 0 0 30px rgba(212, 175, 55, 0.15);
-  --shadow-glow-cyan: 0 0 30px rgba(96, 165, 250, 0.15);
+  --shadow-sm: 0 2px 8px rgba(17, 31, 162, 0.03);
+  --shadow-md: 0 10px 30px rgba(17, 31, 162, 0.04);
+  --shadow-lg: 0 20px 50px rgba(17, 31, 162, 0.06);
+  --shadow-glow: 0 0 30px rgba(255, 222, 66, 0.25);
+  --shadow-glow-cyan: 0 0 30px rgba(84, 120, 255, 0.15);
 
   /* Typography */
   --font-display: 'Outfit', sans-serif;
@@ -263,12 +264,12 @@ p {
 /* Spotlight Card Base */
 .spotlight-card {
   position: relative;
-  background: rgba(20, 20, 22, 0.55);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
   border-radius: 20px;
   padding: 2.5rem;
   overflow: hidden;
-  transition: border-color 0.5s ease;
+  transition: border-color 0.5s ease, box-shadow 0.3s ease;
 }
 
 /* Radial Glow tracking effect using CSS Custom Properties */
@@ -281,7 +282,7 @@ p {
   bottom: 0;
   background: radial-gradient(
     800px circle at var(--mouse-x, 0px) var(--mouse-y, 0px),
-    rgba(255, 255, 255, 0.06),
+    rgba(15, 23, 42, 0.02),
     transparent 40%
   );
   z-index: 1;
@@ -299,7 +300,7 @@ p {
   bottom: 0;
   background: radial-gradient(
     600px circle at var(--mouse-x, 0px) var(--mouse-y, 0px),
-    rgba(212, 175, 55, 0.08),
+    rgba(184, 137, 32, 0.06),
     transparent 40%
   );
   z-index: 1;

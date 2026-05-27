@@ -151,8 +151,8 @@ export default function ContactBanner({ playSound }) {
                 gap: '1.2rem',
                 padding: '1rem',
                 borderRadius: '12px',
-                background: 'rgba(255, 255, 255, 0.02)',
-                border: '1px solid rgba(255,255,255,0.04)',
+                background: 'var(--bg-secondary)',
+                border: '1px solid var(--border)',
                 transition: 'border-color 0.3s ease',
               }}
               className="info-item"
@@ -179,8 +179,8 @@ export default function ContactBanner({ playSound }) {
                 gap: '1.2rem',
                 padding: '1rem',
                 borderRadius: '12px',
-                background: 'rgba(255, 255, 255, 0.02)',
-                border: '1px solid rgba(255,255,255,0.04)',
+                background: 'var(--bg-secondary)',
+                border: '1px solid var(--border)',
                 transition: 'border-color 0.3s ease',
               }}
               className="info-item"
@@ -209,8 +209,8 @@ export default function ContactBanner({ playSound }) {
                 gap: '1.2rem',
                 padding: '1rem',
                 borderRadius: '12px',
-                background: 'rgba(255, 255, 255, 0.02)',
-                border: '1px solid rgba(255,255,255,0.04)',
+                background: 'var(--bg-secondary)',
+                border: '1px solid var(--border)',
                 transition: 'border-color 0.3s ease',
               }}
               className="info-item"
@@ -296,8 +296,8 @@ export default function ContactBanner({ playSound }) {
                   onMouseEnter={handleHover}
                   placeholder="Enter your name"
                   style={{
-                    background: 'rgba(255,255,255,0.02)',
-                    border: '1px solid rgba(255,255,255,0.08)',
+                    background: 'var(--bg-primary)',
+                    border: '1px solid var(--border)',
                     borderRadius: '10px',
                     padding: '1rem 1.2rem',
                     color: 'var(--text-primary)',
@@ -324,8 +324,8 @@ export default function ContactBanner({ playSound }) {
                   onMouseEnter={handleHover}
                   placeholder="Enter your email"
                   style={{
-                    background: 'rgba(255,255,255,0.02)',
-                    border: '1px solid rgba(255,255,255,0.08)',
+                    background: 'var(--bg-primary)',
+                    border: '1px solid var(--border)',
                     borderRadius: '10px',
                     padding: '1rem 1.2rem',
                     color: 'var(--text-primary)',
@@ -349,8 +349,8 @@ export default function ContactBanner({ playSound }) {
                   onChange={handleInputChange}
                   onMouseEnter={handleHover}
                   style={{
-                    background: '#0d0d0f',
-                    border: '1px solid rgba(255,255,255,0.08)',
+                    background: 'var(--bg-primary)',
+                    border: '1px solid var(--border)',
                     borderRadius: '10px',
                     padding: '1rem 1.2rem',
                     color: 'var(--text-primary)',
@@ -383,8 +383,8 @@ export default function ContactBanner({ playSound }) {
                   onMouseEnter={handleHover}
                   placeholder="Tell us about your brand and goals..."
                   style={{
-                    background: 'rgba(255,255,255,0.02)',
-                    border: '1px solid rgba(255,255,255,0.08)',
+                    background: 'var(--bg-primary)',
+                    border: '1px solid var(--border)',
                     borderRadius: '10px',
                     padding: '1.2rem',
                     color: 'var(--text-primary)',
@@ -427,12 +427,12 @@ export default function ContactBanner({ playSound }) {
       <style>{`
         .contact-input:focus {
           border-color: var(--accent) !important;
-          background: rgba(255, 255, 255, 0.04) !important;
-          box-shadow: 0 0 15px rgba(212, 175, 55, 0.1);
+          background: var(--bg-secondary) !important;
+          box-shadow: 0 0 15px rgba(255, 222, 66, 0.15);
         }
         .info-item:hover {
           border-color: var(--accent) !important;
-          background: rgba(140, 255, 0, 0.01) !important;
+          background: rgba(255, 222, 66, 0.06) !important;
         }
         @media (max-width: 1024px) {
           .contact-grid {

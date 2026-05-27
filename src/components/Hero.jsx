@@ -110,7 +110,7 @@ export default function Hero() {
         display: 'flex',
         alignItems: 'center',
         padding: '8rem 2rem 4rem 2rem',
-        background: 'radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.03) 0%, transparent 60%)',
+        background: 'radial-gradient(circle at 10% 20%, rgba(255, 222, 66, 0.05) 0%, transparent 60%), radial-gradient(circle at 90% 80%, rgba(83, 203, 243, 0.06) 0%, transparent 50%)',
         overflow: 'hidden',
         position: 'relative',
       }}
@@ -123,7 +123,7 @@ export default function Hero() {
           left: 0,
           width: '100%',
           height: '100%',
-          backgroundImage: 'radial-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px)',
+          backgroundImage: 'radial-gradient(rgba(15, 23, 42, 0.03) 1px, transparent 1px)',
           backgroundSize: '30px 30px',
           pointerEvents: 'none',
           zIndex: 0,
@@ -243,8 +243,8 @@ export default function Hero() {
                 display: 'flex',
                 alignItems: 'center',
                 gap: '1rem',
-                background: 'rgba(255, 255, 255, 0.03)',
-                border: '1px solid rgba(255, 255, 255, 0.06)',
+                background: 'var(--bg-secondary)',
+                border: '1px solid var(--border)',
                 borderRadius: '16px',
                 padding: '0.8rem 1.5rem',
                 backdropFilter: 'blur(5px)',
@@ -254,14 +254,14 @@ export default function Hero() {
             >
               <div
                 style={{
-                  background: 'rgba(140, 255, 0, 0.1)',
+                  background: 'rgba(84, 120, 255, 0.08)',
                   borderRadius: '50%',
                   width: '45px',
                   height: '45px',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  color: 'var(--accent)',
+                  color: 'var(--accent-cyan)',
                 }}
               >
                 <Award size={24} />
@@ -341,8 +341,8 @@ export default function Hero() {
               position: 'absolute',
               bottom: '10%',
               left: '-8%',
-              background: 'rgba(12, 12, 14, 0.85)',
-              border: '1px solid rgba(255, 255, 255, 0.08)',
+              background: '#111FA2',
+              border: '1px solid rgba(255, 222, 66, 0.25)',
               backdropFilter: 'blur(15px)',
               WebkitBackdropFilter: 'blur(15px)',
               padding: '1.2rem 1.8rem',
@@ -356,10 +356,10 @@ export default function Hero() {
             }}
             className="floating-stats-card"
           >
-            <span style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '1px' }}>
+            <span style={{ fontSize: '0.8rem', color: '#94A3B8', textTransform: 'uppercase', letterSpacing: '1px' }}>
               Organic Traffic Growth
             </span>
-            <span style={{ fontSize: '2rem', fontWeight: 800, fontFamily: 'var(--font-display)', color: 'var(--accent)' }}>
+            <span style={{ fontSize: '2rem', fontWeight: 800, fontFamily: 'var(--font-display)', color: 'var(--accent-secondary)' }}>
               +328%
             </span>
           </motion.div>

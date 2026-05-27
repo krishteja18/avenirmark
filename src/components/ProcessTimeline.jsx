@@ -85,7 +85,7 @@ export default function ProcessTimeline({ playSound }) {
           if (playSound) playSound('click');
         },
         onLeaveBack: () => {
-          gsap.to(dot, { backgroundColor: 'rgba(255,255,255,0.1)', scale: 1.0, duration: 0.3 });
+          gsap.to(dot, { backgroundColor: 'rgba(15,23,42,0.1)', scale: 1.0, duration: 0.3 });
         },
       });
     });
@@ -166,7 +166,7 @@ export default function ProcessTimeline({ playSound }) {
             bottom: 0,
             left: '1px',
             width: '2px',
-            backgroundColor: 'rgba(255,255,255,0.04)',
+            backgroundColor: 'rgba(15,23,42,0.04)',
           }} />
           
           <svg style={{ width: '100%', height: '100%', overflow: 'visible' }}>
@@ -200,7 +200,7 @@ export default function ProcessTimeline({ playSound }) {
             bottom: 0,
             left: '1px',
             width: '2px',
-            backgroundColor: 'rgba(255,255,255,0.04)',
+            backgroundColor: 'rgba(15,23,42,0.04)',
           }} />
         </div>
 
@@ -233,10 +233,10 @@ export default function ProcessTimeline({ playSound }) {
                     width: '18px',
                     height: '18px',
                     borderRadius: '50%',
-                    backgroundColor: 'rgba(255,255,255,0.1)',
+                    backgroundColor: 'rgba(15,23,42,0.1)',
                     border: '3px solid var(--bg-primary)',
                     zIndex: 4,
-                    boxShadow: '0 0 10px rgba(0,0,0,0.8)',
+                    boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
                     transition: 'background-color 0.3s ease, scale 0.3s ease',
                   }}
                   className="timeline-dot"

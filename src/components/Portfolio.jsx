@@ -282,8 +282,8 @@ export default function Portfolio({ playSound }) {
             onClick={() => handleCategoryChange(cat.id)}
             onMouseEnter={handleHover}
             style={{
-              background: activeCategory === cat.id ? 'var(--accent)' : 'rgba(255, 255, 255, 0.03)',
-              border: activeCategory === cat.id ? '1px solid var(--accent)' : '1px solid rgba(255,255,255,0.06)',
+              background: activeCategory === cat.id ? 'var(--accent)' : 'rgba(15, 23, 42, 0.03)',
+              border: activeCategory === cat.id ? '1px solid var(--accent)' : '1px solid var(--border)',
               color: activeCategory === cat.id ? '#050505' : 'var(--text-secondary)',
               padding: '0.7rem 1.6rem',
               borderRadius: '50px',
