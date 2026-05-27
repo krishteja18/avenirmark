@@ -251,21 +251,36 @@ export default function ProcessTimeline({ playSound }) {
                   viewport={{ once: true, margin: '-100px' }}
                   transition={{ duration: 0.8, cubicBezier: [0.16, 1, 0.3, 1] }}
                   onMouseEnter={handleHover}
-                  className="glass-panel spotlight-card"
+                  className="glass-panel spotlight-card step-card-dark"
                   style={{
                     width: '44%',
                     padding: '2.5rem',
                     position: 'relative',
-                    boxShadow: 'var(--shadow-md)',
+                    background: 'linear-gradient(135deg, #1b2751 0%, #243168 60%, #1e2d5a 100%)',
+                    border: '1px solid rgba(255, 222, 66, 0.18)',
+                    borderLeft: '5px solid #FFDE42',
+                    boxShadow: '0 15px 45px rgba(27, 39, 81, 0.25), inset 0 1px 0 rgba(255, 222, 66, 0.08)',
                   }}
                 >
+                  {/* Subtle gold glow in corner */}
+                  <div style={{
+                    position: 'absolute',
+                    top: '-20px',
+                    right: '-20px',
+                    width: '120px',
+                    height: '120px',
+                    borderRadius: '50%',
+                    background: 'radial-gradient(circle, rgba(255, 222, 66, 0.08) 0%, transparent 70%)',
+                    pointerEvents: 'none',
+                  }} />
+
                   {/* Step Number Tag */}
                   <div
                     style={{
                       fontFamily: 'var(--font-display)',
                       fontSize: '3rem',
                       fontWeight: 800,
-                      color: 'rgba(212, 175, 55, 0.08)',
+                      color: 'rgba(255, 222, 66, 0.15)',
                       position: 'absolute',
                       top: '1.2rem',
                       right: '2rem',
@@ -282,12 +297,13 @@ export default function ProcessTimeline({ playSound }) {
                       fontWeight: 700,
                       marginBottom: '1rem',
                       maxWidth: '80%',
+                      color: '#FFFFFF',
                     }}
                   >
                     {step.title}
                   </h3>
                   
-                  <p style={{ fontSize: '0.98rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
+                  <p style={{ fontSize: '0.98rem', color: '#CBD5E1', lineHeight: 1.6 }}>
                     {step.desc}
                   </p>
                 </motion.div>
@@ -298,6 +314,11 @@ export default function ProcessTimeline({ playSound }) {
       </div>
 
       <style>{`
+        .step-card-dark:hover {
+          box-shadow: 0 20px 60px rgba(27, 39, 81, 0.4), 0 0 30px rgba(255, 222, 66, 0.08) !important;
+          border-color: rgba(255, 222, 66, 0.35) !important;
+          transform: translateY(-4px);
+        }
         @media (max-width: 900px) {
           .svg-line-desktop {
             display: none !important;

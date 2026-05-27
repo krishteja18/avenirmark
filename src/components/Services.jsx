@@ -43,6 +43,24 @@ export default function Services({ playSound }) {
     },
   ];
 
+  const getCardStyle = () => {
+    return {
+      background: '#1b2751',
+      border: '1px solid rgba(255, 222, 66, 0.18)',
+      borderTop: '5px solid var(--accent)',
+      boxShadow: '0 15px 45px rgba(27, 39, 81, 0.25)',
+    };
+  };
+
+  const getIconStyle = () => {
+    return {
+      background: 'rgba(255, 222, 66, 0.1)',
+      border: '1px solid rgba(255, 222, 66, 0.3)',
+      color: '#FFDE42',
+      boxShadow: 'inset 0 0 10px rgba(255, 222, 66, 0.2)',
+    };
+  };
+
   const cardRefs = useRef([]);
 
   const handleMouseMove = (e, index) => {
@@ -188,7 +206,7 @@ export default function Services({ playSound }) {
                 justifyContent: 'space-between',
                 gap: '2rem',
                 transformStyle: 'preserve-3d',
-                boxShadow: 'var(--shadow-sm)',
+                ...getCardStyle(service.id),
               }}
             >
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
@@ -198,23 +216,30 @@ export default function Services({ playSound }) {
                     width: '60px',
                     height: '60px',
                     borderRadius: '16px',
-                    background: 'rgba(15,23,42,0.03)',
-                    border: '1px solid var(--border)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    color: 'var(--accent)',
-                    boxShadow: 'inset 0 0 10px rgba(212,175,55,0.05)',
+                    ...getIconStyle(service.id),
                   }}
                 >
                   <IconComponent size={28} />
                 </div>
                 
-                <h3 style={{ fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: '1.5rem', letterSpacing: '-0.02em' }}>
+                <h3 style={{ 
+                  fontFamily: 'var(--font-display)', 
+                  fontWeight: 800, 
+                  fontSize: '1.5rem', 
+                  letterSpacing: '-0.02em',
+                  color: '#FFFFFF'
+                }}>
                   {service.title}
                 </h3>
                 
-                <p style={{ fontSize: '1rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
+                <p style={{ 
+                  fontSize: '1rem', 
+                  color: '#E2E8F0', 
+                  lineHeight: 1.6 
+                }}>
                   {service.desc}
                 </p>
               </div>
@@ -227,13 +252,16 @@ export default function Services({ playSound }) {
                   gap: '0.5rem',
                   fontSize: '0.9rem',
                   fontWeight: 700,
-                  color: 'var(--text-primary)',
+                  color: '#FFDE42',
                   transition: 'color 0.3s ease',
                 }}
                 className="card-action"
               >
                 Learn more
-                <ArrowUpRight size={16} style={{ transition: 'transform 0.3s ease' }} className="card-arrow" />
+                <ArrowUpRight size={16} style={{ 
+                  transition: 'transform 0.3s ease',
+                  color: '#FFDE42'
+                }} className="card-arrow" />
               </div>
             </motion.div>
           );

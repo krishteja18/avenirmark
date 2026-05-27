@@ -108,6 +108,9 @@ export default function PartnerTabs({ playSound }) {
             gap: '2.5rem',
             position: 'relative',
             overflow: 'hidden',
+            background: '#1b2751',
+            border: '1px solid rgba(255, 222, 66, 0.15)',
+            boxShadow: '0 20px 50px rgba(27, 39, 81, 0.25)',
           }}
         >
           {/* Subtle grid light overlay */}
@@ -118,7 +121,7 @@ export default function PartnerTabs({ playSound }) {
               right: '-10%',
               width: '200px',
               height: '200px',
-              background: 'radial-gradient(circle, rgba(184, 137, 32, 0.08) 0%, transparent 70%)',
+              background: 'radial-gradient(circle, rgba(255, 222, 66, 0.15) 0%, transparent 70%)',
               pointerEvents: 'none',
             }}
           />
@@ -127,8 +130,8 @@ export default function PartnerTabs({ playSound }) {
           <div
             style={{
               display: 'flex',
-              background: 'rgba(15, 23, 42, 0.03)',
-              border: '1px solid var(--border)',
+              background: 'rgba(255, 255, 255, 0.05)',
+              border: '1px solid rgba(255, 255, 255, 0.1)',
               borderRadius: '50px',
               padding: '0.4rem',
               position: 'relative',
@@ -150,7 +153,7 @@ export default function PartnerTabs({ playSound }) {
                   fontFamily: 'var(--font-display)',
                   fontSize: '0.95rem',
                   fontWeight: 700,
-                  color: activeTab === tab ? '#050505' : 'var(--text-secondary)',
+                  color: activeTab === tab ? '#050505' : '#94A3B8',
                   textTransform: 'uppercase',
                   letterSpacing: '1px',
                   position: 'relative',
@@ -203,13 +206,13 @@ export default function PartnerTabs({ playSound }) {
                     fontWeight: 800,
                     textTransform: 'uppercase',
                     letterSpacing: '2px',
-                    color: 'var(--text-muted)',
+                    color: 'var(--accent)',
                   }}
                 >
                   {tabData[activeTab].highlight}
                 </div>
                 
-                <p style={{ fontSize: '1.15rem', color: 'var(--text-primary)', lineHeight: 1.75 }}>
+                <p style={{ fontSize: '1.15rem', color: '#FFFFFF', lineHeight: 1.75 }}>
                   {tabData[activeTab].content}
                 </p>
               </motion.div>

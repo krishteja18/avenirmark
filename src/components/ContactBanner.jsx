@@ -151,13 +151,13 @@ export default function ContactBanner({ playSound }) {
                 gap: '1.2rem',
                 padding: '1rem',
                 borderRadius: '12px',
-                background: 'var(--bg-secondary)',
-                border: '1px solid var(--border)',
-                transition: 'border-color 0.3s ease',
+                background: 'rgba(84, 120, 255, 0.03)',
+                border: '1px solid rgba(84, 120, 255, 0.12)',
+                transition: 'all 0.3s ease',
               }}
-              className="info-item"
+              className="info-item address-item"
             >
-              <div style={{ color: 'var(--accent)', background: 'rgba(212,175,55,0.06)', padding: '0.8rem', borderRadius: '50%' }}>
+              <div style={{ color: 'var(--accent-cyan)', background: 'rgba(84,120,255,0.08)', padding: '0.8rem', borderRadius: '50%' }}>
                 <MapPin size={22} />
               </div>
               <div>
@@ -179,13 +179,13 @@ export default function ContactBanner({ playSound }) {
                 gap: '1.2rem',
                 padding: '1rem',
                 borderRadius: '12px',
-                background: 'var(--bg-secondary)',
-                border: '1px solid var(--border)',
-                transition: 'border-color 0.3s ease',
+                background: 'rgba(83, 203, 243, 0.03)',
+                border: '1px solid rgba(83, 203, 243, 0.12)',
+                transition: 'all 0.3s ease',
               }}
-              className="info-item"
+              className="info-item email-item"
             >
-              <div style={{ color: 'var(--accent)', background: 'rgba(212,175,55,0.06)', padding: '0.8rem', borderRadius: '50%' }}>
+              <div style={{ color: 'var(--accent-sky)', background: 'rgba(83,203,243,0.08)', padding: '0.8rem', borderRadius: '50%' }}>
                 <Mail size={22} />
               </div>
               <div>
@@ -209,13 +209,13 @@ export default function ContactBanner({ playSound }) {
                 gap: '1.2rem',
                 padding: '1rem',
                 borderRadius: '12px',
-                background: 'var(--bg-secondary)',
-                border: '1px solid var(--border)',
-                transition: 'border-color 0.3s ease',
+                background: 'rgba(255, 222, 66, 0.02)',
+                border: '1px solid rgba(255, 222, 66, 0.12)',
+                transition: 'all 0.3s ease',
               }}
-              className="info-item"
+              className="info-item phone-item"
             >
-              <div style={{ color: 'var(--accent)', background: 'rgba(212,175,55,0.06)', padding: '0.8rem', borderRadius: '50%' }}>
+              <div style={{ color: 'var(--accent)', background: 'rgba(255,222,66,0.06)', padding: '0.8rem', borderRadius: '50%' }}>
                 <Phone size={22} />
               </div>
               <div>
@@ -238,8 +238,9 @@ export default function ContactBanner({ playSound }) {
           className="glass-panel"
           style={{
             padding: '3.5rem',
-            boxShadow: 'var(--shadow-lg)',
-            border: '1px solid rgba(255, 255, 255, 0.08)',
+            boxShadow: '0 20px 50px rgba(27, 39, 81, 0.3)',
+            background: '#1b2751',
+            border: '1px solid rgba(255, 222, 66, 0.15)',
           }}
         >
           {isSubmitted ? (
@@ -261,7 +262,7 @@ export default function ContactBanner({ playSound }) {
                   width: '80px',
                   height: '80px',
                   borderRadius: '50%',
-                  backgroundColor: 'rgba(212, 175, 55, 0.1)',
+                  backgroundColor: 'rgba(255, 222, 66, 0.1)',
                   color: 'var(--accent)',
                   display: 'flex',
                   alignItems: 'center',
@@ -271,20 +272,20 @@ export default function ContactBanner({ playSound }) {
               >
                 <Send size={32} />
               </div>
-              <h3 style={{ fontSize: '1.8rem', fontWeight: 800 }}>Project Submitted!</h3>
-              <p style={{ maxWidth: '350px', margin: '0 auto', color: 'var(--text-secondary)' }}>
+              <h3 style={{ fontSize: '1.8rem', fontWeight: 800, color: '#FFFFFF' }}>Project Submitted!</h3>
+              <p style={{ maxWidth: '350px', margin: '0 auto', color: '#CBD5E1' }}>
                 Thank you for reaching out. An Avenirmark digital strategist will contact you within the next 24 business hours. Let's create something extraordinary.
               </p>
             </motion.div>
           ) : (
             <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-              <h3 style={{ fontSize: '1.6rem', fontWeight: 800, marginBottom: '0.5rem', fontFamily: 'var(--font-display)' }}>
+              <h3 style={{ fontSize: '1.6rem', fontWeight: 800, marginBottom: '0.5rem', fontFamily: 'var(--font-display)', color: '#FFFFFF' }}>
                 Let's Build Something Exceptional
               </h3>
 
               {/* Name field */}
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem', position: 'relative' }}>
-                <label style={{ fontSize: '0.8rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px', color: 'var(--text-secondary)' }}>
+                <label style={{ fontSize: '0.8rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px', color: '#CBD5E1' }}>
                   Full Name
                 </label>
                 <input
@@ -296,11 +297,11 @@ export default function ContactBanner({ playSound }) {
                   onMouseEnter={handleHover}
                   placeholder="Enter your name"
                   style={{
-                    background: 'var(--bg-primary)',
-                    border: '1px solid var(--border)',
+                    background: 'rgba(255, 255, 255, 0.03)',
+                    border: '1px solid rgba(255, 255, 255, 0.12)',
                     borderRadius: '10px',
                     padding: '1rem 1.2rem',
-                    color: 'var(--text-primary)',
+                    color: '#FFFFFF',
                     fontFamily: 'var(--font-body)',
                     outline: 'none',
                     transition: 'all 0.3s ease',
@@ -312,7 +313,7 @@ export default function ContactBanner({ playSound }) {
 
               {/* Email field */}
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
-                <label style={{ fontSize: '0.8rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px', color: 'var(--text-secondary)' }}>
+                <label style={{ fontSize: '0.8rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px', color: '#CBD5E1' }}>
                   Email Address
                 </label>
                 <input
@@ -324,11 +325,11 @@ export default function ContactBanner({ playSound }) {
                   onMouseEnter={handleHover}
                   placeholder="Enter your email"
                   style={{
-                    background: 'var(--bg-primary)',
-                    border: '1px solid var(--border)',
+                    background: 'rgba(255, 255, 255, 0.03)',
+                    border: '1px solid rgba(255, 255, 255, 0.12)',
                     borderRadius: '10px',
                     padding: '1rem 1.2rem',
-                    color: 'var(--text-primary)',
+                    color: '#FFFFFF',
                     fontFamily: 'var(--font-body)',
                     outline: 'none',
                     transition: 'all 0.3s ease',
@@ -340,7 +341,7 @@ export default function ContactBanner({ playSound }) {
 
               {/* Service selection dropdown */}
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
-                <label style={{ fontSize: '0.8rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px', color: 'var(--text-secondary)' }}>
+                <label style={{ fontSize: '0.8rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px', color: '#CBD5E1' }}>
                   Select Service
                 </label>
                 <select
@@ -349,11 +350,11 @@ export default function ContactBanner({ playSound }) {
                   onChange={handleInputChange}
                   onMouseEnter={handleHover}
                   style={{
-                    background: 'var(--bg-primary)',
-                    border: '1px solid var(--border)',
+                    background: 'rgba(255, 255, 255, 0.03)',
+                    border: '1px solid rgba(255, 255, 255, 0.12)',
                     borderRadius: '10px',
                     padding: '1rem 1.2rem',
-                    color: 'var(--text-primary)',
+                    color: '#FFFFFF',
                     fontFamily: 'var(--font-body)',
                     outline: 'none',
                     transition: 'all 0.3s ease',
@@ -361,17 +362,17 @@ export default function ContactBanner({ playSound }) {
                   }}
                   className="contact-input"
                 >
-                  <option value="seo">Search Engine Optimization</option>
-                  <option value="content">Content Marketing</option>
-                  <option value="web">Website Design & Dev</option>
-                  <option value="brand">Brand Strategy</option>
-                  <option value="social">Social Media Marketing</option>
+                  <option value="seo" style={{ background: '#1b2751', color: '#FFFFFF' }}>Search Engine Optimization</option>
+                  <option value="content" style={{ background: '#1b2751', color: '#FFFFFF' }}>Content Marketing</option>
+                  <option value="web" style={{ background: '#1b2751', color: '#FFFFFF' }}>Website Design & Dev</option>
+                  <option value="brand" style={{ background: '#1b2751', color: '#FFFFFF' }}>Brand Strategy</option>
+                  <option value="social" style={{ background: '#1b2751', color: '#FFFFFF' }}>Social Media Marketing</option>
                 </select>
               </div>
 
               {/* Message field */}
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
-                <label style={{ fontSize: '0.8rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px', color: 'var(--text-secondary)' }}>
+                <label style={{ fontSize: '0.8rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px', color: '#CBD5E1' }}>
                   Message / Brief
                 </label>
                 <textarea
@@ -383,11 +384,11 @@ export default function ContactBanner({ playSound }) {
                   onMouseEnter={handleHover}
                   placeholder="Tell us about your brand and goals..."
                   style={{
-                    background: 'var(--bg-primary)',
-                    border: '1px solid var(--border)',
+                    background: 'rgba(255, 255, 255, 0.03)',
+                    border: '1px solid rgba(255, 255, 255, 0.12)',
                     borderRadius: '10px',
                     padding: '1.2rem',
-                    color: 'var(--text-primary)',
+                    color: '#FFFFFF',
                     fontFamily: 'var(--font-body)',
                     outline: 'none',
                     resize: 'none',
@@ -427,10 +428,21 @@ export default function ContactBanner({ playSound }) {
       <style>{`
         .contact-input:focus {
           border-color: var(--accent) !important;
-          background: var(--bg-secondary) !important;
+          background: rgba(255, 255, 255, 0.08) !important;
           box-shadow: 0 0 15px rgba(255, 222, 66, 0.15);
         }
-        .info-item:hover {
+        .contact-input::placeholder {
+          color: rgba(255, 255, 255, 0.4) !important;
+        }
+        .address-item:hover {
+          border-color: var(--accent-cyan) !important;
+          background: rgba(84, 120, 255, 0.08) !important;
+        }
+        .email-item:hover {
+          border-color: var(--accent-sky) !important;
+          background: rgba(83, 203, 243, 0.08) !important;
+        }
+        .phone-item:hover {
           border-color: var(--accent) !important;
           background: rgba(255, 222, 66, 0.06) !important;
         }

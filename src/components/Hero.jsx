@@ -243,12 +243,13 @@ export default function Hero() {
                 display: 'flex',
                 alignItems: 'center',
                 gap: '1rem',
-                background: 'var(--bg-secondary)',
-                border: '1px solid var(--border)',
+                background: 'linear-gradient(135deg, rgba(255, 222, 66, 0.05) 0%, rgba(255, 255, 255, 0.9) 100%)',
+                border: '1px solid rgba(255, 222, 66, 0.2)',
                 borderRadius: '16px',
                 padding: '0.8rem 1.5rem',
-                backdropFilter: 'blur(5px)',
-                transition: 'all 0.3s ease',
+                backdropFilter: 'blur(10px)',
+                boxShadow: '0 8px 32px rgba(255, 222, 66, 0.06)',
+                transition: 'all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1)',
               }}
               className="experience-badge"
             >
@@ -368,6 +369,11 @@ export default function Hero() {
       </div>
 
       <style>{`
+        .experience-badge:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 12px 40px rgba(255, 222, 66, 0.12) !important;
+          border-color: var(--accent) !important;
+        }
         @media (max-width: 1024px) {
           .hero-grid {
             grid-template-columns: 1fr !important;
