@@ -46,8 +46,7 @@ export default function Services({ playSound }) {
   const getCardStyle = () => {
     return {
       background: '#1b2751',
-      border: '1px solid rgba(255, 222, 66, 0.18)',
-      borderTop: '5px solid var(--accent)',
+      border: '1px solid rgba(255, 255, 255, 0.06)',
       boxShadow: '0 15px 45px rgba(27, 39, 81, 0.25)',
     };
   };
