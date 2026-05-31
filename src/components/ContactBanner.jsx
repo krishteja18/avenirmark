@@ -16,6 +16,35 @@ export default function ContactBanner({ playSound }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (playSound) playSound('click');
+
+    // Prepare WhatsApp Message Redirection
+    const phoneNumber = "919966093777";
+    const serviceLabels = {
+      seo: "Search Engine Optimization",
+      content: "Content Marketing",
+      web: "Website Design & Dev",
+      app: "App Development",
+      brand: "Brand Strategy",
+      social: "360° Social Media Marketing",
+      aiVoice: "AI Voice Agents",
+      logoDesign: "Logo Design & Identity",
+      productPhotography: "Product Photography",
+      digitalMarketing: "Digital Marketing & Growth"
+    };
+
+    const serviceName = serviceLabels[form.service] || form.service;
+    const text = `*New Lead from AvenirMark website*\n\n` +
+                 `*Name:* ${form.name}\n` +
+                 `*Email:* ${form.email}\n` +
+                 `*Selected Service:* ${serviceName}\n` +
+                 `*Project Scope:* ${form.message}`;
+
+    const encodedText = encodeURIComponent(text);
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedText}`;
+
+    // Redirect to WhatsApp
+    window.open(whatsappUrl, '_blank');
+
     setIsSubmitted(true);
     setTimeout(() => {
       setIsSubmitted(false);
@@ -112,7 +141,7 @@ export default function ContactBanner({ playSound }) {
                 marginBottom: '0.8rem',
               }}
             >
-              Get In Touch
+              Let’s Make Something Great
             </motion.span>
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
@@ -121,7 +150,7 @@ export default function ContactBanner({ playSound }) {
               transition={{ duration: 0.7, delay: 0.1 }}
               style={{ fontSize: 'clamp(2.2rem, 3.5vw, 3.5rem)', lineHeight: 1.1 }}
             >
-              We are crafting exceptional experiences for every customer.
+              Your next breakthrough starts with one conversation.
             </motion.h2>
           </div>
 
@@ -132,7 +161,7 @@ export default function ContactBanner({ playSound }) {
             transition={{ duration: 0.7, delay: 0.2 }}
             style={{ fontSize: '1.15rem', color: 'var(--text-secondary)' }}
           >
-            We create experiences your customers will remember. Let’s build yours. Feel free to reach out via phone, email, or by filling out our project brief form.
+            Whether you’re launching something new or scaling something great, we want to hear about it. Tell us your ambition — we’ll tell you exactly how to win.
           </motion.p>
 
           {/* Staggered Contact details list */}
@@ -162,7 +191,10 @@ export default function ContactBanner({ playSound }) {
               </div>
               <div>
                 <div style={{ fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.5px', color: 'var(--text-secondary)' }}>Our Head Office</div>
-                <div style={{ fontWeight: 600, color: 'var(--text-primary)', marginTop: '0.1rem' }}>HIG IX Phase H-No: 76, Hyderabad, India</div>
+                <div style={{ fontWeight: 600, color: 'var(--text-primary)', marginTop: '0.1rem', fontSize: '0.95rem', lineHeight: 1.4 }}>
+                  AvenirMark India Pvt. Ltd. <br />
+                  #A2, President Banjara Apartment, Road No. 2, Sagar Society, Banjara Hills, Hyderabad, Telangana 500034.
+                </div>
               </div>
             </motion.div>
 
@@ -190,9 +222,14 @@ export default function ContactBanner({ playSound }) {
               </div>
               <div>
                 <div style={{ fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.5px', color: 'var(--text-secondary)' }}>Email Us</div>
-                <a href="mailto:contact@avenirmark.com" style={{ fontWeight: 600, color: 'var(--text-primary)', textDecoration: 'none', display: 'block', marginTop: '0.1rem', cursor: 'none' }}>
-                  contact@avenirmark.com
-                </a>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.2rem' }}>
+                  <a href="mailto:info@avenirmark.com" style={{ fontWeight: 600, color: 'var(--text-primary)', textDecoration: 'none', display: 'block', marginTop: '0.1rem', cursor: 'none' }}>
+                    info@avenirmark.com
+                  </a>
+                  <a href="mailto:avenirmak.official@gmail.com" style={{ fontWeight: 600, color: 'var(--text-primary)', textDecoration: 'none', display: 'block', cursor: 'none' }}>
+                    avenirmak.official@gmail.com
+                  </a>
+                </div>
               </div>
             </motion.div>
 
@@ -220,8 +257,8 @@ export default function ContactBanner({ playSound }) {
               </div>
               <div>
                 <div style={{ fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.5px', color: 'var(--text-secondary)' }}>Call Our Experts</div>
-                <a href="tel:+919666525444" style={{ fontWeight: 600, color: 'var(--text-primary)', textDecoration: 'none', display: 'block', marginTop: '0.1rem', cursor: 'none' }}>
-                  +91 96665 25444
+                <a href="tel:+919966093777" style={{ fontWeight: 600, color: 'var(--text-primary)', textDecoration: 'none', display: 'block', marginTop: '0.1rem', cursor: 'none' }}>
+                  +91 99660 93777
                 </a>
               </div>
             </motion.div>
@@ -272,15 +309,15 @@ export default function ContactBanner({ playSound }) {
               >
                 <Send size={32} />
               </div>
-              <h3 style={{ fontSize: '1.8rem', fontWeight: 800, color: '#FFFFFF' }}>Project Submitted!</h3>
+              <h3 style={{ fontSize: '1.8rem', fontWeight: 800, color: '#FFFFFF' }}>Brief Received. We’re On It.</h3>
               <p style={{ maxWidth: '350px', margin: '0 auto', color: '#CBD5E1' }}>
-                Thank you for reaching out. An Avenirmark digital strategist will contact you within the next 24 business hours. Let's create something extraordinary.
+                An Avenirmark strategist will be in touch within 24 hours. Get ready — your brand’s next chapter is about to begin.
               </p>
             </motion.div>
           ) : (
             <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
               <h3 style={{ fontSize: '1.6rem', fontWeight: 800, marginBottom: '0.5rem', fontFamily: 'var(--font-display)', color: '#FFFFFF' }}>
-                Let's Build Something Exceptional
+                Brief Us. We’re Ready.
               </h3>
 
               {/* Name field */}
@@ -295,7 +332,7 @@ export default function ContactBanner({ playSound }) {
                   value={form.name}
                   onChange={handleInputChange}
                   onMouseEnter={handleHover}
-                  placeholder="Enter your name"
+                  placeholder="Your full name"
                   style={{
                     background: 'rgba(255, 255, 255, 0.03)',
                     border: '1px solid rgba(255, 255, 255, 0.12)',
@@ -323,7 +360,7 @@ export default function ContactBanner({ playSound }) {
                   value={form.email}
                   onChange={handleInputChange}
                   onMouseEnter={handleHover}
-                  placeholder="Enter your email"
+                  placeholder="Your work email"
                   style={{
                     background: 'rgba(255, 255, 255, 0.03)',
                     border: '1px solid rgba(255, 255, 255, 0.12)',
@@ -365,15 +402,20 @@ export default function ContactBanner({ playSound }) {
                   <option value="seo" style={{ background: '#1b2751', color: '#FFFFFF' }}>Search Engine Optimization</option>
                   <option value="content" style={{ background: '#1b2751', color: '#FFFFFF' }}>Content Marketing</option>
                   <option value="web" style={{ background: '#1b2751', color: '#FFFFFF' }}>Website Design & Dev</option>
+                  <option value="app" style={{ background: '#1b2751', color: '#FFFFFF' }}>App Development</option>
                   <option value="brand" style={{ background: '#1b2751', color: '#FFFFFF' }}>Brand Strategy</option>
-                  <option value="social" style={{ background: '#1b2751', color: '#FFFFFF' }}>Social Media Marketing</option>
+                  <option value="social" style={{ background: '#1b2751', color: '#FFFFFF' }}>360° Social Media Marketing</option>
+                  <option value="aiVoice" style={{ background: '#1b2751', color: '#FFFFFF' }}>AI Voice Agents</option>
+                  <option value="logoDesign" style={{ background: '#1b2751', color: '#FFFFFF' }}>Logo Design & Identity</option>
+                  <option value="productPhotography" style={{ background: '#1b2751', color: '#FFFFFF' }}>Product Photography</option>
+                  <option value="digitalMarketing" style={{ background: '#1b2751', color: '#FFFFFF' }}>Digital Marketing & Growth</option>
                 </select>
               </div>
 
               {/* Message field */}
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
                 <label style={{ fontSize: '0.8rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px', color: '#CBD5E1' }}>
-                  Message / Brief
+                  Project Scope
                 </label>
                 <textarea
                   required
@@ -382,7 +424,7 @@ export default function ContactBanner({ playSound }) {
                   value={form.message}
                   onChange={handleInputChange}
                   onMouseEnter={handleHover}
-                  placeholder="Tell us about your brand and goals..."
+                  placeholder="Describe your brand, goals, and what success looks like to you..."
                   style={{
                     background: 'rgba(255, 255, 255, 0.03)',
                     border: '1px solid rgba(255, 255, 255, 0.12)',
@@ -416,7 +458,7 @@ export default function ContactBanner({ playSound }) {
                     justifyContent: 'center',
                   }}
                 >
-                  Launch Project <ArrowUpRight size={18} />
+                  Start the Conversation <ArrowUpRight size={18} />
                 </button>
               </div>
 

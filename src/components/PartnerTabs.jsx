@@ -7,13 +7,13 @@ export default function PartnerTabs({ playSound }) {
   const tabData = {
     mission: {
       title: 'Our Mission',
-      content: 'To empower your brand with smart, meaningful digital strategies that don’t just get clicks — they build connections. We’re here to make your growth journey easier, more impactful, and tailored to what matters most to you. Your success is our purpose.',
-      highlight: 'Connecting brands to humans.',
+      content: 'To build digital brands that leave a mark — on markets, on culture, and on the people they serve. We exist to make strategy intelligent, creativity purposeful, and growth sustainable for ambitious brands who refuse to settle.',
+      highlight: 'Growth that actually means something.',
     },
     vision: {
       title: 'Our Vision',
-      content: 'We see a world where businesses of every size can grow with clarity, creativity, and confidence — without the guesswork. Our vision is to be the team you turn to when you want more than just results — when you want a real partner who listens, understands, and grows with you.',
-      highlight: 'Clarity, creativity, confidence.',
+      content: 'A landscape where every ambitious brand — regardless of size — has access to world-class strategy, execution, and creativity. To be the agency that iconic brands credit when they talk about the turning point.',
+      highlight: 'A world where great brands win.',
     },
   };
 
@@ -53,7 +53,7 @@ export default function PartnerTabs({ playSound }) {
               display: 'inline-block',
             }}
           >
-            All-in-One Growth Solutions
+            The Avenirmark Advantage
           </motion.span>
           
           <motion.h2
@@ -63,7 +63,7 @@ export default function PartnerTabs({ playSound }) {
             transition={{ duration: 0.7, delay: 0.1 }}
             style={{ lineHeight: 1.1 }}
           >
-            Turning Visitors into Loyal Customers
+            Built for Brands That Refuse to be Average
           </motion.h2>
 
           <motion.div
@@ -80,7 +80,7 @@ export default function PartnerTabs({ playSound }) {
               color: 'var(--text-primary)',
             }}
           >
-            Think of us as <span style={{ color: 'var(--accent)' }}>your growth partner</span> — not just an agency.
+            We’re not your vendor. We’re <span style={{ color: 'var(--accent)' }}>your competitive weapon.</span>
           </motion.div>
 
           <motion.p
@@ -90,7 +90,7 @@ export default function PartnerTabs({ playSound }) {
             transition={{ duration: 0.7, delay: 0.3 }}
             style={{ fontSize: '1.1rem', color: 'var(--text-secondary)' }}
           >
-            We’re here to walk with you through every step of your customer’s journey. From the first impression to lasting loyalty, we focus on what really works — data, creativity, and strategy — to help your brand truly connect and grow in a way that feels right and gets real results.
+            The best brands in the world don’t grow by accident. They grow through relentless strategy, ruthless creativity, and partnerships with people who care as much as they do. That’s exactly what we bring.
           </motion.p>
         </div>
 

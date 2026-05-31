@@ -98,9 +98,14 @@ export default function MarqueeStrip() {
   const marqueeItems = [
     "Search Engine Optimization",
     "Content Marketing",
-    "Website Design",
+    "Website Design & Dev",
+    "App Development",
     "Brand Strategy",
-    "Social Media Marketing"
+    "360° Social Media Marketing",
+    "AI Voice Agents",
+    "Logo Design & Identity",
+    "Product Photography",
+    "Digital Marketing & Growth"
   ];
 
   return (
@@ -111,7 +116,7 @@ export default function MarqueeStrip() {
         color: '#050505',
         overflow: 'hidden',
         position: 'relative',
-        height: '75px',
+        height: '56px',
         display: 'flex',
         alignItems: 'center',
         whiteSpace: 'nowrap',

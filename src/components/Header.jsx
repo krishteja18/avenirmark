@@ -22,6 +22,11 @@ export default function Header() {
     e.preventDefault();
     setIsMenuOpen(false);
 
+    if (id === 'about us') {
+      window.location.hash = '#about-us';
+      return;
+    }
+
     const element = document.getElementById(id);
     if (element) {
       // Offset for floating header
@@ -33,6 +38,9 @@ export default function Header() {
         top: offsetPosition,
         behavior: 'smooth'
       });
+    } else {
+      // Return to home page and scroll to section
+      window.location.hash = '#' + id;
     }
   };
 
@@ -61,7 +69,11 @@ export default function Header() {
           href="/"
           onClick={(e) => {
             e.preventDefault();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            if (window.location.hash === '#about-us') {
+              window.location.hash = '';
+            } else {
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
           }}
           style={{
             fontFamily: 'var(--font-display)',
@@ -87,7 +99,7 @@ export default function Header() {
           }}
           className="desktop-nav"
         >
-          {['services', 'about', 'process', 'portfolio'].map((section) => (
+          {['services', 'about us', 'process', 'portfolio'].map((section) => (
             <a
               key={section}
               href={`#${section}`}
@@ -178,7 +190,7 @@ export default function Header() {
             alignItems: 'center',
           }}
         >
-          {['services', 'about', 'process', 'portfolio'].map((section, index) => (
+          {['services', 'about us', 'process', 'portfolio'].map((section, index) => (
             <a
               key={section}
               href={`#${section}`}

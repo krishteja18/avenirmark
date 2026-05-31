@@ -100,7 +100,7 @@ export default function Hero() {
   };
 
   // Splitting headline text into words for stagger entry
-  const words = "Grow Your Brand with Smart Digital Marketing".split(" ");
+  const words = "We Don't Just Market Brands. We Build Business Empires.".split(" ");
 
   return (
     <section
@@ -180,7 +180,7 @@ export default function Hero() {
                   }}
                   style={{ display: 'inline-block' }}
                 >
-                  {word === 'Digital' || word === 'Marketing' ? (
+                  {word === 'Business' || word === 'Empires.' ? (
                     <span style={{ color: 'var(--accent)' }}>{word}</span>
                   ) : (
                     word
@@ -202,7 +202,7 @@ export default function Hero() {
               lineHeight: 1.6,
             }}
           >
-            From clicks to conversions — we craft campaigns that actually work. Connect directly with your potential audience and scale.
+Precision-engineered campaigns. Measurable outcomes. Brands that don't just compete — they lead.
           </motion.p>
 
           {/* Call to Actions & Experience Badge */}
@@ -233,7 +233,7 @@ export default function Hero() {
                   boxShadow: 'var(--shadow-glow)',
                 }}
               >
-                Talk to Us Now <ArrowUpRight size={20} />
+                Book a Strategy Call <ArrowUpRight size={20} />
               </button>
             </div>
 
@@ -269,7 +269,7 @@ export default function Hero() {
               </div>
               <div>
                 <div style={{ fontWeight: 800, fontSize: '1.25rem', fontFamily: 'var(--font-display)' }}>10+ Years</div>
-                <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>of Proven Results</div>
+                <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>of Market Dominance</div>
               </div>
             </div>
           </motion.div>
@@ -359,10 +359,10 @@ export default function Hero() {
             className="floating-stats-card"
           >
             <span style={{ fontSize: '0.8rem', color: '#FFFFFF', textTransform: 'uppercase', letterSpacing: '1px', opacity: 0.85 }}>
-              Organic Traffic Growth
+              Avg. Organic Traffic Growth
             </span>
             <span style={{ fontSize: '2rem', fontWeight: 800, fontFamily: 'var(--font-display)', color: '#FFFFFF' }}>
-              +328%
+              +412%
             </span>
           </motion.div>
         </motion.div>

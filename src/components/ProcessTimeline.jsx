@@ -14,33 +14,33 @@ export default function ProcessTimeline({ playSound }) {
   const steps = [
     {
       num: '01',
-      title: 'Initial Consultation & Discovery',
-      desc: 'We start by sitting down with you to thoroughly understand your business goals, target demographics, brand history, and potential opportunities.',
+      title: 'Discovery & Intelligence Gathering',
+      desc: 'We go deep before we go wide. Immersive stakeholder sessions, competitive intelligence, and market mapping form the bedrock of everything we build together.',
     },
     {
       num: '02',
-      title: 'Strategy Development',
-      desc: 'Our design and marketing experts assemble a highly customized multi-channel campaign blueprint backed by actual market data and SEO research.',
+      title: 'Strategic Architecture',
+      desc: 'Gut feelings don’t scale. We engineer multi-channel growth blueprints rooted in proprietary data, behavioral insights, and category trend analysis.',
     },
     {
       num: '03',
-      title: 'Implementation & Execution',
-      desc: 'We craft and launch high-performance web assets, launch organic/paid campaigns, tune technical architectures, and configure key trackers.',
+      title: 'Precision Execution',
+      desc: 'Strategy without execution is fiction. Our teams deploy high-performance assets with precision — across every channel that matters to your growth.',
     },
     {
       num: '04',
-      title: 'Monitoring & Optimization',
-      desc: 'We consistently run audits, check conversions, A/B test ad campaigns, improve web speeds, and ensure budgets are targeted efficiently.',
+      title: 'Performance Optimization',
+      desc: 'We don’t set and forget. Continuous A/B testing, algorithmic audits, and conversion analysis ensure every dollar works harder, every single day.',
     },
     {
       num: '05',
-      title: 'Reporting & Feedback',
-      desc: 'You receive transparent dashboards. We break down the real metrics — conversions, click-through rates, and exact returns on investment.',
+      title: 'Intelligence & Reporting',
+      desc: 'Full transparency, zero vanity metrics. Your custom performance dashboard surfaces the data that actually drives decisions — ROI, CAC, LTV, and beyond.',
     },
     {
       num: '06',
-      title: 'Continuous Support & Innovation',
-      desc: 'Digital landscapes shift constantly. We provide ongoing support, keeping your brand ahead of competitors with the latest marketing techs.',
+      title: 'Ongoing Innovation & Partnership',
+      desc: 'Markets evolve. So do we. As your dedicated growth partner, we continuously introduce emerging tactics and technologies to keep you ahead of the curve.',
     },
   ];
 
@@ -123,7 +123,7 @@ export default function ProcessTimeline({ playSound }) {
             marginBottom: '0.8rem',
           }}
         >
-          Our Process
+          How We Operate
         </motion.span>
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -132,7 +132,7 @@ export default function ProcessTimeline({ playSound }) {
           transition={{ duration: 0.7, delay: 0.1 }}
           style={{ marginBottom: '1.2rem' }}
         >
-          How We Work in Simple Steps
+          A System Built for Outcomes, Not Activity
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -141,7 +141,7 @@ export default function ProcessTimeline({ playSound }) {
           transition={{ duration: 0.7, delay: 0.2 }}
           style={{ maxWidth: '600px', margin: '0 auto' }}
         >
-          A methodical, transparent, and iterative approach tailored specifically to deliver optimal results.
+          Rigorous, transparent, and obsessively iterative — our process turns ambition into measurable results.
         </motion.p>
       </div>
 
@@ -205,7 +205,10 @@ export default function ProcessTimeline({ playSound }) {
         </div>
 
         {/* Steps List */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '8rem', position: 'relative', zIndex: 2 }}>
+        <div 
+          className="steps-container"
+          style={{ display: 'flex', flexDirection: 'column', position: 'relative', zIndex: 2 }}
+        >
           {steps.map((step, idx) => {
             const isEven = idx % 2 === 0;
             return (
@@ -302,12 +305,18 @@ export default function ProcessTimeline({ playSound }) {
       </div>
 
       <style>{`
+        .steps-container {
+          gap: 3.5rem;
+        }
         .step-card-dark:hover {
           box-shadow: 0 20px 60px rgba(10, 22, 40, 0.55), 0 0 30px rgba(83, 203, 243, 0.06) !important;
           border-color: rgba(83, 203, 243, 0.2) !important;
           transform: translateY(-4px);
         }
         @media (max-width: 900px) {
+          .steps-container {
+            gap: 2rem;
+          }
           .svg-line-desktop {
             display: none !important;
           }

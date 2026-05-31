@@ -146,7 +146,7 @@ p {
 
 /* Utility Layouts */
 .section {
-  padding: 8rem 2rem;
+  padding: 4rem 2rem;
   max-width: 1400px;
   margin: 0 auto;
   position: relative;
@@ -154,7 +154,7 @@ p {
 
 @media (max-width: 768px) {
   .section {
-    padding: 5rem 1.5rem;
+    padding: 2.5rem 1.5rem;
   }
 }
 
@@ -265,7 +265,6 @@ p {
 .spotlight-card {
   position: relative;
   background: var(--bg-secondary);
-  border: 1px solid var(--border);
   border-radius: 20px;
   padding: 2.5rem;
   overflow: hidden;

@@ -30,11 +30,19 @@ export default function Footer({ playSound }) {
   const handleLinkClick = (e, id) => {
     e.preventDefault();
     if (playSound) playSound('click');
+
+    if (id === 'about us') {
+      window.location.hash = '#about-us';
+      return;
+    }
+
     const el = document.getElementById(id);
     if (el) {
       const offset = 80;
       const pos = el.getBoundingClientRect().top + window.pageYOffset - offset;
       window.scrollTo({ top: pos, behavior: 'smooth' });
+    } else {
+      window.location.hash = '#' + id;
     }
   };
 
@@ -102,7 +110,11 @@ export default function Footer({ playSound }) {
             href="/"
             onClick={(e) => {
               e.preventDefault();
-              scrollToTop();
+              if (window.location.hash === '#about-us') {
+                window.location.hash = '';
+              } else {
+                scrollToTop();
+              }
             }}
             onMouseEnter={handleHover}
             style={{
@@ -118,7 +130,7 @@ export default function Footer({ playSound }) {
           </a>
           
           <p style={{ fontSize: '0.95rem', lineHeight: 1.6, color: 'var(--text-secondary)', maxWidth: '350px' }}>
-            Our agency drives exponential results, fueling lasting success in the dynamic landscape of online marketing. From clicks to absolute conversions.
+            We engineer growth for ambitious brands — transforming digital presence into market dominance, one breakthrough campaign at a time.
           </p>
 
           {/* Newsletter Input */}
@@ -184,7 +196,7 @@ export default function Footer({ playSound }) {
             Quick Links
           </h4>
           <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
-            {['services', 'about', 'process', 'portfolio', 'contact'].map((link) => (
+            {['services', 'about us', 'process', 'portfolio', 'contact'].map((link) => (
               <li key={link}>
                 <a
                   href={`#${link}`}
@@ -217,8 +229,11 @@ export default function Footer({ playSound }) {
               'Search Engine Optimization',
               'Content Marketing',
               'Website Design & Dev',
-              'Brand Strategy Development',
-              'Social Media Campaigns',
+              'App Development',
+              'Brand Strategy',
+              '360° Social Media Marketing',
+              'AI Voice Agents',
+              'Logo Design & Identity',
             ].map((srv) => (
               <li key={srv}>
                 <a

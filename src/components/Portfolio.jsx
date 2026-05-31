@@ -13,6 +13,41 @@ export default function Portfolio({ playSound }) {
   ];
 
   const projects = [
+    {
+      id: 101,
+      category: 'luxury',
+      title: 'Stand Out Creative Campaign',
+      img: '/portfolio_1.png',
+      aspect: '1/1',
+    },
+    {
+      id: 102,
+      category: 'web',
+      title: 'Creative Website Portal',
+      img: '/portfolio_2.png',
+      aspect: '1/1',
+    },
+    {
+      id: 103,
+      category: 'social',
+      title: 'Ekam Sustainable Ad Campaign',
+      img: '/portfolio_3.jpg',
+      aspect: '16/9',
+    },
+    {
+      id: 104,
+      category: 'brochures',
+      title: 'Sustainable Living Brochure Set',
+      img: '/portfolio_4.jpg',
+      aspect: '4/3',
+    },
+    {
+      id: 105,
+      category: 'luxury',
+      title: 'GAGA Luxury Branding & Signage',
+      img: '/portfolio_5.png',
+      aspect: '16/9',
+    },
     // Luxury Brand
     {
       id: 1,
