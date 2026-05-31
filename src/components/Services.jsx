@@ -83,10 +83,7 @@ export default function Services({ playSound }) {
         background: 'rgba(255, 255, 255, 0.88)',
         backdropFilter: 'blur(20px)',
         WebkitBackdropFilter: 'blur(20px)',
-        borderTop: '3px solid #FFDE42',
-        borderRight: '1px solid rgba(230, 230, 240, 0.9)',
-        borderBottom: '1px solid rgba(230, 230, 240, 0.9)',
-        borderLeft: '1px solid rgba(230, 230, 240, 0.9)',
+        border: '1px solid rgba(230, 230, 240, 0.9)',
         boxShadow: '0 8px 40px rgba(27, 39, 81, 0.10), 0 2px 8px rgba(27,39,81,0.06)',
       },
       icon: { background: 'rgba(255, 222, 66, 0.14)', border: '1px solid rgba(255, 222, 66, 0.35)', color: '#9a7c00' },
@@ -97,10 +94,7 @@ export default function Services({ playSound }) {
         background: 'rgba(255, 255, 255, 0.88)',
         backdropFilter: 'blur(20px)',
         WebkitBackdropFilter: 'blur(20px)',
-        borderTop: '3px solid #C084FC',
-        borderRight: '1px solid rgba(230, 230, 240, 0.9)',
-        borderBottom: '1px solid rgba(230, 230, 240, 0.9)',
-        borderLeft: '1px solid rgba(230, 230, 240, 0.9)',
+        border: '1px solid rgba(230, 230, 240, 0.9)',
         boxShadow: '0 8px 40px rgba(27, 39, 81, 0.10), 0 2px 8px rgba(27,39,81,0.06)',
       },
       icon: { background: 'rgba(192, 132, 252, 0.12)', border: '1px solid rgba(192, 132, 252, 0.3)', color: '#7c22c9' },
@@ -111,10 +105,7 @@ export default function Services({ playSound }) {
         background: 'rgba(255, 255, 255, 0.88)',
         backdropFilter: 'blur(20px)',
         WebkitBackdropFilter: 'blur(20px)',
-        borderTop: '3px solid #22D3EE',
-        borderRight: '1px solid rgba(230, 230, 240, 0.9)',
-        borderBottom: '1px solid rgba(230, 230, 240, 0.9)',
-        borderLeft: '1px solid rgba(230, 230, 240, 0.9)',
+        border: '1px solid rgba(230, 230, 240, 0.9)',
         boxShadow: '0 8px 40px rgba(27, 39, 81, 0.10), 0 2px 8px rgba(27,39,81,0.06)',
       },
       icon: { background: 'rgba(34, 211, 238, 0.10)', border: '1px solid rgba(34, 211, 238, 0.3)', color: '#0e7490' },
@@ -125,10 +116,7 @@ export default function Services({ playSound }) {
         background: 'rgba(255, 255, 255, 0.88)',
         backdropFilter: 'blur(20px)',
         WebkitBackdropFilter: 'blur(20px)',
-        borderTop: '3px solid #10B981',
-        borderRight: '1px solid rgba(230, 230, 240, 0.9)',
-        borderBottom: '1px solid rgba(230, 230, 240, 0.9)',
-        borderLeft: '1px solid rgba(230, 230, 240, 0.9)',
+        border: '1px solid rgba(230, 230, 240, 0.9)',
         boxShadow: '0 8px 40px rgba(27, 39, 81, 0.10), 0 2px 8px rgba(27,39,81,0.06)',
       },
       icon: { background: 'rgba(16, 185, 129, 0.10)', border: '1px solid rgba(16, 185, 129, 0.3)', color: '#047857' },
@@ -139,10 +127,7 @@ export default function Services({ playSound }) {
         background: 'rgba(255, 255, 255, 0.88)',
         backdropFilter: 'blur(20px)',
         WebkitBackdropFilter: 'blur(20px)',
-        borderTop: '3px solid #5478FF',
-        borderRight: '1px solid rgba(230, 230, 240, 0.9)',
-        borderBottom: '1px solid rgba(230, 230, 240, 0.9)',
-        borderLeft: '1px solid rgba(230, 230, 240, 0.9)',
+        border: '1px solid rgba(230, 230, 240, 0.9)',
         boxShadow: '0 8px 40px rgba(27, 39, 81, 0.10), 0 2px 8px rgba(27,39,81,0.06)',
       },
       icon: { background: 'rgba(84, 120, 255, 0.10)', border: '1px solid rgba(84, 120, 255, 0.3)', color: '#2c46d4' },
@@ -153,10 +138,7 @@ export default function Services({ playSound }) {
         background: 'rgba(255, 255, 255, 0.88)',
         backdropFilter: 'blur(20px)',
         WebkitBackdropFilter: 'blur(20px)',
-        borderTop: '3px solid #FB7185',
-        borderRight: '1px solid rgba(230, 230, 240, 0.9)',
-        borderBottom: '1px solid rgba(230, 230, 240, 0.9)',
-        borderLeft: '1px solid rgba(230, 230, 240, 0.9)',
+        border: '1px solid rgba(230, 230, 240, 0.9)',
         boxShadow: '0 8px 40px rgba(27, 39, 81, 0.10), 0 2px 8px rgba(27,39,81,0.06)',
       },
       icon: { background: 'rgba(251, 113, 133, 0.10)', border: '1px solid rgba(251, 113, 133, 0.3)', color: '#be1239' },
@@ -167,10 +149,7 @@ export default function Services({ playSound }) {
         background: 'rgba(255, 255, 255, 0.88)',
         backdropFilter: 'blur(20px)',
         WebkitBackdropFilter: 'blur(20px)',
-        borderTop: '3px solid #F97316',
-        borderRight: '1px solid rgba(230, 230, 240, 0.9)',
-        borderBottom: '1px solid rgba(230, 230, 240, 0.9)',
-        borderLeft: '1px solid rgba(230, 230, 240, 0.9)',
+        border: '1px solid rgba(230, 230, 240, 0.9)',
         boxShadow: '0 8px 40px rgba(27, 39, 81, 0.10), 0 2px 8px rgba(27,39,81,0.06)',
       },
       icon: { background: 'rgba(249, 115, 22, 0.10)', border: '1px solid rgba(249, 115, 22, 0.3)', color: '#ea580c' },
@@ -181,10 +160,7 @@ export default function Services({ playSound }) {
         background: 'rgba(255, 255, 255, 0.88)',
         backdropFilter: 'blur(20px)',
         WebkitBackdropFilter: 'blur(20px)',
-        borderTop: '3px solid #EC4899',
-        borderRight: '1px solid rgba(230, 230, 240, 0.9)',
-        borderBottom: '1px solid rgba(230, 230, 240, 0.9)',
-        borderLeft: '1px solid rgba(230, 230, 240, 0.9)',
+        border: '1px solid rgba(230, 230, 240, 0.9)',
         boxShadow: '0 8px 40px rgba(27, 39, 81, 0.10), 0 2px 8px rgba(27,39,81,0.06)',
       },
       icon: { background: 'rgba(236, 72, 153, 0.10)', border: '1px solid rgba(236, 72, 153, 0.3)', color: '#db2777' },
@@ -195,10 +171,7 @@ export default function Services({ playSound }) {
         background: 'rgba(255, 255, 255, 0.88)',
         backdropFilter: 'blur(20px)',
         WebkitBackdropFilter: 'blur(20px)',
-        borderTop: '3px solid #14B8A6',
-        borderRight: '1px solid rgba(230, 230, 240, 0.9)',
-        borderBottom: '1px solid rgba(230, 230, 240, 0.9)',
-        borderLeft: '1px solid rgba(230, 230, 240, 0.9)',
+        border: '1px solid rgba(230, 230, 240, 0.9)',
         boxShadow: '0 8px 40px rgba(27, 39, 81, 0.10), 0 2px 8px rgba(27,39,81,0.06)',
       },
       icon: { background: 'rgba(20, 184, 166, 0.10)', border: '1px solid rgba(20, 184, 166, 0.3)', color: '#0f766e' },
@@ -209,10 +182,7 @@ export default function Services({ playSound }) {
         background: 'rgba(255, 255, 255, 0.88)',
         backdropFilter: 'blur(20px)',
         WebkitBackdropFilter: 'blur(20px)',
-        borderTop: '3px solid #3B82F6',
-        borderRight: '1px solid rgba(230, 230, 240, 0.9)',
-        borderBottom: '1px solid rgba(230, 230, 240, 0.9)',
-        borderLeft: '1px solid rgba(230, 230, 240, 0.9)',
+        border: '1px solid rgba(230, 230, 240, 0.9)',
         boxShadow: '0 8px 40px rgba(27, 39, 81, 0.10), 0 2px 8px rgba(27,39,81,0.06)',
       },
       icon: { background: 'rgba(59, 130, 246, 0.10)', border: '1px solid rgba(59, 130, 246, 0.3)', color: '#1d4ed8' },
@@ -720,9 +690,6 @@ export default function Services({ playSound }) {
               exit={{ scale: 0.92, y: 30, opacity: 0 }}
               transition={{ type: 'spring', damping: 25, stiffness: 220 }}
               className="modal-card"
-              style={{
-                border: `2px solid ${cardThemes[activeServiceId]?.accent || 'rgba(0, 0, 0, 0.08)'}`,
-              }}
               onClick={(e) => e.stopPropagation()}
             >
               {/* Close Button inside modal-card (in padding area to avoid scrollbar) */}
@@ -947,6 +914,7 @@ export default function Services({ playSound }) {
           width: 100%;
           max-width: 850px;
           background: #FFFFFF;
+          border: 1px solid var(--border);
           box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.25), 0 0 50px rgba(0, 0, 0, 0.03);
           border-radius: 24px;
           padding: 3rem;
@@ -961,7 +929,7 @@ export default function Services({ playSound }) {
           .modal-card {
             padding: 1.2rem !important;
             border-radius: 16px !important;
-            max-height: 92vh !important;
+            max-height: 75vh !important;
           }
         }
 
@@ -1020,7 +988,7 @@ export default function Services({ playSound }) {
         }
         @media (max-width: 640px) {
           .modal-scroll-content {
-            max-height: calc(92vh - 8rem) !important;
+            max-height: calc(75vh - 8rem) !important;
             padding-right: 0.4rem !important;
           }
         }
