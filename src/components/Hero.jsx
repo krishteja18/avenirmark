@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowUpRight, Award } from 'lucide-react';
 import gsap from 'gsap';
@@ -99,8 +99,59 @@ export default function Hero() {
     }
   };
 
-  // Splitting headline text into words for stagger entry
-  const words = "We Don't Just Market Brands. We Build Business Empires.".split(" ");
+  const [currentWordIdx, setCurrentWordIdx] = useState(0);
+  const [currentText, setCurrentText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  const typewriterWords = [
+    "Business Empires.",
+    "Momentum.",
+    "Champions.",
+    "Kingdoms.",
+    "Ecosystems.",
+    "Legacies.",
+    "Brand Equity.",
+    "Brand Power.",
+    "Sales Funnels.",
+    "Industry Leaders."
+  ];
+
+  useEffect(() => {
+    let timer;
+    const fullWord = typewriterWords[currentWordIdx];
+
+    const tick = () => {
+      if (!isDeleting) {
+        // Typing mode
+        if (currentText === fullWord) {
+          // Word fully typed: pause for 2.0s, then start deleting
+          timer = setTimeout(() => setIsDeleting(true), 2000);
+          return;
+        }
+        // Add the next character
+        setCurrentText(fullWord.slice(0, currentText.length + 1));
+      } else {
+        // Deleting mode
+        if (currentText === "") {
+          // Word fully deleted: shift to the next word index and start typing
+          setIsDeleting(false);
+          setCurrentWordIdx((prev) => (prev + 1) % typewriterWords.length);
+          return;
+        }
+        // Remove the last character
+        setCurrentText(fullWord.slice(0, currentText.length - 1));
+      }
+    };
+
+    // Snappy typing pace (160ms) and steady backspacing pace (80ms)
+    const currentSpeed = isDeleting ? 80 : 160;
+    timer = setTimeout(tick, currentSpeed);
+
+    return () => clearTimeout(timer);
+  }, [currentText, isDeleting, currentWordIdx]);
+
+  // Splitting static headline text into lines and words for stagger entry
+  const line1Words = "We Don't Just Market Brands. We Build".split(" ");
 
   return (
     <section
@@ -151,43 +202,64 @@ export default function Hero() {
             ref={titleRef}
             style={{
               fontFamily: 'var(--font-display)',
-              fontSize: 'clamp(2.8rem, 5.5vw, 5.5rem)',
-              lineHeight: 1.05,
+              fontSize: 'clamp(2.6rem, 5.2vw, 5rem)', // Slightly trimmed to guarantee perfect mobile fitting
+              lineHeight: 1.15,
               fontWeight: 800,
               display: 'flex',
-              flexWrap: 'wrap',
-              rowGap: '0.5rem',
-              columnGap: '0.8rem',
+              flexDirection: 'column',
+              gap: '0.6rem',
+              textAlign: 'left',
             }}
+            className="hero-tagline-h1"
           >
-            {words.map((word, idx) => (
+            {/* Line 1: We Don't Just Market Brands. We Build */}
+            <span style={{ display: 'inline-flex', flexWrap: 'wrap', columnGap: '0.8rem', rowGap: '0.4rem', justifyContent: 'inherit' }}>
+              {line1Words.map((word, idx) => (
+                <span
+                  key={idx}
+                  style={{
+                    overflow: 'hidden',
+                    display: 'inline-block',
+                    verticalAlign: 'bottom',
+                    paddingBottom: '0.1em',
+                  }}
+                >
+                  <motion.span
+                    initial={{ y: '105%' }}
+                    animate={{ y: 0 }}
+                    transition={{
+                      duration: 0.85,
+                      ease: [0.16, 1, 0.3, 1],
+                      delay: idx * 0.08,
+                    }}
+                    style={{ display: 'inline-block' }}
+                  >
+                    {word}
+                  </motion.span>
+                </span>
+              ))}
+            </span>
+
+            {/* Line 2: [Typewriter Word] */}
+            <span style={{ display: 'inline-flex', flexWrap: 'wrap', columnGap: '0.8rem', rowGap: '0.4rem', alignItems: 'center', justifyContent: 'inherit' }}>
+              {/* Dynamic Typewriter Word with Brand Accent Color */}
               <span
-                key={idx}
                 style={{
-                  overflow: 'hidden',
-                  display: 'inline-block',
+                  display: 'inline-flex',
+                  alignItems: 'center',
                   verticalAlign: 'bottom',
                   paddingBottom: '0.1em',
+                  color: 'var(--accent)',
+                  textAlign: 'left',
                 }}
+                className="typewriter-word-span"
               >
-                <motion.span
-                  initial={{ y: '105%' }}
-                  animate={{ y: 0 }}
-                  transition={{
-                    duration: 0.85,
-                    ease: [0.16, 1, 0.3, 1], // Custom easeOutExpo
-                    delay: idx * 0.08,
-                  }}
-                  style={{ display: 'inline-block' }}
-                >
-                  {word === 'Business' || word === 'Empires.' ? (
-                    <span style={{ color: 'var(--accent)' }}>{word}</span>
-                  ) : (
-                    word
-                  )}
-                </motion.span>
+                <span style={{ position: 'relative', display: 'inline-block' }}>
+                  {currentText}
+                  <span className="typewriter-cursor">|</span>
+                </span>
               </span>
-            ))}
+            </span>
           </h1>
 
           {/* Subtitle */}
@@ -369,12 +441,30 @@ Precision-engineered campaigns. Measurable outcomes. Brands that don't just comp
       </div>
 
       <style>{`
+        .typewriter-cursor {
+          display: inline-block;
+          font-weight: 200;
+          color: var(--accent);
+          margin-left: 2px;
+          animation: blink 0.8s infinite;
+        }
+        @keyframes blink {
+          0%, 100% { opacity: 0; }
+          50% { opacity: 1; }
+        }
         .experience-badge:hover {
           transform: translateY(-3px);
           box-shadow: 0 12px 40px rgba(255, 222, 66, 0.12) !important;
           border-color: var(--accent) !important;
         }
         @media (max-width: 1024px) {
+          .hero-tagline-h1 {
+            text-align: center !important;
+            align-items: center !important;
+          }
+          .hero-tagline-h1 > span {
+            justify-content: center !important;
+          }
           .hero-grid {
             grid-template-columns: 1fr !important;
             gap: 4rem !important;
