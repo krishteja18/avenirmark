@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowUpRight, Award } from 'lucide-react';
 import gsap from 'gsap';
@@ -102,9 +102,19 @@ export default function Hero() {
   const [currentWordIdx, setCurrentWordIdx] = useState(0);
   const [currentText, setCurrentText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
-  const typewriterWords = [
-    "Business Empires.",
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const typewriterWords = useMemo(() => [
+    isMobile ? "Empires." : "Business Empires.",
     "Momentum.",
     "Champions.",
     "Kingdoms.",
@@ -114,7 +124,13 @@ export default function Hero() {
     "Brand Power.",
     "Sales Funnels.",
     "Industry Leaders."
-  ];
+  ], [isMobile]);
+
+  // Reset typed text when word index or mobile mode changes
+  useEffect(() => {
+    setCurrentText("");
+    setIsDeleting(false);
+  }, [currentWordIdx, isMobile]);
 
   useEffect(() => {
     let timer;
@@ -148,7 +164,7 @@ export default function Hero() {
     timer = setTimeout(tick, currentSpeed);
 
     return () => clearTimeout(timer);
-  }, [currentText, isDeleting, currentWordIdx]);
+  }, [currentText, isDeleting, currentWordIdx, typewriterWords]);
 
   // Splitting static headline text into lines and words for stagger entry
   const line1Words = "We Don't Just Market Brands. We Build".split(" ");
