@@ -274,9 +274,9 @@ export default function Clients({ playSound }) {
         }
         @media (max-width: 640px) {
           .clients-sheet-card {
-            padding: 1.2rem 0.6rem !important;
+            padding: 1.5rem 1.2rem !important;
             border-radius: 20px !important;
-            gap: 1.2rem !important;
+            gap: 1.5rem !important;
           }
           .clients-image-wrapper {
             padding: 0.3rem !important;
