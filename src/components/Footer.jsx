@@ -49,6 +49,7 @@ export default function Footer({ playSound }) {
   const socialLinks = [
     {
       label: 'Facebook',
+      url: 'https://www.facebook.com/profile.php?id=61583614370070',
       icon: (
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
@@ -57,6 +58,7 @@ export default function Footer({ playSound }) {
     },
     {
       label: 'Instagram',
+      url: 'https://www.instagram.com/avenirmarkofficial/',
       icon: (
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
@@ -66,15 +68,28 @@ export default function Footer({ playSound }) {
       )
     },
     {
-      label: 'Twitter',
+      label: 'LinkedIn',
+      url: 'https://www.linkedin.com/company/109642779/admin/dashboard/',
       icon: (
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/>
+          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+          <rect width="4" height="12" x="2" y="9"/>
+          <circle cx="4" cy="4" r="2"/>
         </svg>
       )
     },
     {
-      label: 'Youtube',
+      label: 'Pinterest',
+      url: 'https://pin.it/3x96fA45C',
+      icon: (
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M8 22a9 9 0 0 1-1.91-5.15c.3-1.8 1.4-6.8 1.4-6.8s-.35-.7-.35-1.74c0-1.63.95-2.85 2.13-2.85 1 0 1.49.75 1.49 1.66 0 1.01-.64 2.53-.97 3.93-.28 1.18.59 2.14 1.75 2.14 2.1 0 3.72-2.22 3.72-5.42 0-2.83-2.04-4.81-4.94-4.81-3.37 0-5.35 2.53-5.35 5.14 0 1.02.39 2.11.88 2.7.1.11.11.21.08.33l-.33 1.34c-.05.21-.17.26-.39.16C3.96 15.63 3.5 13.56 3.5 11.23c0-3.66 2.66-7 7.67-7 4.02 0 7.15 2.87 7.15 6.7 0 4-2.52 7.22-6 7.22-1.17 0-2.27-.61-2.65-1.33l-.72 2.74c-.26 1-.97 2.25-1.45 3.03A9 9 0 0 0 8 22z" />
+        </svg>
+      )
+    },
+    {
+      label: 'YouTube',
+      url: 'https://www.youtube.com/@Avenirmark',
       icon: (
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17z"/>
@@ -269,7 +284,9 @@ export default function Footer({ playSound }) {
                 return (
                   <a
                     key={idx}
-                    href="#"
+                    href={soc.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     onMouseEnter={handleHover}
                     aria-label={soc.label}
                     style={{
