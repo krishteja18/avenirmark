@@ -393,12 +393,13 @@ Precision-engineered campaigns. Measurable outcomes. Brands that don't just comp
           >
             <img
               ref={imgRef}
-              src="/hero-workspace.png"
+              src="/hero-workspace.jpg"
               alt="Avenirmark Premium Agency Workspace"
               style={{
                 width: '100%',
                 height: '100%',
                 objectFit: 'cover',
+                objectPosition: 'right center',
                 scale: 1.02, // Minimal scale for 3D tilts
               }}
             />
