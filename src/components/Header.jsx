@@ -76,18 +76,27 @@ export default function Header() {
             }
           }}
           style={{
-            fontFamily: 'var(--font-display)',
-            fontSize: '1.6rem',
-            fontWeight: 800,
-            color: 'var(--text-primary)',
-            textDecoration: 'none',
             display: 'flex',
             alignItems: 'center',
-            gap: '0.4rem',
-            letterSpacing: '-0.04em',
+            textDecoration: 'none',
           }}
         >
-          Avenir<span style={{ color: 'var(--accent)' }}>mark</span>
+          <img
+            src="/logo.png"
+            alt="Avenirmark Logo"
+            style={{
+              height: 'clamp(3rem, 8vw, 4.8rem)',
+              width: 'auto',
+              display: 'block',
+              transition: 'transform 0.3s ease',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = 'scale(1.03)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = 'scale(1)';
+            }}
+          />
         </a>
 
         {/* Desktop Navigation Links */}

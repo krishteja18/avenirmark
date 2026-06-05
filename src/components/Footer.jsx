@@ -133,15 +133,28 @@ export default function Footer({ playSound }) {
             }}
             onMouseEnter={handleHover}
             style={{
-              fontFamily: 'var(--font-display)',
-              fontSize: '1.8rem',
-              fontWeight: 800,
-              color: 'var(--text-primary)',
+              display: 'inline-flex',
+              alignItems: 'center',
+              alignSelf: 'flex-start',
               textDecoration: 'none',
-              letterSpacing: '-0.04em',
             }}
           >
-            Avenir<span style={{ color: 'var(--accent)' }}>mark</span>
+            <img
+              src="/logo.png"
+              alt="Avenirmark Logo"
+              style={{
+                height: 'clamp(3.5rem, 9vw, 5.5rem)',
+                width: 'auto',
+                display: 'block',
+                transition: 'transform 0.3s ease',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'scale(1.03)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'scale(1)';
+              }}
+            />
           </a>
           
           <p style={{ fontSize: '0.95rem', lineHeight: 1.6, color: 'var(--text-secondary)', maxWidth: '350px' }}>
