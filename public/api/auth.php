@@ -51,8 +51,21 @@ function getCSRFToken() {
  * Validates the CSRF token in the request headers.
  */
 function validateCSRFToken() {
-    $headers = getallheaders();
-    $token = isset($headers['X-CSRF-Token']) ? $headers['X-CSRF-Token'] : '';
+    $headers = function_exists('getallheaders') ? getallheaders() : [];
+    
+    // Retrieve token case-insensitively from headers
+    $token = '';
+    foreach ($headers as $key => $value) {
+        if (strtolower($key) === 'x-csrf-token') {
+            $token = $value;
+            break;
+        }
+    }
+    
+    // Fallback to standard PHP server variable (populated by CGI/FastCGI/Nginx)
+    if (empty($token) && isset($_SERVER['HTTP_X_CSRF_TOKEN'])) {
+        $token = $_SERVER['HTTP_X_CSRF_TOKEN'];
+    }
     
     if (empty($_SESSION['csrf_token']) || !hash_equals($_SESSION['csrf_token'], $token)) {
         header('Content-Type: application/json', true, 403);
