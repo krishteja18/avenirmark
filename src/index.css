@@ -322,3 +322,27 @@ p {
 #root {
   width: 100%;
 }
+
+/* Restore system cursor in admin mode */
+body.admin-mode,
+body.admin-mode * {
+  cursor: auto !important;
+}
+
+body.admin-mode a,
+body.admin-mode button,
+body.admin-mode [role="button"],
+body.admin-mode .clickable,
+body.admin-mode input[type="submit"],
+body.admin-mode input[type="button"],
+body.admin-mode .btn-premium,
+body.admin-mode .help-link {
+  cursor: pointer !important;
+}
+
+body.admin-mode input[type="text"],
+body.admin-mode input[type="password"],
+body.admin-mode input[type="email"],
+body.admin-mode textarea {
+  cursor: text !important;
+}

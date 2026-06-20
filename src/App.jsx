@@ -152,10 +152,22 @@ export default function App() {
     }
   }, [currentRoute]);
 
+  // Toggle admin-mode class on body for cursor styling
+  useEffect(() => {
+    if (currentRoute.name === 'admin') {
+      document.body.classList.add('admin-mode');
+    } else {
+      document.body.classList.remove('admin-mode');
+    }
+    return () => {
+      document.body.classList.remove('admin-mode');
+    };
+  }, [currentRoute.name]);
+
   return (
     <>
       {/* Premium custom mouse cursor */}
-      <CustomCursor />
+      {currentRoute.name !== 'admin' && <CustomCursor />}
 
       {/* Floating glass header (hide when on admin dashboard for clean CMS experience) */}
       {currentRoute.name !== 'admin' && <Header />}
