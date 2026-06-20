@@ -261,6 +261,7 @@ export default function BlogPostModal({
         {/* Scrollable Form Body */}
         <form 
           onSubmit={handleSubmit}
+          data-lenis-prevent
           style={{
             flex: 1,
             overflowY: 'auto',
