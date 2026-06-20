@@ -27,6 +27,11 @@ export default function Header() {
       return;
     }
 
+    if (id === 'blog') {
+      window.location.hash = '#blogs';
+      return;
+    }
+
     const element = document.getElementById(id);
     if (element) {
       // Offset for floating header
@@ -108,10 +113,10 @@ export default function Header() {
           }}
           className="desktop-nav"
         >
-          {['services', 'about us', 'process', 'portfolio'].map((section) => (
+          {['services', 'about us', 'process', 'portfolio', 'blog'].map((section) => (
             <a
               key={section}
-              href={`#${section}`}
+              href={section === 'blog' ? '#blogs' : `#${section}`}
               onClick={(e) => handleNavClick(e, section)}
               style={{
                 fontFamily: 'var(--font-body)',
@@ -199,10 +204,10 @@ export default function Header() {
             alignItems: 'center',
           }}
         >
-          {['services', 'about us', 'process', 'portfolio'].map((section, index) => (
+          {['services', 'about us', 'process', 'portfolio', 'blog'].map((section, index) => (
             <a
               key={section}
-              href={`#${section}`}
+              href={section === 'blog' ? '#blogs' : `#${section}`}
               onClick={(e) => handleNavClick(e, section)}
               style={{
                 fontFamily: 'var(--font-display)',

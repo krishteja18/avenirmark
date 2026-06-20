@@ -36,6 +36,11 @@ export default function Footer({ playSound }) {
       return;
     }
 
+    if (id === 'blog') {
+      window.location.hash = '#blogs';
+      return;
+    }
+
     const el = document.getElementById(id);
     if (el) {
       const offset = 80;
@@ -224,10 +229,10 @@ export default function Footer({ playSound }) {
             Quick Links
           </h4>
           <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
-            {['services', 'about us', 'process', 'portfolio', 'contact'].map((link) => (
+            {['services', 'about us', 'process', 'portfolio', 'blog', 'contact'].map((link) => (
               <li key={link}>
                 <a
-                  href={`#${link}`}
+                  href={link === 'blog' ? '#blogs' : `#${link}`}
                   onClick={(e) => handleLinkClick(e, link)}
                   onMouseEnter={handleHover}
                   style={{
@@ -371,6 +376,7 @@ export default function Footer({ playSound }) {
           © {new Date().getFullYear()} Avenirmark Agency. All rights reserved.
         </span>
         <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)', display: 'flex', gap: '1.2rem' }}>
+          <a href="#admin" style={{ color: 'inherit', textDecoration: 'none', cursor: 'none' }} onMouseEnter={handleHover}>Admin Portal</a>
           <a href="#" style={{ color: 'inherit', textDecoration: 'none', cursor: 'none' }} onMouseEnter={handleHover}>Privacy Policy</a>
           <a href="#" style={{ color: 'inherit', textDecoration: 'none', cursor: 'none' }} onMouseEnter={handleHover}>Terms of Service</a>
         </span>

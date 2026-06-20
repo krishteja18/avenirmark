@@ -1,0 +1,16 @@
+# AvenirMark Blog System - Uploads Directory Security
+
+# Disable directory browsing
+Options -Indexes
+
+# Prevent execution of any scripts or executable files
+<FilesMatch "\.(php|phtml|php3|php4|php5|php6|php7|php8|phps|pl|py|cgi|sh|asp|aspx|shtml|jsp|jspx|exe|cmd|bat)$">
+    Order Deny,Allow
+    Deny from all
+</FilesMatch>
+
+# Force download behavior for any non-image attachment type (if applicable)
+# <FilesMatch "\.(html|htm|js|css)$">
+#     ForceType application/octet-stream
+#     Header set Content-Disposition attachment
+# </FilesMatch>

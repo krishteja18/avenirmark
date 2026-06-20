@@ -1,0 +1,19 @@
+# AvenirMark Blog System - API Directory Security Config
+
+# Disable directory browsing
+Options -Indexes
+
+# Deny access to database JSON file
+<Files "blogs.json">
+    Order Deny,Allow
+    Deny from all
+</Files>
+
+# Block access to any potential sensitive files
+<FilesMatch "\.(json|db|sqlite|log|ini|sh|md|txt)$">
+    Order Deny,Allow
+    Deny from all
+</FilesMatch>
+
+# Enforce secure UTF-8 response encoding
+AddDefaultCharset UTF-8

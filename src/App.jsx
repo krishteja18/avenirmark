@@ -13,17 +13,95 @@ import Footer from './components/Footer';
 import AboutUs from './components/AboutUs';
 import Clients from './components/Clients';
 
+// New blog components
+import BlogList from './components/BlogList';
+import BlogDetail from './components/BlogDetail';
+import AdminLogin from './components/AdminLogin';
+import AdminDashboard from './components/AdminDashboard';
+
 export default function App() {
-  const [currentRoute, setCurrentRoute] = useState(window.location.hash === '#about-us' ? 'about-us' : 'home');
+  const [currentRoute, setCurrentRoute] = useState(() => {
+    const hash = window.location.hash;
+    if (hash === '#about-us') return { name: 'about-us' };
+    if (hash === '#blogs') return { name: 'blogs' };
+    if (hash.startsWith('#blog/')) {
+      return { name: 'blog-detail', slug: hash.substring(6) };
+    }
+    if (hash === '#admin') return { name: 'admin' };
+    return { name: 'home' };
+  });
+
+  const [adminAuth, setAdminAuth] = useState({ authenticated: false, csrfToken: '', username: '' });
+  const [checkingAuth, setCheckingAuth] = useState(true);
+
+  // Check auth status on mount
+  useEffect(() => {
+    fetch('/api/check-auth.php')
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.authenticated) {
+          setAdminAuth({
+            authenticated: true,
+            csrfToken: data.csrfToken,
+            username: data.username
+          });
+        }
+        setCheckingAuth(false);
+      })
+      .catch((err) => {
+        console.error('Error checking auth:', err);
+        setCheckingAuth(false);
+      });
+  }, []);
+
+  const handleLoginSuccess = (token, user) => {
+    setAdminAuth({
+      authenticated: true,
+      csrfToken: token,
+      username: user
+    });
+  };
+
+  const handleLogout = () => {
+    fetch('/api/logout.php')
+      .then((res) => res.json())
+      .then(() => {
+        setAdminAuth({
+          authenticated: false,
+          csrfToken: '',
+          username: ''
+        });
+        window.location.hash = '';
+      })
+      .catch((err) => {
+        console.error('Logout error:', err);
+        setAdminAuth({
+          authenticated: false,
+          csrfToken: '',
+          username: ''
+        });
+        window.location.hash = '';
+      });
+  };
 
   // Listen to hash change for premium SPA routing
   useEffect(() => {
     const handleHashChange = () => {
-      if (window.location.hash === '#about-us') {
-        setCurrentRoute('about-us');
+      const hash = window.location.hash;
+      if (hash === '#about-us') {
+        setCurrentRoute({ name: 'about-us' });
+        window.scrollTo({ top: 0, behavior: 'auto' });
+      } else if (hash === '#blogs') {
+        setCurrentRoute({ name: 'blogs' });
+        window.scrollTo({ top: 0, behavior: 'auto' });
+      } else if (hash.startsWith('#blog/')) {
+        setCurrentRoute({ name: 'blog-detail', slug: hash.substring(6) });
+        window.scrollTo({ top: 0, behavior: 'auto' });
+      } else if (hash === '#admin') {
+        setCurrentRoute({ name: 'admin' });
         window.scrollTo({ top: 0, behavior: 'auto' });
       } else {
-        setCurrentRoute('home');
+        setCurrentRoute({ name: 'home' });
       }
     };
     window.addEventListener('hashchange', handleHashChange);
@@ -57,7 +135,7 @@ export default function App() {
 
   // Smooth-scroll back to section if returning from another page
   useEffect(() => {
-    if (currentRoute === 'home' && window.location.hash && window.location.hash !== '#about-us') {
+    if (currentRoute.name === 'home' && window.location.hash && window.location.hash !== '#about-us') {
       const id = window.location.hash.substring(1);
       setTimeout(() => {
         const element = document.getElementById(id);
@@ -79,12 +157,42 @@ export default function App() {
       {/* Premium custom mouse cursor */}
       <CustomCursor />
 
-      {/* Floating glass header */}
-      <Header />
+      {/* Floating glass header (hide when on admin dashboard for clean CMS experience) */}
+      {currentRoute.name !== 'admin' && <Header />}
 
-      {currentRoute === 'about-us' ? (
-        <AboutUs />
-      ) : (
+      {currentRoute.name === 'about-us' && <AboutUs />}
+      
+      {currentRoute.name === 'blogs' && <BlogList />}
+      
+      {currentRoute.name === 'blog-detail' && (
+        <BlogDetail slug={currentRoute.slug} />
+      )}
+      
+      {currentRoute.name === 'admin' && (
+        checkingAuth ? (
+          <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', background: '#1b2751', color: '#FFFFFF' }}>
+            <div className="spinner" style={{
+              width: '40px', height: '40px',
+              border: '3px solid rgba(255,255,255,0.1)',
+              borderTop: '3px solid var(--accent)',
+              borderRadius: '50%',
+              margin: '0 auto 1.5rem auto',
+              animation: 'spin 1s linear infinite'
+            }} />
+            <p style={{ fontFamily: 'var(--font-display)', fontWeight: 600 }}>Verifying session security...</p>
+          </div>
+        ) : adminAuth.authenticated ? (
+          <AdminDashboard 
+            csrfToken={adminAuth.csrfToken} 
+            username={adminAuth.username} 
+            onLogout={handleLogout} 
+          />
+        ) : (
+          <AdminLogin onLoginSuccess={handleLoginSuccess} />
+        )
+      )}
+
+      {currentRoute.name === 'home' && (
         <>
           {/* Hero section */}
           <Hero />
@@ -112,8 +220,15 @@ export default function App() {
         </>
       )}
 
-      {/* Detailed Premium Footer */}
-      <Footer />
+      {/* Detailed Premium Footer (hide when on admin dashboard) */}
+      {currentRoute.name !== 'admin' && <Footer />}
+
+      <style>{`
+        @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+      `}</style>
     </>
   );
 }
