@@ -23,7 +23,7 @@ define('ADMIN_USERNAME', 'admin');
 
 // Bcrypt hash for default password: AvenirMark@2026
 // To change your password, generate a new bcrypt hash and paste it here.
-define('ADMIN_PASSWORD_HASH', '$2y$10$tZ922sM1YIqW0e3T2y9eOeM9wK17V3c51WdSwr1qWjXG.Q6zZ2u.C');
+define('ADMIN_PASSWORD_HASH', '$2b$10$BJv.SSD3cRJdiA6Yak0dOeG/52qvy4GLvPnbMepBoHmUqTi00YoFu');
 
 // Helper function to check/create uploads directory
 if (!file_exists(UPLOAD_DIR)) {
