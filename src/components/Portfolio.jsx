@@ -295,10 +295,33 @@ export default function Portfolio({ playSound }) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.2 }}
-          style={{ maxWidth: '600px', margin: '0 auto' }}
+          style={{ maxWidth: '600px', margin: '0 auto', marginBottom: '2rem' }}
         >
           Explore a showcase of luxury branding identity campaigns, high-performance websites, engagement templates, and corporate publications.
         </motion.p>
+
+        {/* Download Portfolio PDF Button */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          style={{ marginTop: '1.8rem' }}
+        >
+          <a
+            href="/AvenirMark_Portfolio_Updated.pdf"
+            download="AvenirMark_Portfolio_Updated.pdf"
+            className="btn-premium glow-accent"
+            onMouseEnter={handleHover}
+            onClick={() => {
+              if (playSound) playSound('click');
+            }}
+            style={{ cursor: 'none' }}
+          >
+            <Briefcase size={18} />
+            Download Complete Portfolio PDF
+          </a>
+        </motion.div>
       </div>
 
       {/* Categories Filter Tabs */}
@@ -438,31 +461,6 @@ export default function Portfolio({ playSound }) {
           ))}
         </AnimatePresence>
       </motion.div>
-
-      {/* Download Complete Portfolio PDF Button */}
-      <div 
-        style={{ 
-          display: 'flex', 
-          justifyContent: 'center', 
-          marginTop: '3.5rem',
-          position: 'relative',
-          zIndex: 5
-        }}
-      >
-        <a
-          href="/AvenirMark_Portfolio_Updated.pdf"
-          download="AvenirMark_Portfolio_Updated.pdf"
-          className="btn-premium glow-accent"
-          onMouseEnter={handleHover}
-          onClick={() => {
-            if (playSound) playSound('click');
-          }}
-          style={{ cursor: 'none' }}
-        >
-          <Briefcase size={18} />
-          Download Complete Portfolio PDF
-        </a>
-      </div>
 
       {/* Lightbox full-screen modal */}
       <AnimatePresence>
