@@ -1,0 +1,15 @@
+# AvenirMark Site Security and URL Routing Configuration
+
+# Disable directory browsing
+Options -Indexes
+
+# Enforce secure UTF-8 response encoding
+AddDefaultCharset UTF-8
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+    
+    # Route sitemap.xml to the dynamic sitemap.php generator
+    RewriteRule ^sitemap\.xml$ sitemap.php [L]
+</IfModule>

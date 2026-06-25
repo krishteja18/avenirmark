@@ -439,6 +439,31 @@ export default function Portfolio({ playSound }) {
         </AnimatePresence>
       </motion.div>
 
+      {/* Download Complete Portfolio PDF Button */}
+      <div 
+        style={{ 
+          display: 'flex', 
+          justifyContent: 'center', 
+          marginTop: '3.5rem',
+          position: 'relative',
+          zIndex: 5
+        }}
+      >
+        <a
+          href="/AvenirMark_Portfolio_Updated.pdf"
+          download="AvenirMark_Portfolio_Updated.pdf"
+          className="btn-premium glow-accent"
+          onMouseEnter={handleHover}
+          onClick={() => {
+            if (playSound) playSound('click');
+          }}
+          style={{ cursor: 'none' }}
+        >
+          <Briefcase size={18} />
+          Download Complete Portfolio PDF
+        </a>
+      </div>
+
       {/* Lightbox full-screen modal */}
       <AnimatePresence>
         {lightboxIndex !== null && (
