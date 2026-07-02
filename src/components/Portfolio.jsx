@@ -286,13 +286,6 @@ export default function Portfolio({ playSound }) {
       aspect: '16/9',
     },
     {
-      id: 216,
-      category: 'branding',
-      title: 'Avenirmark Brand Identity - Slide 17',
-      img: '/branding/IMG-20260701-WA0016.jpg',
-      aspect: '16/9',
-    },
-    {
       id: 217,
       category: 'branding',
       title: 'Avenirmark Brand Identity - Slide 18',
