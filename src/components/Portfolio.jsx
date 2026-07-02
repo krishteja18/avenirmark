@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, X, ChevronLeft, ChevronRight, Briefcase } from 'lucide-react';
 import gsap from 'gsap';
@@ -10,6 +10,7 @@ export default function Portfolio({ playSound }) {
     { id: 'web', label: 'High-End Web' },
     { id: 'social', label: 'Social Media' },
     { id: 'brochures', label: 'Brochures' },
+    { id: 'branding', label: 'Branding' },
   ];
 
   const projects = [
@@ -170,6 +171,301 @@ export default function Portfolio({ playSound }) {
       title: 'Creative Editorial Mockup',
       img: '/wp-content/uploads/2025/07/Mock1-1024x683-1.jpg',
       aspect: '3/2',
+    },
+    // Branding
+    {
+      id: 200,
+      category: 'branding',
+      title: 'Avenirmark Brand Identity - Slide 1',
+      img: '/branding/IMG-20260701-WA0000.jpg',
+      aspect: '16/9',
+    },
+    {
+      id: 201,
+      category: 'branding',
+      title: 'Avenirmark Brand Identity - Slide 2',
+      img: '/branding/IMG-20260701-WA0001.jpg',
+      aspect: '16/9',
+    },
+    {
+      id: 202,
+      category: 'branding',
+      title: 'Avenirmark Brand Identity - Slide 3',
+      img: '/branding/IMG-20260701-WA0002.jpg',
+      aspect: '16/9',
+    },
+    {
+      id: 203,
+      category: 'branding',
+      title: 'Avenirmark Brand Identity - Slide 4',
+      img: '/branding/IMG-20260701-WA0003.jpg',
+      aspect: '16/9',
+    },
+    {
+      id: 204,
+      category: 'branding',
+      title: 'Avenirmark Brand Identity - Slide 5',
+      img: '/branding/IMG-20260701-WA0004.jpg',
+      aspect: '16/9',
+    },
+    {
+      id: 205,
+      category: 'branding',
+      title: 'Avenirmark Brand Identity - Slide 6',
+      img: '/branding/IMG-20260701-WA0005.jpg',
+      aspect: '16/9',
+    },
+    {
+      id: 206,
+      category: 'branding',
+      title: 'Avenirmark Brand Identity - Slide 7',
+      img: '/branding/IMG-20260701-WA0006.jpg',
+      aspect: '16/9',
+    },
+    {
+      id: 207,
+      category: 'branding',
+      title: 'Avenirmark Brand Identity - Slide 8',
+      img: '/branding/IMG-20260701-WA0007.jpg',
+      aspect: '16/9',
+    },
+    {
+      id: 208,
+      category: 'branding',
+      title: 'Avenirmark Brand Identity - Slide 9',
+      img: '/branding/IMG-20260701-WA0008.jpg',
+      aspect: '16/9',
+    },
+    {
+      id: 209,
+      category: 'branding',
+      title: 'Avenirmark Brand Identity - Slide 10',
+      img: '/branding/IMG-20260701-WA0009.jpg',
+      aspect: '16/9',
+    },
+    {
+      id: 210,
+      category: 'branding',
+      title: 'Avenirmark Brand Identity - Slide 11',
+      img: '/branding/IMG-20260701-WA0010.jpg',
+      aspect: '16/9',
+    },
+    {
+      id: 211,
+      category: 'branding',
+      title: 'Avenirmark Brand Identity - Slide 12',
+      img: '/branding/IMG-20260701-WA0011.jpg',
+      aspect: '16/9',
+    },
+    {
+      id: 212,
+      category: 'branding',
+      title: 'Avenirmark Brand Identity - Slide 13',
+      img: '/branding/IMG-20260701-WA0012.jpg',
+      aspect: '16/9',
+    },
+    {
+      id: 213,
+      category: 'branding',
+      title: 'Avenirmark Brand Identity - Slide 14',
+      img: '/branding/IMG-20260701-WA0013.jpg',
+      aspect: '16/9',
+    },
+    {
+      id: 214,
+      category: 'branding',
+      title: 'Avenirmark Brand Identity - Slide 15',
+      img: '/branding/IMG-20260701-WA0014.jpg',
+      aspect: '16/9',
+    },
+    {
+      id: 215,
+      category: 'branding',
+      title: 'Avenirmark Brand Identity - Slide 16',
+      img: '/branding/IMG-20260701-WA0015.jpg',
+      aspect: '16/9',
+    },
+    {
+      id: 216,
+      category: 'branding',
+      title: 'Avenirmark Brand Identity - Slide 17',
+      img: '/branding/IMG-20260701-WA0016.jpg',
+      aspect: '16/9',
+    },
+    {
+      id: 217,
+      category: 'branding',
+      title: 'Avenirmark Brand Identity - Slide 18',
+      img: '/branding/IMG-20260701-WA0017.jpg',
+      aspect: '16/9',
+    },
+    {
+      id: 218,
+      category: 'branding',
+      title: 'Avenirmark Brand Identity - Slide 19',
+      img: '/branding/IMG-20260701-WA0018.jpg',
+      aspect: '16/9',
+    },
+    {
+      id: 219,
+      category: 'branding',
+      title: 'Avenirmark Brand Identity - Slide 20',
+      img: '/branding/IMG-20260701-WA0019.jpg',
+      aspect: '16/9',
+    },
+    {
+      id: 220,
+      category: 'branding',
+      title: 'Avenirmark Brand Identity - Slide 21',
+      img: '/branding/IMG-20260701-WA0020.jpg',
+      aspect: '16/9',
+    },
+    {
+      id: 221,
+      category: 'branding',
+      title: 'Avenirmark Brand Identity - Slide 22',
+      img: '/branding/IMG-20260701-WA0021.jpg',
+      aspect: '16/9',
+    },
+    {
+      id: 222,
+      category: 'branding',
+      title: 'Avenirmark Brand Identity - Slide 23',
+      img: '/branding/IMG-20260701-WA0022.jpg',
+      aspect: '16/9',
+    },
+    {
+      id: 223,
+      category: 'branding',
+      title: 'Avenirmark Brand Identity - Slide 24',
+      img: '/branding/IMG-20260701-WA0023.jpg',
+      aspect: '16/9',
+    },
+    {
+      id: 224,
+      category: 'branding',
+      title: 'Avenirmark Brand Identity - Slide 25',
+      img: '/branding/IMG-20260701-WA0024.jpg',
+      aspect: '16/9',
+    },
+    {
+      id: 225,
+      category: 'branding',
+      title: 'Avenirmark Brand Identity - Slide 26',
+      img: '/branding/IMG-20260701-WA0025.jpg',
+      aspect: '16/9',
+    },
+    {
+      id: 226,
+      category: 'branding',
+      title: 'Avenirmark Brand Identity - Slide 27',
+      img: '/branding/IMG-20260701-WA0026.jpg',
+      aspect: '16/9',
+    },
+    {
+      id: 227,
+      category: 'branding',
+      title: 'Avenirmark Brand Identity - Slide 28',
+      img: '/branding/IMG-20260701-WA0027.jpg',
+      aspect: '16/9',
+    },
+    {
+      id: 228,
+      category: 'branding',
+      title: 'Avenirmark Brand Identity - Slide 29',
+      img: '/branding/IMG-20260701-WA0028.jpg',
+      aspect: '16/9',
+    },
+    {
+      id: 229,
+      category: 'branding',
+      title: 'Avenirmark Brand Identity - Slide 30',
+      img: '/branding/IMG-20260701-WA0029.jpg',
+      aspect: '16/9',
+    },
+    {
+      id: 230,
+      category: 'branding',
+      title: 'Avenirmark Brand Identity - Slide 31',
+      img: '/branding/IMG-20260701-WA0030.jpg',
+      aspect: '16/9',
+    },
+    {
+      id: 231,
+      category: 'branding',
+      title: 'Avenirmark Brand Identity - Slide 32',
+      img: '/branding/IMG-20260701-WA0031.jpg',
+      aspect: '16/9',
+    },
+    {
+      id: 232,
+      category: 'branding',
+      title: 'Avenirmark Brand Identity - Slide 33',
+      img: '/branding/IMG-20260701-WA0032.jpg',
+      aspect: '16/9',
+    },
+    {
+      id: 233,
+      category: 'branding',
+      title: 'Avenirmark Brand Identity - Slide 34',
+      img: '/branding/IMG-20260701-WA0033.jpg',
+      aspect: '16/9',
+    },
+    {
+      id: 234,
+      category: 'branding',
+      title: 'Avenirmark Brand Identity - Slide 35',
+      img: '/branding/IMG-20260701-WA0034.jpg',
+      aspect: '16/9',
+    },
+    {
+      id: 235,
+      category: 'branding',
+      title: 'Avenirmark Brand Identity - Slide 36',
+      img: '/branding/IMG-20260701-WA0035.jpg',
+      aspect: '16/9',
+    },
+    {
+      id: 236,
+      category: 'branding',
+      title: 'Avenirmark Brand Identity - Slide 37',
+      img: '/branding/IMG-20260701-WA0036.jpg',
+      aspect: '16/9',
+    },
+    {
+      id: 237,
+      category: 'branding',
+      title: 'Avenirmark Brand Identity - Slide 38',
+      img: '/branding/IMG-20260701-WA0037.jpg',
+      aspect: '16/9',
+    },
+    {
+      id: 238,
+      category: 'branding',
+      title: 'Avenirmark Brand Identity - Slide 39',
+      img: '/branding/IMG-20260701-WA0038.jpg',
+      aspect: '16/9',
+    },
+    {
+      id: 239,
+      category: 'branding',
+      title: 'Avenirmark Brand Identity - Slide 40',
+      img: '/branding/IMG-20260701-WA0039.jpg',
+      aspect: '16/9',
+    },
+    {
+      id: 240,
+      category: 'branding',
+      title: 'Avenirmark Brand Identity - Slide 41',
+      img: '/branding/IMG-20260701-WA0040.jpg',
+      aspect: '16/9',
+    },
+    {
+      id: 241,
+      category: 'branding',
+      title: 'Avenirmark Brand Identity - Slide 42',
+      img: '/branding/IMG-20260701-WA0041.jpg',
+      aspect: '16/9',
     },
   ];
 
@@ -432,7 +728,7 @@ export default function Portfolio({ playSound }) {
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                   <div>
                     <span style={{ fontSize: '0.8rem', color: 'var(--accent)', textTransform: 'uppercase', letterSpacing: '1px', fontWeight: 800 }}>
-                      {project.category === 'luxury' ? 'Luxury Identity' : project.category === 'web' ? 'Web Design' : project.category === 'social' ? 'Social Media' : 'Publication'}
+                      {project.category === 'luxury' ? 'Luxury Identity' : project.category === 'web' ? 'Web Design' : project.category === 'social' ? 'Social Media' : project.category === 'branding' ? 'Brand Identity' : 'Publication'}
                     </span>
                     <h3 style={{ fontSize: '1.25rem', fontWeight: 700, marginTop: '0.2rem' }}>
                       {project.title}

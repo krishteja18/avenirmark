@@ -32,6 +32,11 @@ export default function Header() {
       return;
     }
 
+    if (id === 'ai-conference') {
+      window.location.hash = '#ai-conference';
+      return;
+    }
+
     const element = document.getElementById(id);
     if (element) {
       // Offset for floating header
@@ -113,10 +118,10 @@ export default function Header() {
           }}
           className="desktop-nav"
         >
-          {['services', 'about us', 'process', 'portfolio', 'blog'].map((section) => (
+          {['services', 'about us', 'process', 'portfolio', 'blog', 'ai-conference'].map((section) => (
             <a
               key={section}
-              href={section === 'blog' ? '#blogs' : `#${section}`}
+              href={section === 'blog' ? '#blogs' : section === 'ai-conference' ? '#ai-conference' : `#${section}`}
               onClick={(e) => handleNavClick(e, section)}
               style={{
                 fontFamily: 'var(--font-body)',
@@ -130,7 +135,7 @@ export default function Header() {
               }}
               className="nav-link"
             >
-              {section}
+              {section === 'ai-conference' ? 'AI Conference' : section}
               <span className="nav-line" />
             </a>
           ))}
@@ -204,10 +209,10 @@ export default function Header() {
             alignItems: 'center',
           }}
         >
-          {['services', 'about us', 'process', 'portfolio', 'blog'].map((section, index) => (
+          {['services', 'about us', 'process', 'portfolio', 'blog', 'ai-conference'].map((section, index) => (
             <a
               key={section}
-              href={section === 'blog' ? '#blogs' : `#${section}`}
+              href={section === 'blog' ? '#blogs' : section === 'ai-conference' ? '#ai-conference' : `#${section}`}
               onClick={(e) => handleNavClick(e, section)}
               style={{
                 fontFamily: 'var(--font-display)',
@@ -224,7 +229,7 @@ export default function Header() {
               }}
               className="drawer-link"
             >
-              {section}
+              {section === 'ai-conference' ? 'AI Conference' : section}
             </a>
           ))}
           <a

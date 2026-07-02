@@ -18,6 +18,7 @@ import BlogList from './components/BlogList';
 import BlogDetail from './components/BlogDetail';
 import AdminLogin from './components/AdminLogin';
 import AdminDashboard from './components/AdminDashboard';
+import AIConference from './components/AIConference';
 
 export default function App() {
   const [currentRoute, setCurrentRoute] = useState(() => {
@@ -28,6 +29,7 @@ export default function App() {
       return { name: 'blog-detail', slug: hash.substring(6) };
     }
     if (hash === '#admin') return { name: 'admin' };
+    if (hash === '#ai-conference') return { name: 'ai-conference' };
     return { name: 'home' };
   });
 
@@ -99,6 +101,9 @@ export default function App() {
         window.scrollTo({ top: 0, behavior: 'auto' });
       } else if (hash === '#admin') {
         setCurrentRoute({ name: 'admin' });
+        window.scrollTo({ top: 0, behavior: 'auto' });
+      } else if (hash === '#ai-conference') {
+        setCurrentRoute({ name: 'ai-conference' });
         window.scrollTo({ top: 0, behavior: 'auto' });
       } else {
         setCurrentRoute({ name: 'home' });
@@ -175,6 +180,8 @@ export default function App() {
       {currentRoute.name === 'about-us' && <AboutUs />}
       
       {currentRoute.name === 'blogs' && <BlogList />}
+      
+      {currentRoute.name === 'ai-conference' && <AIConference />}
       
       {currentRoute.name === 'blog-detail' && (
         <BlogDetail slug={currentRoute.slug} />
