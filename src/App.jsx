@@ -19,6 +19,7 @@ import BlogDetail from './components/BlogDetail';
 import AdminLogin from './components/AdminLogin';
 import AdminDashboard from './components/AdminDashboard';
 import AIConference from './components/AIConference';
+import Chatbot from './components/Chatbot';
 
 export default function App() {
   const [currentRoute, setCurrentRoute] = useState(() => {
@@ -176,6 +177,9 @@ export default function App() {
 
       {/* Floating glass header (hide when on admin dashboard for clean CMS experience) */}
       {currentRoute.name !== 'admin' && <Header />}
+
+      {/* Floating Chatbot Assistant */}
+      {currentRoute.name !== 'admin' && <Chatbot />}
 
       {currentRoute.name === 'about-us' && <AboutUs />}
       

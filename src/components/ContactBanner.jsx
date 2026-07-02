@@ -1,11 +1,13 @@
 import { useState, useRef, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Send, ArrowUpRight } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Mail, Phone, MapPin, Send, ArrowUpRight, X, MessageCircle } from 'lucide-react';
 import gsap from 'gsap';
 
 export default function ContactBanner({ playSound }) {
-  const [form, setForm] = useState({ name: '', email: '', service: 'web', message: '' });
+  const [form, setForm] = useState({ name: '', email: '', phone: '', service: 'web', message: '' });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [showWhatsappModal, setShowWhatsappModal] = useState(false);
+  const [whatsappUrl, setWhatsappUrl] = useState('');
   const submitBtnRef = useRef(null);
 
   const handleInputChange = (e) => {
@@ -17,8 +19,6 @@ export default function ContactBanner({ playSound }) {
     e.preventDefault();
     if (playSound) playSound('click');
 
-    // Prepare WhatsApp Message Redirection
-    const phoneNumber = "919966093777";
     const serviceLabels = {
       seo: "Search Engine Optimization",
       content: "Content Marketing",
@@ -35,20 +35,48 @@ export default function ContactBanner({ playSound }) {
     const serviceName = serviceLabels[form.service] || form.service;
     const text = `*New Lead from AvenirMark website*\n\n` +
                  `*Name:* ${form.name}\n` +
-                 `*Email:* ${form.email}\n` +
+                 `*Phone:* ${form.phone}\n` +
+                 `*Email:* ${form.email || 'Not Shared'}\n` +
                  `*Selected Service:* ${serviceName}\n` +
-                 `*Project Scope:* ${form.message}`;
+                 `*Project Scope:* ${form.message || 'Not Shared'}`;
 
     const encodedText = encodeURIComponent(text);
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedText}`;
+    const url = `https://wa.me/919966093777?text=${encodedText}`;
+    setWhatsappUrl(url);
 
-    // Redirect to WhatsApp
-    window.open(whatsappUrl, '_blank');
+    // Call backend API
+    fetch('/api/send-email.php', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: form.name,
+        phone: form.phone,
+        email: form.email,
+        service: serviceName,
+        message: form.message,
+      }),
+    })
+      .then((res) => {
+        const contentType = res.headers.get('content-type');
+        if (contentType && contentType.includes('application/json')) {
+          return res.json();
+        }
+        return res.text().then((text) => ({ success: false, rawText: text }));
+      })
+      .then((data) => {
+        console.log("Contact form email sent:", data);
+      })
+      .catch((err) => {
+        console.error("Error sending contact email:", err);
+      });
 
+    // Reset Form and show popup
+    setForm({ name: '', email: '', phone: '', service: 'web', message: '' });
     setIsSubmitted(true);
+    setShowWhatsappModal(true);
+
     setTimeout(() => {
       setIsSubmitted(false);
-      setForm({ name: '', email: '', service: 'web', message: '' });
     }, 4000);
   };
 
@@ -278,6 +306,8 @@ export default function ContactBanner({ playSound }) {
             boxShadow: '0 20px 50px rgba(27, 39, 81, 0.3)',
             background: '#1b2751',
             border: '1px solid rgba(255, 222, 66, 0.15)',
+            borderRadius: '16px',
+            overflow: 'hidden',
           }}
         >
           {isSubmitted ? (
@@ -323,7 +353,7 @@ export default function ContactBanner({ playSound }) {
               {/* Name field */}
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem', position: 'relative' }}>
                 <label style={{ fontSize: '0.8rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px', color: '#CBD5E1' }}>
-                  Full Name
+                  Full Name *
                 </label>
                 <input
                   required
@@ -351,10 +381,9 @@ export default function ContactBanner({ playSound }) {
               {/* Email field */}
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
                 <label style={{ fontSize: '0.8rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px', color: '#CBD5E1' }}>
-                  Email Address
+                  Email Address (Optional)
                 </label>
                 <input
-                  required
                   type="email"
                   name="email"
                   value={form.email}
@@ -376,12 +405,41 @@ export default function ContactBanner({ playSound }) {
                 />
               </div>
 
+              {/* Mobile Number field */}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
+                <label style={{ fontSize: '0.8rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px', color: '#CBD5E1' }}>
+                  Mobile Number *
+                </label>
+                <input
+                  required
+                  type="tel"
+                  name="phone"
+                  value={form.phone}
+                  onChange={handleInputChange}
+                  onMouseEnter={handleHover}
+                  placeholder="Your mobile number"
+                  style={{
+                    background: 'rgba(255, 255, 255, 0.03)',
+                    border: '1px solid rgba(255, 255, 255, 0.12)',
+                    borderRadius: '10px',
+                    padding: '1rem 1.2rem',
+                    color: '#FFFFFF',
+                    fontFamily: 'var(--font-body)',
+                    outline: 'none',
+                    transition: 'all 0.3s ease',
+                    cursor: 'none',
+                  }}
+                  className="contact-input"
+                />
+              </div>
+
               {/* Service selection dropdown */}
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
                 <label style={{ fontSize: '0.8rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px', color: '#CBD5E1' }}>
-                  Select Service
+                  Select Service *
                 </label>
                 <select
+                  required
                   name="service"
                   value={form.service}
                   onChange={handleInputChange}
@@ -415,10 +473,9 @@ export default function ContactBanner({ playSound }) {
               {/* Message field */}
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
                 <label style={{ fontSize: '0.8rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px', color: '#CBD5E1' }}>
-                  Project Scope
+                  Project Scope (Optional)
                 </label>
                 <textarea
-                  required
                   rows={4}
                   name="message"
                   value={form.message}
@@ -458,12 +515,154 @@ export default function ContactBanner({ playSound }) {
                     justifyContent: 'center',
                   }}
                 >
-                  Start the Conversation <ArrowUpRight size={18} />
+                  Submit
                 </button>
               </div>
 
             </form>
           )}
+
+          {/* WhatsApp Direct Connect Modal Popup */}
+          <AnimatePresence>
+            {showWhatsappModal && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                style={{
+                  position: 'fixed',
+                  top: 0,
+                  left: 0,
+                  width: '100%',
+                  height: '100%',
+                  background: 'rgba(27, 39, 81, 0.3)',
+                  backdropFilter: 'blur(15px)',
+                  WebkitBackdropFilter: 'blur(15px)',
+                  zIndex: 999999,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }}
+              >
+                <motion.div
+                  initial={{ scale: 0.9, y: 20 }}
+                  animate={{ scale: 1, y: 0 }}
+                  exit={{ scale: 0.9, y: 20 }}
+                  style={{
+                    width: '95%',
+                    maxWidth: '460px',
+                    padding: '2.5rem',
+                    borderRadius: '24px',
+                    background: 'rgba(255, 255, 255, 0.96)',
+                    border: '1px solid rgba(27, 39, 81, 0.12)',
+                    boxShadow: '0 25px 60px rgba(27, 39, 81, 0.15), var(--shadow-glow)',
+                    textAlign: 'center',
+                    position: 'relative',
+                  }}
+                >
+                  <button
+                    onClick={() => setShowWhatsappModal(false)}
+                    onMouseEnter={handleHover}
+                    style={{
+                      position: 'absolute',
+                      top: '1.2rem',
+                      right: '1.2rem',
+                      background: 'rgba(27, 39, 81, 0.05)',
+                      border: '1px solid rgba(27, 39, 81, 0.08)',
+                      borderRadius: '50%',
+                      width: '36px',
+                      height: '36px',
+                      color: 'var(--text-secondary)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      cursor: 'none',
+                    }}
+                  >
+                    <X size={18} />
+                  </button>
+
+                  <div
+                    style={{
+                      width: '60px',
+                      height: '60px',
+                      borderRadius: '50%',
+                      background: 'rgba(212, 175, 55, 0.1)',
+                      border: '1px solid var(--accent)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      color: 'var(--text-primary)',
+                      margin: '0 auto 1.5rem auto',
+                    }}
+                  >
+                    <MessageCircle size={28} />
+                  </div>
+
+                  <h3 style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '0.8rem', fontFamily: 'var(--font-display)' }}>
+                    Chat on WhatsApp?
+                  </h3>
+                  <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: '1.6', marginBottom: '2.2rem' }}>
+                    Your project brief has been compiled and emailed to our strategists. Would you also like to connect with us directly on WhatsApp to expedite your consultation?
+                  </p>
+
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
+                    <a
+                      href={whatsappUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      onMouseEnter={handleHover}
+                      onClick={() => {
+                        if (playSound) playSound('click');
+                        setShowWhatsappModal(false);
+                      }}
+                      style={{
+                        background: '#25D366',
+                        color: '#FFFFFF',
+                        textDecoration: 'none',
+                        padding: '1rem 2rem',
+                        borderRadius: '50px',
+                        fontFamily: 'var(--font-display)',
+                        fontWeight: 700,
+                        fontSize: '0.9rem',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        gap: '0.6rem',
+                        boxShadow: '0 4px 15px rgba(37, 211, 102, 0.3)',
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.5px',
+                        cursor: 'none',
+                      }}
+                    >
+                      <MessageCircle size={20} />
+                      Chat on WhatsApp
+                    </a>
+                    <button
+                      onClick={() => setShowWhatsappModal(false)}
+                      onMouseEnter={handleHover}
+                      style={{
+                        background: 'rgba(27, 39, 81, 0.05)',
+                        border: '1px solid rgba(27, 39, 81, 0.08)',
+                        color: 'var(--text-secondary)',
+                        padding: '1rem 2rem',
+                        borderRadius: '50px',
+                        fontFamily: 'var(--font-display)',
+                        fontWeight: 700,
+                        fontSize: '0.9rem',
+                        cursor: 'none',
+                        outline: 'none',
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.5px',
+                      }}
+                    >
+                      No, Thank You
+                    </button>
+                  </div>
+                </motion.div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </motion.div>
       </div>
 
