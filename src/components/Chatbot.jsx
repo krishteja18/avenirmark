@@ -621,6 +621,23 @@ export default function Chatbot({ playSound }) {
         .chatbot-suggestions::-webkit-scrollbar {
           height: 0px;
         }
+        @media (max-width: 768px) {
+          .chatbot-trigger-btn {
+            bottom: 1rem !important;
+            right: 1rem !important;
+            width: 52px !important;
+            height: 52px !important;
+          }
+          .chatbot-window {
+            bottom: 5rem !important;
+            right: 1rem !important;
+            left: 1rem !important;
+            width: calc(100vw - 2rem) !important;
+            max-width: none !important;
+            height: 72vh !important;
+            max-height: 480px !important;
+          }
+        }
       `}</style>
     </>
   );

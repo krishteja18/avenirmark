@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import Lenis from 'lenis';
-import CustomCursor from './components/CustomCursor';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import MarqueeStrip from './components/MarqueeStrip';
@@ -172,11 +171,8 @@ export default function App() {
 
   return (
     <>
-      {/* Premium custom mouse cursor */}
-      {currentRoute.name !== 'admin' && <CustomCursor />}
-
-      {/* Floating glass header (hide when on admin dashboard for clean CMS experience) */}
-      {currentRoute.name !== 'admin' && <Header />}
+      {/* Floating glass header (hide when on admin or conference for clean CMS/landing page experience) */}
+      {currentRoute.name !== 'admin' && currentRoute.name !== 'ai-conference' && <Header />}
 
       {/* Floating Chatbot Assistant */}
       {currentRoute.name !== 'admin' && <Chatbot />}
@@ -243,8 +239,8 @@ export default function App() {
         </>
       )}
 
-      {/* Detailed Premium Footer (hide when on admin dashboard) */}
-      {currentRoute.name !== 'admin' && <Footer />}
+      {/* Detailed Premium Footer (hide when on admin or conference) */}
+      {currentRoute.name !== 'admin' && currentRoute.name !== 'ai-conference' && <Footer />}
 
       <style>{`
         @keyframes spin {

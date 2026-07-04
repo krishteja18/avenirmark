@@ -58,7 +58,7 @@ body {
   overflow-x: hidden;
   background-color: var(--bg-primary);
   min-height: 100vh;
-  cursor: none; /* Hide default cursor for custom spotlight cursor */
+  cursor: default;
 }
 
 /* For mobile/tablet, restore default cursor if user wishes, or keep elegant touch settings */
@@ -69,7 +69,7 @@ body {
 }
 
 a, button {
-  cursor: none; /* Hide default cursor on interactive items */
+  cursor: pointer;
 }
 
 /* Selection */
@@ -344,5 +344,40 @@ body.admin-mode input[type="text"],
 body.admin-mode input[type="password"],
 body.admin-mode input[type="email"],
 body.admin-mode textarea {
+  cursor: text !important;
+}
+
+/* Global browser cursor restoration to force pointer/default styling everywhere */
+body, body * {
+  cursor: auto;
+}
+
+a, 
+button, 
+[role="button"], 
+.clickable, 
+input[type="submit"], 
+input[type="button"], 
+select, 
+option,
+.btn-premium,
+.conf-btn-gold,
+.conf-accent-btn,
+.conf-nav-link,
+.conf-logo,
+.speaker-item,
+.abstract-input,
+.abstract-textarea,
+.glass-input,
+.chat-input-container button,
+.chatbot-toggle-btn {
+  cursor: pointer !important;
+}
+
+input[type="text"], 
+input[type="password"], 
+input[type="email"], 
+input[type="tel"], 
+textarea {
   cursor: text !important;
 }
