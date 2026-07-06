@@ -7,7 +7,7 @@ import { motion, useInView, useMotionValue, useSpring, useTransform, useScroll }
    range, and are gently repelled by the cursor. Gold / cyan /
    magenta node hues over deep space.
 ============================================================ */
-export function NeuralCanvas({ density = 11000, maxSpeed = 0.22, linkDist = 130, hue = 'mixed', style }) {
+export function NeuralCanvas({ density = 11000, maxSpeed = 0.22, linkDist = 130, hue = 'mixed', palette, style }) {
   const canvasRef = useRef(null);
   const mouseRef = useRef({ x: -9999, y: -9999 });
 
@@ -20,9 +20,9 @@ export function NeuralCanvas({ density = 11000, maxSpeed = 0.22, linkDist = 130,
     let W = 0, H = 0;
     const DPR = Math.min(window.devicePixelRatio || 1, 2);
 
-    const COLORS = hue === 'mixed'
-      ? ['255, 222, 66', '83, 203, 243', '255, 91, 132', '139, 92, 246']
-      : ['255, 222, 66'];
+    const COLORS = palette || (hue === 'mixed'
+      ? ['217, 119, 6', '2, 132, 199', '225, 29, 72', '124, 58, 237']
+      : ['217, 119, 6']);
 
     const build = () => {
       const parent = canvas.parentElement;
@@ -124,7 +124,7 @@ export function NeuralCanvas({ density = 11000, maxSpeed = 0.22, linkDist = 130,
             ctx.beginPath();
             ctx.moveTo(m.x, m.y);
             ctx.lineTo(p.x, p.y);
-            ctx.strokeStyle = `rgba(255, 222, 66, ${alpha})`;
+            ctx.strokeStyle = `rgba(${COLORS[0]}, ${alpha})`;
             ctx.lineWidth = 0.7;
             ctx.stroke();
           }
@@ -141,7 +141,7 @@ export function NeuralCanvas({ density = 11000, maxSpeed = 0.22, linkDist = 130,
       window.removeEventListener('mouseout', onLeave);
       cancelAnimationFrame(raf);
     };
-  }, [density, maxSpeed, linkDist, hue]);
+  }, [density, maxSpeed, linkDist, hue, palette ? palette.join('|') : '']);
 
   return (
     <canvas
@@ -156,10 +156,10 @@ export function NeuralCanvas({ density = 11000, maxSpeed = 0.22, linkDist = 130,
 ============================================================ */
 export function Aurora() {
   const blobs = [
-    { c: 'rgba(112, 32, 192, 0.35)', size: 520, x: '8%', y: '12%', dur: 19, dx: 90, dy: 60 },
-    { c: 'rgba(83, 203, 243, 0.22)', size: 460, x: '68%', y: '8%', dur: 23, dx: -80, dy: 90 },
-    { c: 'rgba(255, 91, 132, 0.16)', size: 420, x: '55%', y: '55%', dur: 26, dx: 70, dy: -70 },
-    { c: 'rgba(255, 222, 66, 0.10)', size: 480, x: '20%', y: '60%', dur: 21, dx: -60, dy: -50 },
+    { c: 'rgba(124, 58, 237, 0.14)', size: 520, x: '8%', y: '12%', dur: 19, dx: 90, dy: 60 },
+    { c: 'rgba(2, 132, 199, 0.13)', size: 460, x: '68%', y: '8%', dur: 23, dx: -80, dy: 90 },
+    { c: 'rgba(225, 29, 72, 0.09)', size: 420, x: '55%', y: '55%', dur: 26, dx: 70, dy: -70 },
+    { c: 'rgba(217, 119, 6, 0.12)', size: 480, x: '20%', y: '60%', dur: 21, dx: -60, dy: -50 },
   ];
   return (
     <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', pointerEvents: 'none' }} aria-hidden="true">
@@ -308,7 +308,7 @@ export function TiltCard({ children, max = 10, glare = true, style, className, .
             pointerEvents: 'none',
             opacity: glarePos.o,
             transition: 'opacity 0.4s',
-            background: `radial-gradient(circle at ${glarePos.x}% ${glarePos.y}%, rgba(255,255,255,0.14) 0%, rgba(255,222,66,0.05) 30%, transparent 60%)`,
+            background: `radial-gradient(circle at ${glarePos.x}% ${glarePos.y}%, rgba(255, 200, 80, 0.16) 0%, rgba(2, 132, 199, 0.04) 35%, transparent 60%)`,
             zIndex: 3,
           }}
         />
@@ -320,7 +320,7 @@ export function TiltCard({ children, max = 10, glare = true, style, className, .
 /* ============================================================
    SPOTLIGHT CARD — radial glow tracks the cursor via CSS vars
 ============================================================ */
-export function SpotlightCard({ children, color = '255, 222, 66', style, className, ...rest }) {
+export function SpotlightCard({ children, color = '217, 119, 6', style, className, ...rest }) {
   const ref = useRef(null);
   const onMove = (e) => {
     const rect = ref.current.getBoundingClientRect();
@@ -486,9 +486,9 @@ export function ScrollProgress() {
         height: '2px',
         transformOrigin: '0%',
         scaleX,
-        background: 'linear-gradient(90deg, var(--accent), #53CBF3, #FF5B84)',
+        background: 'linear-gradient(90deg, #D97706, #0284C7, #E11D48)',
         zIndex: 10000,
-        boxShadow: '0 0 12px rgba(255,222,66,0.5)',
+        boxShadow: '0 0 12px rgba(217, 119, 6, 0.4)',
       }}
     />
   );

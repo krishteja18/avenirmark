@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Calendar, Check, X, MapPin, Download, ArrowUpRight, ArrowDown, Award, BookOpen, User, Shield, Menu, Globe, Sparkles, Plane, TrainFront, Bus } from 'lucide-react';
 import {
   NeuralCanvas, Aurora, ScrambleText, KineticTitle, Reveal, TiltCard, SpotlightCard,
-  Magnetic, CountUp, FlipUnit, Marquee, SectionHeading, ScrollProgress, SuccessCheck, ParallaxFloat,
+  Magnetic, CountUp, FlipUnit, Marquee, SectionHeading, ScrollProgress, SuccessCheck,
 } from './conference/fx';
 
 export default function AIConference({ playSound }) {
@@ -195,7 +195,7 @@ export default function AIConference({ playSound }) {
       speakers: "Dr. Rajnish Khanna",
       affiliation: "i-Cultiver, Inc. & Stanford University",
       initials: "RK",
-      color: "#FF5B84",
+      color: "#E11D48",
       time: "10:00 CEST",
       room: "Hall Alpha"
     },
@@ -205,7 +205,7 @@ export default function AIConference({ playSound }) {
       speakers: "Dr. Jeremy Sweet",
       affiliation: "Sweet Environmental Consultants, UK",
       initials: "JS",
-      color: "#53CBF3",
+      color: "#0284C7",
       time: "11:30 CEST",
       room: "Hall Beta"
     },
@@ -215,7 +215,7 @@ export default function AIConference({ playSound }) {
       speakers: "Prof. Costantino Paciolla",
       affiliation: "University of Bari Aldo Moro, Italy",
       initials: "CP",
-      color: "#FFDE42",
+      color: "#D97706",
       time: "14:00 CEST",
       room: "Hall Alpha"
     },
@@ -225,7 +225,7 @@ export default function AIConference({ playSound }) {
       speakers: "Dr. Jorge A. Zavala",
       affiliation: "University of Buenos Aires, Argentina",
       initials: "JZ",
-      color: "#10B981",
+      color: "#059669",
       time: "15:15 CEST",
       room: "Hall Gamma"
     }
@@ -243,10 +243,10 @@ export default function AIConference({ playSound }) {
   ];
 
   const speakers = [
-    { initials: 'RK', name: 'Dr. Rajnish Khanna', org: 'Stanford / i-Cultiver', color: '#FF5B84', gradient: 'linear-gradient(135deg, #FF5B84 0%, #8B5CF6 100%)', photo: 'https://randomuser.me/api/portraits/men/32.jpg', bio: 'Leading pioneer in applying neural modeling to analyze photosynthesis pathways and plant development networks under extreme biological stress.' },
-    { initials: 'JS', name: 'Dr. Jeremy Sweet', org: 'Environmental Advisor, UK', color: '#53CBF3', gradient: 'linear-gradient(135deg, #53CBF3 0%, #10B981 100%)', photo: 'https://randomuser.me/api/portraits/men/52.jpg', bio: 'Specialist in algorithmic biosafety and crop forecasting, advising international boards on ecological impact models.' },
-    { initials: 'CP', name: 'Prof. Costantino Paciolla', org: 'University of Bari, Italy', color: '#FFDE42', gradient: 'linear-gradient(135deg, #FFDE42 0%, #F59E0B 100%)', photo: 'https://randomuser.me/api/portraits/men/75.jpg', bio: 'Expert biochemist utilizing deep neural networks to diagnostic cellular defense mechanisms in Mediterranean crops.' },
-    { initials: 'JZ', name: 'Dr. Jorge A. Zavala', org: 'University of Buenos Aires', color: '#10B981', gradient: 'linear-gradient(135deg, #10B981 0%, #3B82F6 100%)', photo: 'https://randomuser.me/api/portraits/men/41.jpg', bio: 'Pioneering study in insect-plant defense predictions and environmental adaptations driven by generative machine learning algorithms.' },
+    { initials: 'RK', name: 'Dr. Rajnish Khanna', org: 'Stanford / i-Cultiver', color: '#E11D48', gradient: 'linear-gradient(135deg, #E11D48 0%, #8B5CF6 100%)', photo: 'https://randomuser.me/api/portraits/men/32.jpg', bio: 'Leading pioneer in applying neural modeling to analyze photosynthesis pathways and plant development networks under extreme biological stress.' },
+    { initials: 'JS', name: 'Dr. Jeremy Sweet', org: 'Environmental Advisor, UK', color: '#0284C7', gradient: 'linear-gradient(135deg, #0284C7 0%, #059669 100%)', photo: 'https://randomuser.me/api/portraits/men/52.jpg', bio: 'Specialist in algorithmic biosafety and crop forecasting, advising international boards on ecological impact models.' },
+    { initials: 'CP', name: 'Prof. Costantino Paciolla', org: 'University of Bari, Italy', color: '#D97706', gradient: 'linear-gradient(135deg, #D97706 0%, #F59E0B 100%)', photo: 'https://randomuser.me/api/portraits/men/75.jpg', bio: 'Expert biochemist utilizing deep neural networks to diagnostic cellular defense mechanisms in Mediterranean crops.' },
+    { initials: 'JZ', name: 'Dr. Jorge A. Zavala', org: 'University of Buenos Aires', color: '#059669', gradient: 'linear-gradient(135deg, #059669 0%, #3B82F6 100%)', photo: 'https://randomuser.me/api/portraits/men/41.jpg', bio: 'Pioneering study in insect-plant defense predictions and environmental adaptations driven by generative machine learning algorithms.' },
   ];
 
   const speakerPhotos = {
@@ -257,16 +257,16 @@ export default function AIConference({ playSound }) {
   };
 
   const committee = [
-    { initials: 'MB', name: 'Dr. M. Ben Massoud', org: 'Dublin University, Ireland', color: '#53CBF3' },
-    { initials: 'SL', name: 'Dr. Sarah L.', org: 'Cambridge Biotech Institute', color: '#FF5B84' },
-    { initials: 'HG', name: 'Prof. Hans G.', org: 'Technical University Munich', color: '#FFDE42' },
-    { initials: 'AM', name: 'Dr. Akira M.', org: 'Kyoto Agri-Systems Lab', color: '#10B981' },
+    { initials: 'MB', name: 'Dr. M. Ben Massoud', org: 'Dublin University, Ireland', color: '#0284C7' },
+    { initials: 'SL', name: 'Dr. Sarah L.', org: 'Cambridge Biotech Institute', color: '#E11D48' },
+    { initials: 'HG', name: 'Prof. Hans G.', org: 'Technical University Munich', color: '#D97706' },
+    { initials: 'AM', name: 'Dr. Akira M.', org: 'Kyoto Agri-Systems Lab', color: '#059669' },
   ];
 
   const testimonials = [
-    { initials: 'VJ', name: 'Victor Janin', handle: '@victor_janin', color: '#FF5B84', quote: 'If you are into deep learning, GCAI is the site you need to follow. Their panels, models, and conferences have been invaluable. Accompanying tools and speakers are 10/10.' },
-    { initials: 'DP', name: 'Dimitra P.', handle: '@dimitrap_ai', color: '#53CBF3', quote: 'It is a real science showcase. It’s incredible to see how many researchers and engineers are joining in. Highly recommended! #GCAI2026' },
-    { initials: 'DM', name: 'Darwin Mador', handle: '@darwin_m', color: '#FFDE42', quote: 'Attending GCAI was the best decision! It’s practically ACCREDITED and keeps the research community focused on future-proofed solutions.' },
+    { initials: 'VJ', name: 'Victor Janin', handle: '@victor_janin', color: '#E11D48', quote: 'If you are into deep learning, GCAI is the site you need to follow. Their panels, models, and conferences have been invaluable. Accompanying tools and speakers are 10/10.' },
+    { initials: 'DP', name: 'Dimitra P.', handle: '@dimitrap_ai', color: '#0284C7', quote: 'It is a real science showcase. It’s incredible to see how many researchers and engineers are joining in. Highly recommended! #GCAI2026' },
+    { initials: 'DM', name: 'Darwin Mador', handle: '@darwin_m', color: '#D97706', quote: 'Attending GCAI was the best decision! It’s practically ACCREDITED and keeps the research community focused on future-proofed solutions.' },
   ];
 
   const faqs = [
@@ -294,11 +294,11 @@ export default function AIConference({ playSound }) {
   ];
 
   const inputBase = { padding: '0.95rem 1.15rem', fontSize: '0.9rem', outline: 'none' };
-  const labelBase = { fontSize: '0.7rem', fontWeight: 500, textTransform: 'uppercase', color: 'rgba(255,255,255,0.45)', letterSpacing: '1.2px' };
+  const labelBase = { fontSize: '0.7rem', fontWeight: 500, textTransform: 'uppercase', color: 'rgba(20, 22, 46,0.45)', letterSpacing: '1.2px' };
   const fieldCol = { display: 'flex', flexDirection: 'column', gap: '0.55rem' };
 
   return (
-    <div style={{ background: '#020204', color: '#FFFFFF', minHeight: '100vh', fontFamily: 'var(--font-body)', position: 'relative', overflowX: 'clip' }}>
+    <div style={{ background: '#F6F7FB', color: '#14162E', minHeight: '100vh', fontFamily: 'var(--font-body)', position: 'relative', overflowX: 'clip' }}>
 
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
@@ -312,10 +312,13 @@ export default function AIConference({ playSound }) {
         .gcai-root {
           --gc-display: 'Poppins', var(--font-display), sans-serif;
           --gc-body: 'Poppins', var(--font-body), sans-serif;
+          --accent: #B45309;
+          --gc-ink: #14162E;
           font-family: var(--gc-body);
           font-weight: 400;
+          color: var(--gc-ink);
         }
-        .gcai-root h1, .gcai-root h2, .gcai-root h3, .gcai-root h4 { color: #FFFFFF; }
+        .gcai-root h1, .gcai-root h2, .gcai-root h3, .gcai-root h4 { color: #14162E; }
 
         .gcai-display { font-family: var(--gc-display); }
         .serif-font {
@@ -331,14 +334,14 @@ export default function AIConference({ playSound }) {
           inset: 0;
           z-index: 9990;
           pointer-events: none;
-          opacity: 0.05;
+          opacity: 0.028;
           background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
         }
 
         .gcai-grid-bg {
           background-image:
-            linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+            linear-gradient(rgba(20, 22, 46, 0.045) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(20, 22, 46, 0.045) 1px, transparent 1px);
           background-size: 64px 64px;
           mask-image: radial-gradient(ellipse 90% 70% at 50% 40%, #000 30%, transparent 75%);
           -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 40%, #000 30%, transparent 75%);
@@ -346,15 +349,15 @@ export default function AIConference({ playSound }) {
 
         /* ------------------------------------------------ HEADER */
         .conf-banner-bar {
-          background: linear-gradient(90deg, rgba(255,222,66,0.10), rgba(83,203,243,0.08) 50%, rgba(255,91,132,0.10));
-          border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+          background: linear-gradient(90deg, rgba(217, 119, 6, 0.09), rgba(2, 132, 199, 0.07) 50%, rgba(225, 29, 72, 0.08));
+          border-bottom: 1px solid rgba(20, 22, 46, 0.08);
           backdrop-filter: blur(10px);
           padding: 0.5rem 1.5rem;
           text-align: center;
           font-size: 0.7rem;
           font-weight: 500;
           letter-spacing: 0.6px;
-          color: rgba(255,255,255,0.85);
+          color: rgba(20, 22, 46, 0.85);
           position: fixed;
           top: 0; left: 0; width: 100%;
           z-index: 1001;
@@ -368,10 +371,10 @@ export default function AIConference({ playSound }) {
           border-bottom: 1px solid transparent;
         }
         .conf-header.is-scrolled {
-          background: rgba(2, 2, 6, 0.72);
+          background: rgb(255 255 255 / 0.78);
           backdrop-filter: blur(20px) saturate(1.4);
           -webkit-backdrop-filter: blur(20px) saturate(1.4);
-          border-bottom-color: rgba(255, 255, 255, 0.07);
+          border-bottom-color: rgba(20, 22, 46, 0.08);
         }
 
         .conf-logo {
@@ -379,7 +382,7 @@ export default function AIConference({ playSound }) {
           font-weight: 500;
           letter-spacing: -0.5px;
           font-size: 1.2rem;
-          color: #FFFFFF;
+          color: #14162E;
           text-decoration: none;
           display: flex;
           align-items: center;
@@ -389,13 +392,13 @@ export default function AIConference({ playSound }) {
         .conf-logo-orb {
           width: 12px; height: 12px;
           border-radius: 50%;
-          background: radial-gradient(circle at 35% 35%, #FFF2A8, var(--accent) 55%, #B8960A);
-          box-shadow: 0 0 14px rgba(255,222,66,0.8), 0 0 34px rgba(255,222,66,0.35);
+          background: radial-gradient(circle at 35% 35%, #ffe97a, #ffde42 55%, #B8960A);
+          box-shadow: 0 0 10px rgba(216, 160, 12, 0.7), 0 0 26px rgba(216, 160, 12, 0.3);
           animation: orb-pulse 2.6s ease-in-out infinite;
         }
         @keyframes orb-pulse {
-          0%, 100% { transform: scale(1); box-shadow: 0 0 14px rgba(255,222,66,0.8), 0 0 34px rgba(255,222,66,0.3); }
-          50% { transform: scale(1.25); box-shadow: 0 0 20px rgba(255,222,66,1), 0 0 50px rgba(255,222,66,0.5); }
+          0%, 100% { transform: scale(1); box-shadow: 0 0 10px rgba(216, 160, 12, 0.7), 0 0 26px rgba(216, 160, 12, 0.25); }
+          50% { transform: scale(1.25); box-shadow: 0 0 16px rgba(216, 160, 12, 0.9), 0 0 40px rgba(216, 160, 12, 0.4); }
         }
 
         .conf-nav-link {
@@ -403,7 +406,7 @@ export default function AIConference({ playSound }) {
           font-size: 0.82rem;
           font-weight: 500;
           font-family: var(--gc-display);
-          color: rgba(255, 255, 255, 0.55);
+          color: rgba(20, 22, 46, 0.55);
           background: none;
           border: none;
           padding: 0.4rem 0.2rem;
@@ -411,7 +414,7 @@ export default function AIConference({ playSound }) {
           cursor: none;
           transition: color 0.25s;
         }
-        .conf-nav-link:hover, .conf-nav-link.active { color: #FFFFFF; }
+        .conf-nav-link:hover, .conf-nav-link.active { color: #14162E; }
 
         /* ------------------------------------------------ BUTTONS */
         .conf-btn-gold {
@@ -420,7 +423,7 @@ export default function AIConference({ playSound }) {
           align-items: center;
           justify-content: center;
           gap: 0.6rem;
-          background: linear-gradient(180deg, #FFE97A, var(--accent) 55%, #E8C520);
+          background: linear-gradient(180deg, #ffe97a, #ffde42 55%, #E8C520);
           color: #0A0800;
           font-weight: 600;
           font-family: var(--gc-display);
@@ -431,7 +434,7 @@ export default function AIConference({ playSound }) {
           text-decoration: none;
           text-transform: uppercase;
           letter-spacing: 1px;
-          box-shadow: 0 0 24px rgba(255, 222, 66, 0.25), inset 0 1px 0 rgba(255,255,255,0.6);
+          box-shadow: 0 8px 22px rgba(216, 160, 12, 0.30), inset 0 1px 0 rgb(255 255 255 / 0.6);
           transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s;
           cursor: none;
           overflow: hidden;
@@ -441,11 +444,11 @@ export default function AIConference({ playSound }) {
           position: absolute;
           top: 0; left: -80%;
           width: 50%; height: 100%;
-          background: linear-gradient(100deg, transparent, rgba(255,255,255,0.75), transparent);
+          background: linear-gradient(100deg, transparent, rgb(255 255 255 / 0.75), transparent);
           transform: skewX(-25deg);
           transition: left 0.6s ease;
         }
-        .conf-btn-gold:hover { transform: translateY(-2px) scale(1.02); box-shadow: 0 6px 40px rgba(255, 222, 66, 0.5), inset 0 1px 0 rgba(255,255,255,0.6); }
+        .conf-btn-gold:hover { transform: translateY(-2px) scale(1.02); box-shadow: 0 12px 34px rgba(216, 160, 12, 0.45), inset 0 1px 0 rgb(255 255 255 / 0.6); }
         .conf-btn-gold:hover::after { left: 130%; }
 
         .conf-btn-ghost {
@@ -453,9 +456,9 @@ export default function AIConference({ playSound }) {
           align-items: center;
           justify-content: center;
           gap: 0.6rem;
-          background: rgba(255,255,255,0.03);
-          border: 1px solid rgba(83, 203, 243, 0.35);
-          color: #53CBF3;
+          background: rgb(255 255 255 / 0.5);
+          border: 1px solid rgba(2, 132, 199, 0.35);
+          color: #0284C7;
           font-weight: 500;
           font-family: var(--gc-display);
           font-size: 0.8rem;
@@ -469,10 +472,10 @@ export default function AIConference({ playSound }) {
           backdrop-filter: blur(8px);
         }
         .conf-btn-ghost:hover {
-          background: rgba(83, 203, 243, 0.12);
-          border-color: #53CBF3;
-          color: #FFF;
-          box-shadow: 0 0 30px rgba(83, 203, 243, 0.25);
+          background: rgba(2, 132, 199, 0.1);
+          border-color: #0284C7;
+          color: #075985;
+          box-shadow: 0 8px 24px rgba(2, 132, 199, 0.18);
           transform: translateY(-2px);
         }
 
@@ -487,18 +490,18 @@ export default function AIConference({ playSound }) {
           font-weight: 500;
           font-family: var(--gc-display);
           text-transform: uppercase;
-          color: var(--accent);
+          color: #A16207;
           letter-spacing: 3.5px;
           padding: 0.45rem 1rem;
-          border: 1px solid rgba(255, 222, 66, 0.22);
+          border: 1px solid rgba(180, 83, 9, 0.25);
           border-radius: 100px;
-          background: rgba(255, 222, 66, 0.05);
+          background: rgba(217, 119, 6, 0.06);
           margin-bottom: 1.4rem;
         }
         .section-kicker-dot {
           width: 6px; height: 6px; border-radius: 50%;
-          background: var(--accent);
-          box-shadow: 0 0 8px var(--accent);
+          background: #D97706;
+          box-shadow: 0 0 8px rgba(217, 119, 6, 0.7);
           animation: orb-pulse 2s ease-in-out infinite;
         }
 
@@ -521,7 +524,7 @@ export default function AIConference({ playSound }) {
           letter-spacing: -0.05em;
           white-space: nowrap;
           color: transparent;
-          -webkit-text-stroke: 1px rgba(255, 255, 255, 0.045);
+          -webkit-text-stroke: 1px rgba(20, 22, 46, 0.07);
           pointer-events: none;
           user-select: none;
           z-index: 0;
@@ -534,15 +537,15 @@ export default function AIConference({ playSound }) {
           gap: 0.7rem;
           padding: 0.5rem 1.2rem;
           border-radius: 100px;
-          border: 1px solid rgba(255,255,255,0.12);
-          background: rgba(255,255,255,0.03);
+          border: 1px solid rgba(20, 22, 46, 0.12);
+          background: rgb(255 255 255 / 0.65);
           backdrop-filter: blur(10px);
           font-family: var(--gc-display);
           font-size: 0.72rem;
           font-weight: 600;
           letter-spacing: 2.5px;
           text-transform: uppercase;
-          color: rgba(255,255,255,0.75);
+          color: rgba(20, 22, 46, 0.75);
         }
 
         .hero-title {
@@ -552,13 +555,13 @@ export default function AIConference({ playSound }) {
           line-height: 1.02;
           letter-spacing: -0.025em;
           margin: 0;
-          background: linear-gradient(115deg, #FFFFFF 25%, #FFDE42 42%, #53CBF3 58%, #FFFFFF 78%);
+          background: linear-gradient(115deg, #14162E 25%, #D97706 42%, #0284C7 58%, #14162E 78%);
           background-size: 220% auto;
           -webkit-background-clip: text;
           background-clip: text;
           -webkit-text-fill-color: transparent;
           animation: title-shimmer 7s linear infinite;
-          filter: drop-shadow(0 0 32px rgba(255,222,66,0.12));
+          filter: drop-shadow(0 8px 28px rgba(20, 22, 46, 0.10));
         }
         @keyframes title-shimmer { to { background-position: 220% center; } }
 
@@ -571,11 +574,11 @@ export default function AIConference({ playSound }) {
           font-weight: 600;
           letter-spacing: 2px;
           text-transform: uppercase;
-          color: rgba(255,255,255,0.8);
+          color: rgba(20, 22, 46, 0.78);
           padding: 0.55rem 1.1rem;
           border-radius: 100px;
-          border: 1px solid rgba(255,255,255,0.1);
-          background: rgba(255,255,255,0.03);
+          border: 1px solid rgba(20, 22, 46, 0.1);
+          background: rgb(255 255 255 / 0.7);
         }
 
         /* ------------------------------------------------ FLIP COUNTDOWN */
@@ -584,29 +587,28 @@ export default function AIConference({ playSound }) {
         .flip-digit-window {
           width: 46px; height: 64px;
           border-radius: 12px;
-          background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.015));
-          border: 1px solid rgba(255,255,255,0.1);
+          background: linear-gradient(180deg, #FFFFFF, #F4F6FB);
+          border: 1px solid rgba(20, 22, 46, 0.1);
           overflow: hidden;
           display: flex;
           align-items: center;
           justify-content: center;
           position: relative;
-          box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 10px 24px rgba(0,0,0,0.45);
+          box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.9), 0 12px 26px rgba(20, 22, 46, 0.08);
         }
         .flip-digit-window::after {
           content: '';
           position: absolute;
           left: 8%; right: 8%; top: 50%;
           height: 1px;
-          background: rgba(255,255,255,0.09);
+          background: rgba(20, 22, 46, 0.07);
         }
         .flip-digit {
           font-family: var(--gc-display);
           font-variant-numeric: tabular-nums;
           font-size: 2rem;
           font-weight: 500;
-          color: var(--accent);
-          text-shadow: 0 0 18px rgba(255,222,66,0.4);
+          color: #B45309;
         }
         .flip-unit-label {
           font-family: var(--gc-display);
@@ -614,7 +616,7 @@ export default function AIConference({ playSound }) {
           font-weight: 500;
           text-transform: uppercase;
           letter-spacing: 2.5px;
-          color: rgba(255,255,255,0.4);
+          color: rgba(20, 22, 46, 0.45);
         }
 
         /* ------------------------------------------------ MARQUEE */
@@ -639,23 +641,23 @@ export default function AIConference({ playSound }) {
           font-size: 1.5rem;
           font-weight: 500;
           letter-spacing: -0.5px;
-          color: rgba(255,255,255,0.35);
+          color: rgba(20, 22, 46, 0.38);
           white-space: nowrap;
           transition: color 0.3s, text-shadow 0.3s;
         }
-        .marquee-logo:hover { color: #FFFFFF; text-shadow: 0 0 24px rgba(255,255,255,0.4); }
+        .marquee-logo:hover { color: #14162E; }
 
         /* ------------------------------------------------ CARDS */
         .bento-card {
-          background: linear-gradient(160deg, rgba(255,255,255,0.035), rgba(255,255,255,0.008));
-          backdrop-filter: blur(14px);
-          border: 1px solid rgba(255, 255, 255, 0.08);
+          background: #FFFFFF;
+          border: 1px solid rgba(20, 22, 46, 0.09);
           border-radius: 22px;
+          box-shadow: 0 2px 10px rgba(20, 22, 46, 0.04);
           transition: border-color 0.4s, box-shadow 0.4s, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .bento-card:hover {
-          border-color: rgba(255, 222, 66, 0.35);
-          box-shadow: 0 24px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,222,66,0.08);
+          border-color: rgba(217, 119, 6, 0.45);
+          box-shadow: 0 24px 50px rgba(20, 22, 46, 0.12);
           transform: translateY(-4px);
         }
 
@@ -667,8 +669,8 @@ export default function AIConference({ playSound }) {
           border-radius: inherit;
           padding: 1px;
           background: conic-gradient(from var(--angle, 0deg),
-            transparent 0deg, rgba(255,222,66,0.9) 40deg, transparent 90deg,
-            transparent 180deg, rgba(83,203,243,0.9) 220deg, transparent 270deg);
+            transparent 0deg, rgba(217, 119, 6, 0.9) 40deg, transparent 90deg,
+            transparent 180deg, rgba(2, 132, 199, 0.9) 220deg, transparent 270deg);
           -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
           -webkit-mask-composite: xor;
           mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
@@ -683,7 +685,7 @@ export default function AIConference({ playSound }) {
           position: relative;
           border-radius: 50%;
           padding: 3px;
-          background: conic-gradient(from var(--angle, 0deg), var(--ring-a, #FFDE42), transparent 30%, var(--ring-a, #FFDE42) 55%, transparent 80%, var(--ring-a, #FFDE42));
+          background: conic-gradient(from var(--angle, 0deg), var(--ring-a, #D97706), transparent 30%, var(--ring-a, #D97706) 55%, transparent 80%, var(--ring-a, #D97706));
           animation: conic-spin 4s linear infinite;
         }
 
@@ -711,8 +713,9 @@ export default function AIConference({ playSound }) {
           border-radius: 3px;
         }
         .talk-row:hover {
-          background: rgba(255, 255, 255, 0.035);
-          border-color: rgba(255, 255, 255, 0.09);
+          background: #FFFFFF;
+          border-color: rgba(20, 22, 46, 0.09);
+          box-shadow: 0 14px 34px rgba(20, 22, 46, 0.08);
           transform: translateX(8px);
         }
         .talk-row:hover::before { transform: scaleY(1); }
@@ -721,7 +724,7 @@ export default function AIConference({ playSound }) {
           font-size: 2.6rem;
           font-weight: 500;
           color: transparent;
-          -webkit-text-stroke: 1px rgba(255,255,255,0.18);
+          -webkit-text-stroke: 1px rgba(20, 22, 46, 0.25);
           line-height: 1;
           transition: all 0.4s;
           flex-shrink: 0;
@@ -732,25 +735,25 @@ export default function AIConference({ playSound }) {
         /* ------------------------------------------------ TICKETS */
         .ticket-pass {
           position: relative;
-          background: linear-gradient(165deg, rgba(255,255,255,0.045), rgba(255,255,255,0.01));
-          backdrop-filter: blur(14px);
-          border: 1px solid rgba(255, 255, 255, 0.09);
+          background: #FFFFFF;
+          border: 1px solid rgba(20, 22, 46, 0.09);
           border-radius: 22px;
           padding: 2.4rem 2.2rem 2.2rem;
           display: flex;
           flex-direction: column;
           justify-content: space-between;
           overflow: hidden;
+          box-shadow: 0 2px 10px rgba(20, 22, 46, 0.04);
           transition: border-color 0.4s, transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s;
         }
         .ticket-pass:hover {
           transform: translateY(-8px);
-          border-color: rgba(255, 222, 66, 0.4);
-          box-shadow: 0 28px 60px rgba(0,0,0,0.55), 0 0 40px rgba(255,222,66,0.07);
+          border-color: rgba(217, 119, 6, 0.5);
+          box-shadow: 0 28px 55px rgba(20, 22, 46, 0.13);
         }
         .ticket-divider {
           position: relative;
-          border-top: 2px dashed rgba(255,255,255,0.12);
+          border-top: 2px dashed rgba(20, 22, 46, 0.14);
           margin: 1.6rem -2.2rem 1.4rem;
         }
         .ticket-divider::before, .ticket-divider::after {
@@ -759,8 +762,8 @@ export default function AIConference({ playSound }) {
           top: -11px;
           width: 22px; height: 22px;
           border-radius: 50%;
-          background: #020204;
-          border: 1px solid rgba(255,255,255,0.09);
+          background: #F6F7FB;
+          border: 1px solid rgba(20, 22, 46, 0.1);
         }
         .ticket-divider::before { left: -11px; }
         .ticket-divider::after { right: -11px; }
@@ -773,15 +776,15 @@ export default function AIConference({ playSound }) {
           letter-spacing: 2px;
           padding: 0.35rem 0.8rem;
           border-radius: 100px;
-          border: 1px solid rgba(255,255,255,0.14);
-          color: rgba(255,255,255,0.65);
+          border: 1px solid rgba(20, 22, 46, 0.16);
+          color: rgba(20, 22, 46, 0.6);
           margin-bottom: 1.2rem;
         }
         .ticket-tag.hot {
-          border-color: rgba(255,222,66,0.5);
-          color: var(--accent);
-          background: rgba(255,222,66,0.07);
-          box-shadow: 0 0 18px rgba(255,222,66,0.15);
+          border-color: rgba(217, 119, 6, 0.55);
+          color: #A16207;
+          background: rgba(217, 119, 6, 0.07);
+          box-shadow: 0 0 18px rgba(217, 119, 6, 0.14);
         }
         .ticket-price {
           font-family: var(--gc-display);
@@ -793,31 +796,31 @@ export default function AIConference({ playSound }) {
 
         /* ------------------------------------------------ INPUTS */
         .glass-input {
-          background: rgba(255, 255, 255, 0.025) !important;
-          border: 1px solid rgba(255, 255, 255, 0.1) !important;
+          background: #FAFBFE !important;
+          border: 1px solid rgba(20, 22, 46, 0.14) !important;
           border-radius: 14px !important;
-          color: #FFFFFF !important;
-          font-family: var(--font-body) !important;
+          color: #14162E !important;
+          font-family: var(--gc-body) !important;
           transition: border-color 0.3s, box-shadow 0.3s, background 0.3s !important;
           cursor: text !important;
         }
         .glass-input:focus {
-          border-color: var(--accent) !important;
-          background: rgba(255, 222, 66, 0.035) !important;
-          box-shadow: 0 0 0 3px rgba(255, 222, 66, 0.12), 0 0 24px rgba(255, 222, 66, 0.08) !important;
+          border-color: #D97706 !important;
+          background: #FFFFFF !important;
+          box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.14) !important;
         }
-        .glass-input::placeholder { color: rgba(255,255,255,0.25); }
+        .glass-input::placeholder { color: rgba(20, 22, 46, 0.32); }
 
         /* ------------------------------------------------ SPONSOR TABLE */
         .sponsor-table { width: 100%; border-collapse: separate; border-spacing: 0; margin-top: 1.6rem; font-size: 0.88rem; }
         .sponsor-table th, .sponsor-table td {
-          border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+          border-bottom: 1px solid rgba(20, 22, 46, 0.09);
           padding: 1.05rem 1.2rem;
           text-align: left;
         }
         .sponsor-table th {
           font-family: var(--gc-display);
-          background: rgba(255, 255, 255, 0.03);
+          background: rgba(20, 22, 46, 0.03);
           font-weight: 500;
           text-transform: uppercase;
           letter-spacing: 1px;
@@ -826,18 +829,19 @@ export default function AIConference({ playSound }) {
         .sponsor-table th:first-child { border-radius: 12px 0 0 0; }
         .sponsor-table th:last-child { border-radius: 0 12px 0 0; }
         .sponsor-table tbody tr { transition: background 0.25s; }
-        .sponsor-table tbody tr:hover { background: rgba(255, 222, 66, 0.03); }
+        .sponsor-table tbody tr:hover { background: rgba(217, 119, 6, 0.04); }
 
         /* ------------------------------------------------ FAQ */
         .faq-item {
-          border: 1px solid rgba(255,255,255,0.08);
+          border: 1px solid rgba(20, 22, 46, 0.1);
           border-radius: 18px;
-          background: linear-gradient(160deg, rgba(255,255,255,0.03), rgba(255,255,255,0.005));
+          background: #FFFFFF;
+          box-shadow: 0 2px 8px rgba(20, 22, 46, 0.03);
           transition: border-color 0.35s, background 0.35s;
           overflow: hidden;
         }
-        .faq-item.open { border-color: rgba(255,222,66,0.35); background: rgba(255,222,66,0.025); }
-        .faq-item:hover { border-color: rgba(255,255,255,0.18); }
+        .faq-item.open { border-color: rgba(217, 119, 6, 0.45); background: rgba(217, 119, 6, 0.025); }
+        .faq-item:hover { border-color: rgba(20, 22, 46, 0.22); }
 
         /* ------------------------------------------------ SCROLL HINT */
         .scroll-hint {
@@ -845,7 +849,7 @@ export default function AIConference({ playSound }) {
           flex-direction: column;
           align-items: center;
           gap: 0.5rem;
-          color: rgba(255,255,255,0.35);
+          color: rgba(20, 22, 46, 0.4);
           font-family: var(--gc-display);
           font-size: 0.62rem;
           letter-spacing: 3px;
@@ -908,8 +912,8 @@ export default function AIConference({ playSound }) {
                       layoutId="nav-underline"
                       style={{
                         position: 'absolute', left: 0, right: 0, bottom: '-4px', height: '2px',
-                        background: 'linear-gradient(90deg, var(--accent), #53CBF3)',
-                        borderRadius: '2px', boxShadow: '0 0 10px rgba(255,222,66,0.6)',
+                        background: 'linear-gradient(90deg, var(--accent), #0284C7)',
+                        borderRadius: '2px', boxShadow: '0 0 10px rgba(180, 83, 9,0.6)',
                       }}
                     />
                   )}
@@ -929,8 +933,8 @@ export default function AIConference({ playSound }) {
                 onClick={() => { handleClick(); setMobileMenuOpen(!mobileMenuOpen); }}
                 onMouseEnter={handleHover}
                 style={{
-                  background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)',
-                  borderRadius: '12px', padding: '0.65rem', color: '#FFF',
+                  background: 'rgba(20, 22, 46,0.06)', border: '1px solid rgba(20, 22, 46,0.1)',
+                  borderRadius: '12px', padding: '0.65rem', color: '#14162E',
                   display: 'none', alignItems: 'center', justifyContent: 'center', cursor: 'none'
                 }}
               >
@@ -947,21 +951,21 @@ export default function AIConference({ playSound }) {
               <motion.div
                 initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
                 onClick={() => setMobileMenuOpen(false)}
-                style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.6)', backdropFilter: 'blur(6px)', zIndex: 9998 }}
+                style={{ position: 'fixed', inset: 0, background: 'rgba(20, 22, 46, 0.3)', backdropFilter: 'blur(6px)', zIndex: 9998 }}
               />
               <motion.div
                 initial={{ x: '100%' }} animate={{ x: 0 }} exit={{ x: '100%' }}
                 transition={{ type: 'spring', damping: 26, stiffness: 220 }}
                 style={{
                   position: 'fixed', top: 0, right: 0, bottom: 0, width: '300px',
-                  background: 'rgba(4, 4, 10, 0.92)', backdropFilter: 'blur(24px)',
-                  borderLeft: '1px solid rgba(255, 255, 255, 0.08)', zIndex: 9999,
+                  background: 'rgb(255 255 255 / 0.96)', backdropFilter: 'blur(24px)',
+                  borderLeft: '1px solid rgba(20, 22, 46, 0.08)', zIndex: 9999,
                   padding: '2rem 1.8rem', display: 'flex', flexDirection: 'column', gap: '1.5rem'
                 }}
               >
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
                   <span style={{ fontSize: '0.75rem', fontWeight: 500, textTransform: 'uppercase', color: 'var(--accent)', letterSpacing: '3px', fontFamily: "var(--gc-display)" }}>Menu</span>
-                  <button onClick={() => { handleClick(); setMobileMenuOpen(false); }} style={{ background: 'none', border: 'none', color: '#FFF', cursor: 'none' }}>
+                  <button onClick={() => { handleClick(); setMobileMenuOpen(false); }} style={{ background: 'none', border: 'none', color: '#14162E', cursor: 'none' }}>
                     <X size={20} />
                   </button>
                 </div>
@@ -974,10 +978,10 @@ export default function AIConference({ playSound }) {
                     onClick={() => { handleClick(); setActiveTab(item.id); setMobileMenuOpen(false); }}
                     style={{
                       background: 'none', border: 'none', textAlign: 'left', cursor: 'none',
-                      color: activeTab === item.id ? 'var(--accent)' : 'rgba(255,255,255,0.75)',
+                      color: activeTab === item.id ? 'var(--accent)' : 'rgba(20, 22, 46,0.75)',
                       fontSize: '1.4rem', fontWeight: 500, fontFamily: "var(--gc-display)",
                       textTransform: 'uppercase', letterSpacing: '0.5px', padding: '0.5rem 0',
-                      borderBottom: '1px solid rgba(255,255,255,0.06)'
+                      borderBottom: '1px solid rgba(20, 22, 46,0.06)'
                     }}
                   >
                     {item.label}
@@ -1027,7 +1031,7 @@ export default function AIConference({ playSound }) {
                       </span>
                     </motion.div>
 
-                    <h2 className="serif-font" style={{ fontSize: 'clamp(1.6rem, 3.6vw, 2.8rem)', fontWeight: 400, color: 'rgba(255, 255, 255, 0.9)', margin: '0 0 0.8rem 0', letterSpacing: '0.5px' }}>
+                    <h2 className="serif-font" style={{ fontSize: 'clamp(1.6rem, 3.6vw, 2.8rem)', fontWeight: 400, color: 'rgba(20, 22, 46, 0.9)', margin: '0 0 0.8rem 0', letterSpacing: '0.5px' }}>
                       <ScrambleText text="The Future of" delay={300} />
                     </h2>
 
@@ -1047,8 +1051,8 @@ export default function AIConference({ playSound }) {
                       style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '0.8rem', margin: '2.4rem 0 0' }}
                     >
                       <span className="hero-meta-chip"><MapPin size={13} style={{ color: 'var(--accent)' }} /> Budapest, Hungary</span>
-                      <span className="hero-meta-chip"><Calendar size={13} style={{ color: '#53CBF3' }} /> September 14 – 16, 2026</span>
-                      <span className="hero-meta-chip"><Globe size={13} style={{ color: '#FF5B84' }} /> Hybrid • Live + Virtual</span>
+                      <span className="hero-meta-chip"><Calendar size={13} style={{ color: '#0284C7' }} /> September 14 – 16, 2026</span>
+                      <span className="hero-meta-chip"><Globe size={13} style={{ color: '#E11D48' }} /> Hybrid • Live + Virtual</span>
                     </motion.div>
 
                     {/* FLIP COUNTDOWN */}
@@ -1101,8 +1105,8 @@ export default function AIConference({ playSound }) {
                 </section>
 
                 {/* TRUSTED BY MARQUEE */}
-                <section style={{ borderTop: '1px solid rgba(255,255,255,0.06)', borderBottom: '1px solid rgba(255,255,255,0.06)', padding: '2.6rem 0', background: 'rgba(255,255,255,0.008)' }}>
-                  <div style={{ textAlign: 'center', fontSize: '0.68rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '4px', color: 'rgba(255,255,255,0.35)', marginBottom: '1.8rem', fontFamily: "var(--gc-display)" }}>
+                <section style={{ borderTop: '1px solid rgba(20, 22, 46,0.06)', borderBottom: '1px solid rgba(20, 22, 46,0.06)', padding: '2.6rem 0', background: 'rgba(20, 22, 46,0.008)' }}>
+                  <div style={{ textAlign: 'center', fontSize: '0.68rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '4px', color: 'rgba(20, 22, 46,0.35)', marginBottom: '1.8rem', fontFamily: "var(--gc-display)" }}>
                     Trusted by teams from
                   </div>
                   <Marquee speed={30}>
@@ -1113,19 +1117,19 @@ export default function AIConference({ playSound }) {
                 </section>
 
                 {/* STATS BAND */}
-                <section style={{ padding: '5rem 1.5rem', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+                <section style={{ padding: '5rem 1.5rem', borderBottom: '1px solid rgba(20, 22, 46,0.06)' }}>
                   <div className="stats-band" style={{ maxWidth: '1100px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '2rem', textAlign: 'center' }}>
                     {[
                       { end: 1200, suffix: '+', label: 'Global Delegates', color: 'var(--accent)' },
-                      { end: 40, suffix: '+', label: 'Countries Represented', color: '#53CBF3' },
-                      { end: 60, suffix: '+', label: 'Live Talks & Panels', color: '#FF5B84' },
-                      { end: 8, suffix: '', label: 'Scientific Tracks', color: '#10B981' },
+                      { end: 40, suffix: '+', label: 'Countries Represented', color: '#0284C7' },
+                      { end: 60, suffix: '+', label: 'Live Talks & Panels', color: '#E11D48' },
+                      { end: 8, suffix: '', label: 'Scientific Tracks', color: '#059669' },
                     ].map((s, i) => (
                       <Reveal key={s.label} delay={i * 0.1}>
                         <div className="gcai-display" style={{ fontSize: 'clamp(2.4rem, 5vw, 3.6rem)', fontWeight: 500, color: s.color, textShadow: `0 0 32px ${s.color}44`, lineHeight: 1 }}>
                           <CountUp end={s.end} suffix={s.suffix} />
                         </div>
-                        <div style={{ marginTop: '0.7rem', fontSize: '0.72rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '2.5px', color: 'rgba(255,255,255,0.45)', fontFamily: "var(--gc-display)" }}>
+                        <div style={{ marginTop: '0.7rem', fontSize: '0.72rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '2.5px', color: 'rgba(20, 22, 46,0.45)', fontFamily: "var(--gc-display)" }}>
                           {s.label}
                         </div>
                       </Reveal>
@@ -1134,20 +1138,20 @@ export default function AIConference({ playSound }) {
                 </section>
 
                 {/* OFFICIAL THEME */}
-                <section style={{ padding: '5.5rem 1.5rem', borderBottom: '1px solid rgba(255,255,255,0.06)', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
+                <section style={{ padding: '5.5rem 1.5rem', borderBottom: '1px solid rgba(20, 22, 46,0.06)', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
                   <div aria-hidden="true" style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 60% 90% at 50% 50%, rgba(112,32,192,0.09), transparent 70%)' }} />
                   <Reveal style={{ maxWidth: '980px', margin: '0 auto', position: 'relative' }}>
                     <span className="section-kicker"><span className="section-kicker-dot" />Official Theme</span>
-                    <h3 className="serif-font" style={{ fontSize: 'clamp(1.35rem, 3.6vw, 2.2rem)', color: '#FFFFFF', margin: '0.5rem 0 0', lineHeight: 1.5, fontWeight: 400 }}>
+                    <h3 className="serif-font" style={{ fontSize: 'clamp(1.35rem, 3.6vw, 2.2rem)', color: '#14162E', margin: '0.5rem 0 0', lineHeight: 1.5, fontWeight: 400 }}>
                       “Advancing Deep Learning Architectures: Shaping the Future of{' '}
-                      <span style={{ color: 'var(--accent)', textShadow: '0 0 26px rgba(255,222,66,0.35)' }}>Global Biotech</span> &{' '}
-                      <span style={{ color: '#53CBF3', textShadow: '0 0 26px rgba(83,203,243,0.35)' }}>Precision Agriculture</span>”
+                      <span style={{ color: 'var(--accent)', textShadow: '0 0 26px rgba(180, 83, 9,0.35)' }}>Global Biotech</span> &{' '}
+                      <span style={{ color: '#0284C7', textShadow: '0 0 26px rgba(2, 132, 199,0.35)' }}>Precision Agriculture</span>”
                     </h3>
                   </Reveal>
                 </section>
 
                 {/* KEYNOTE SPEAKERS */}
-                <section className="section" style={{ borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+                <section className="section" style={{ borderBottom: '1px solid rgba(20, 22, 46,0.06)' }}>
                   <div style={{ maxWidth: '1240px', margin: '0 auto', padding: '0 1.5rem' }}>
                     <SectionHeading kicker="Pioneers & Scholars" title="Keynote Speakers" ghost="Speakers" />
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '2.2rem', perspective: '1400px' }}>
@@ -1161,7 +1165,7 @@ export default function AIConference({ playSound }) {
                                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                                   fontSize: '1.7rem', fontWeight: 500, fontFamily: "var(--gc-display)",
                                   color: sp.initials === 'CP' ? '#000' : '#FFF',
-                                  boxShadow: `0 0 34px ${sp.color}44`, border: '3px solid #020204',
+                                  boxShadow: `0 0 34px ${sp.color}44`, border: '3px solid #FFFFFF',
                                   position: 'relative', overflow: 'hidden'
                                 }}>
                                   {sp.initials}
@@ -1176,7 +1180,7 @@ export default function AIConference({ playSound }) {
                             </div>
                             <h3 className="gcai-display" style={{ fontSize: '1.2rem', fontWeight: 500, marginBottom: '0.35rem' }}>{sp.name}</h3>
                             <span style={{ fontSize: '0.72rem', color: sp.color, fontWeight: 500, textTransform: 'uppercase', letterSpacing: '1.5px', marginBottom: '1rem', display: 'block', fontFamily: "var(--gc-display)" }}>{sp.org}</span>
-                            <p style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.55)', lineHeight: 1.6, margin: 0 }}>{sp.bio}</p>
+                            <p style={{ fontSize: '0.85rem', color: 'rgba(20, 22, 46,0.55)', lineHeight: 1.6, margin: 0 }}>{sp.bio}</p>
                           </TiltCard>
                         </Reveal>
                       ))}
@@ -1185,15 +1189,15 @@ export default function AIConference({ playSound }) {
                 </section>
 
                 {/* CONFERENCE BENEFITS — SPOTLIGHT BENTO */}
-                <section className="section" style={{ borderBottom: '1px solid rgba(255,255,255,0.06)', background: 'rgba(255,255,255,0.008)' }}>
+                <section className="section" style={{ borderBottom: '1px solid rgba(20, 22, 46,0.06)', background: 'rgba(20, 22, 46,0.008)' }}>
                   <div style={{ maxWidth: '1240px', margin: '0 auto', padding: '0 1.5rem' }}>
                     <SectionHeading kicker="Why Register?" title="Conference Benefits" ghost="Benefits" />
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.8rem' }}>
                       {[
-                        { Icon: Award, color: '255, 222, 66', accent: 'var(--accent)', title: 'Official CPD Accreditation', desc: 'Obtain official Continuing Professional Development certification hours. A structured transcript is sent to all registered academic delegates.' },
-                        { Icon: BookOpen, color: '83, 203, 243', accent: '#53CBF3', title: 'Indexed Abstract Booklet', desc: 'All accepted peer-reviewed abstract entries are fully published and cataloged in the GCAI 2026 Proceedings Handbook.' },
-                        { Icon: User, color: '255, 91, 132', accent: '#FF5B84', title: 'Virtual Networking Lounges', desc: 'Connect with global peers inside custom Zoom breakout channels and digital roundtable sessions. Engage directly with presenters.' },
-                        { Icon: Shield, color: '16, 185, 129', accent: '#10B981', title: 'Permanent Recordings Access', desc: 'Never miss a parallel session. Obtain lifetime access to high-definition video recordings of all keynote lectures and panel studies.' },
+                        { Icon: Award, color: '217, 119, 6', accent: 'var(--accent)', title: 'Official CPD Accreditation', desc: 'Obtain official Continuing Professional Development certification hours. A structured transcript is sent to all registered academic delegates.' },
+                        { Icon: BookOpen, color: '2, 132, 199', accent: '#0284C7', title: 'Indexed Abstract Booklet', desc: 'All accepted peer-reviewed abstract entries are fully published and cataloged in the GCAI 2026 Proceedings Handbook.' },
+                        { Icon: User, color: '225, 29, 72', accent: '#E11D48', title: 'Virtual Networking Lounges', desc: 'Connect with global peers inside custom Zoom breakout channels and digital roundtable sessions. Engage directly with presenters.' },
+                        { Icon: Shield, color: '5, 150, 105', accent: '#059669', title: 'Permanent Recordings Access', desc: 'Never miss a parallel session. Obtain lifetime access to high-definition video recordings of all keynote lectures and panel studies.' },
                       ].map((b, i) => (
                         <Reveal key={b.title} delay={i * 0.08}>
                           <SpotlightCard className="bento-card" color={b.color} style={{ padding: '2.5rem', height: '100%', borderRadius: '22px' }}>
@@ -1206,7 +1210,7 @@ export default function AIConference({ playSound }) {
                               <b.Icon size={24} />
                             </div>
                             <h3 className="gcai-display" style={{ fontSize: '1.2rem', fontWeight: 500, marginBottom: '0.8rem' }}>{b.title}</h3>
-                            <p style={{ fontSize: '0.87rem', color: 'rgba(255,255,255,0.55)', lineHeight: 1.6, margin: 0 }}>{b.desc}</p>
+                            <p style={{ fontSize: '0.87rem', color: 'rgba(20, 22, 46,0.55)', lineHeight: 1.6, margin: 0 }}>{b.desc}</p>
                           </SpotlightCard>
                         </Reveal>
                       ))}
@@ -1215,15 +1219,15 @@ export default function AIConference({ playSound }) {
                 </section>
 
                 {/* PASS CALLOUT */}
-                <section id="tickets-section" className="section" style={{ borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+                <section id="tickets-section" className="section" style={{ borderBottom: '1px solid rgba(20, 22, 46,0.06)' }}>
                   <div style={{ maxWidth: '1000px', margin: '0 auto', padding: '0 1.5rem' }}>
                     <Reveal>
                       <div className="conic-frame">
                         <div className="bento-card" style={{ padding: 'clamp(2.5rem, 6vw, 4.5rem) clamp(1.5rem, 5vw, 3.5rem)', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
-                          <div aria-hidden="true" style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 70% 100% at 50% 0%, rgba(255,222,66,0.06), transparent 60%)' }} />
+                          <div aria-hidden="true" style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 70% 100% at 50% 0%, rgba(180, 83, 9,0.06), transparent 60%)' }} />
                           <span className="section-kicker" style={{ position: 'relative' }}><span className="section-kicker-dot" />Secure Your Attendance</span>
                           <h3 className="gcai-display" style={{ fontSize: 'clamp(1.7rem, 4vw, 2.4rem)', fontWeight: 500, margin: '0.4rem 0 1.2rem', position: 'relative', letterSpacing: '-0.02em' }}>Choose Your Conference Pass</h3>
-                          <p style={{ fontSize: '1rem', color: 'rgba(255,255,255,0.6)', lineHeight: 1.65, maxWidth: '720px', margin: '0 auto 2.5rem', position: 'relative' }}>
+                          <p style={{ fontSize: '1rem', color: 'rgba(20, 22, 46,0.6)', lineHeight: 1.65, maxWidth: '720px', margin: '0 auto 2.5rem', position: 'relative' }}>
                             Register as an oral presenter, poster presenter, standard delegate, or virtual attendee. Secure early bird discount pricing before deadlines expire on August 15, 2026.
                           </p>
                           <Magnetic>
@@ -1238,7 +1242,7 @@ export default function AIConference({ playSound }) {
                 </section>
 
                 {/* CONFIRMED LIVE TALKS */}
-                <section className="section" style={{ borderBottom: '1px solid rgba(255,255,255,0.06)', background: 'rgba(255,255,255,0.008)' }}>
+                <section className="section" style={{ borderBottom: '1px solid rgba(20, 22, 46,0.06)', background: 'rgba(20, 22, 46,0.008)' }}>
                   <div style={{ maxWidth: '1000px', margin: '0 auto', padding: '0 1.5rem' }}>
                     <SectionHeading kicker="Program Agenda" title="Confirmed Live Talks" ghost="Agenda" />
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
@@ -1248,14 +1252,14 @@ export default function AIConference({ playSound }) {
                             <div className="talk-index gcai-display">0{idx + 1}</div>
                             <div style={{ flex: 1 }}>
                               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.8rem', alignItems: 'center', marginBottom: '0.6rem' }}>
-                                <span style={{ fontSize: '0.68rem', color: talk.color, fontWeight: 500, textTransform: 'uppercase', letterSpacing: '1px', background: 'rgba(255,255,255,0.03)', padding: '0.25rem 0.6rem', borderRadius: '100px', border: '1px solid rgba(255,255,255,0.07)', fontFamily: "var(--gc-display)" }}>{talk.duration}</span>
-                                <span style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.4)', fontWeight: 600, fontFamily: "var(--gc-display)" }}>{talk.time} • {talk.room}</span>
+                                <span style={{ fontSize: '0.68rem', color: talk.color, fontWeight: 500, textTransform: 'uppercase', letterSpacing: '1px', background: 'rgba(20, 22, 46,0.03)', padding: '0.25rem 0.6rem', borderRadius: '100px', border: '1px solid rgba(20, 22, 46,0.07)', fontFamily: "var(--gc-display)" }}>{talk.duration}</span>
+                                <span style={{ fontSize: '0.72rem', color: 'rgba(20, 22, 46,0.4)', fontWeight: 600, fontFamily: "var(--gc-display)" }}>{talk.time} • {talk.room}</span>
                               </div>
                               <h4 className="gcai-display" style={{ fontSize: '1.2rem', fontWeight: 500, margin: '0 0 0.45rem', lineHeight: 1.35 }}>{talk.title}</h4>
-                              <span style={{ fontSize: '0.85rem', color: 'rgba(255, 255, 255, 0.45)' }}>By <strong style={{ color: '#FFF' }}>{talk.speakers}</strong> — {talk.affiliation}</span>
+                              <span style={{ fontSize: '0.85rem', color: 'rgba(20, 22, 46, 0.45)' }}>By <strong style={{ color: '#14162E' }}>{talk.speakers}</strong> — {talk.affiliation}</span>
                             </div>
                             <div className="avatar-ring" style={{ '--ring-a': talk.color, flexShrink: 0 }}>
-                              <div style={{ width: '54px', height: '54px', borderRadius: '50%', background: '#0A0A14', border: '3px solid #020204', display: 'flex', alignItems: 'center', justifyContent: 'center', color: talk.color, fontWeight: 500, fontSize: '1rem', fontFamily: "var(--gc-display)", position: 'relative', overflow: 'hidden' }}>
+                              <div style={{ width: '54px', height: '54px', borderRadius: '50%', background: '#F1F3F8', border: '3px solid #FFFFFF', display: 'flex', alignItems: 'center', justifyContent: 'center', color: talk.color, fontWeight: 500, fontSize: '1rem', fontFamily: "var(--gc-display)", position: 'relative', overflow: 'hidden' }}>
                                 {talk.initials}
                                 {speakerPhotos[talk.initials] && (
                                   <img
@@ -1275,17 +1279,17 @@ export default function AIConference({ playSound }) {
                 </section>
 
                 {/* CALL FOR ABSTRACTS */}
-                <section className="section" style={{ borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+                <section className="section" style={{ borderBottom: '1px solid rgba(20, 22, 46,0.06)' }}>
                   <div style={{ maxWidth: '1000px', margin: '0 auto', padding: '0 1.5rem' }}>
                     <Reveal>
                       <div className="bento-card" style={{ padding: 'clamp(2.5rem, 6vw, 4rem) clamp(1.5rem, 5vw, 3rem)', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
-                        <div aria-hidden="true" style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 60% 100% at 50% 100%, rgba(83,203,243,0.07), transparent 60%)' }} />
-                        <span className="section-kicker" style={{ position: 'relative', borderColor: 'rgba(83,203,243,0.3)', color: '#53CBF3', background: 'rgba(83,203,243,0.05)' }}>
-                          <span className="section-kicker-dot" style={{ background: '#53CBF3', boxShadow: '0 0 8px #53CBF3' }} />
+                        <div aria-hidden="true" style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 60% 100% at 50% 100%, rgba(2, 132, 199,0.07), transparent 60%)' }} />
+                        <span className="section-kicker" style={{ position: 'relative', borderColor: 'rgba(2, 132, 199,0.3)', color: '#0284C7', background: 'rgba(2, 132, 199,0.05)' }}>
+                          <span className="section-kicker-dot" style={{ background: '#0284C7', boxShadow: '0 0 8px #0284C7' }} />
                           Deadline: August 10, 2026
                         </span>
                         <h3 className="gcai-display" style={{ fontSize: 'clamp(1.6rem, 4vw, 2.2rem)', fontWeight: 500, margin: '0.4rem 0 1.2rem', position: 'relative', letterSpacing: '-0.02em' }}>Call For Papers & Abstracts</h3>
-                        <p style={{ fontSize: '1rem', color: 'rgba(255,255,255,0.65)', lineHeight: 1.65, maxWidth: '760px', margin: '0 auto 2.5rem', position: 'relative' }}>
+                        <p style={{ fontSize: '1rem', color: 'rgba(20, 22, 46,0.65)', lineHeight: 1.65, maxWidth: '760px', margin: '0 auto 2.5rem', position: 'relative' }}>
                           Share your research with the world. Submit your abstract to the GCAI 2026 scientific committee to present your project live in Budapest or stream to thousands of virtual delegates.
                         </p>
                         <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '1.2rem', position: 'relative' }}>
@@ -1304,55 +1308,21 @@ export default function AIConference({ playSound }) {
                 </section>
 
                 {/* ABOUT */}
-                <section className="section" style={{ borderBottom: '1px solid rgba(255,255,255,0.06)', background: 'rgba(255,255,255,0.008)' }}>
+                <section className="section" style={{ borderBottom: '1px solid rgba(20, 22, 46,0.06)', background: 'rgba(20, 22, 46,0.008)' }}>
                   <div style={{ maxWidth: '1000px', margin: '0 auto', padding: '0 1.5rem', textAlign: 'center' }}>
                     <SectionHeading kicker="The Congress" title="About Us" ghost="About" />
                     <Reveal>
-                      <p className="serif-font" style={{ fontSize: 'clamp(1.15rem, 2.6vw, 1.5rem)', color: 'rgba(255, 255, 255, 0.88)', lineHeight: 1.7, maxWidth: '840px', margin: '0 auto 1.5rem' }}>
+                      <p className="serif-font" style={{ fontSize: 'clamp(1.15rem, 2.6vw, 1.5rem)', color: 'rgba(20, 22, 46, 0.88)', lineHeight: 1.7, maxWidth: '840px', margin: '0 auto 1.5rem' }}>
                         The Global Conference on Artificial Intelligence (GCAI 2026) is the leading virtual and interactive AI systems congress, bringing together global deep learning researchers and biochemists to share future-proofed studies.
                       </p>
-                      <p style={{ fontSize: '0.95rem', color: 'rgba(255, 255, 255, 0.4)', marginBottom: '4.5rem' }}>This event is organized by the research community, for the community.</p>
+                      <p style={{ fontSize: '0.95rem', color: 'rgba(20, 22, 46, 0.4)', margin: 0 }}>This event is organized by the research community, for the community.</p>
                     </Reveal>
 
-                    <div className="responsive-grid-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2.5rem' }}>
-                      <Reveal delay={0.1}>
-                        <ParallaxFloat distance={26}>
-                          <div style={{ aspectRatio: '16/10', borderRadius: '22px', background: 'linear-gradient(150deg, #0a1128 0%, #131c3d 100%)', border: '1px solid rgba(255,255,255,0.07)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '2rem', boxShadow: '0 24px 50px rgba(0,0,0,0.4)', position: 'relative', overflow: 'hidden' }}>
-                            <NeuralCanvas density={16000} linkDist={90} style={{ opacity: 0.7 }} />
-                            <div className="gcai-display" style={{ position: 'relative', fontSize: '0.75rem', letterSpacing: '3px', textTransform: 'uppercase', color: 'rgba(255,255,255,0.55)' }}>Neural Research Network</div>
-                          </div>
-                        </ParallaxFloat>
-                      </Reveal>
-                      <Reveal delay={0.2}>
-                        <ParallaxFloat distance={-26}>
-                          <div style={{ aspectRatio: '16/10', borderRadius: '22px', background: 'linear-gradient(150deg, #0a1128 0%, #131c3d 100%)', border: '1px solid rgba(255,255,255,0.07)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '2rem', boxShadow: '0 24px 50px rgba(0,0,0,0.4)' }}>
-                            <svg width="100%" height="100%" viewBox="0 0 200 120" fill="none" style={{ opacity: 0.85 }}>
-                              <motion.path
-                                d="M15,100 Q45,30 75,88 T135,48 T185,18"
-                                stroke="url(#gcai-line-grad)" strokeWidth="3" strokeLinecap="round" fill="none"
-                                initial={{ pathLength: 0 }}
-                                whileInView={{ pathLength: 1 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 2, ease: 'easeInOut' }}
-                              />
-                              <defs>
-                                <linearGradient id="gcai-line-grad" x1="0" y1="0" x2="200" y2="0" gradientUnits="userSpaceOnUse">
-                                  <stop stopColor="#FFDE42" />
-                                  <stop offset="0.5" stopColor="#53CBF3" />
-                                  <stop offset="1" stopColor="#FF5B84" />
-                                </linearGradient>
-                              </defs>
-                              <line x1="10" y1="105" x2="190" y2="105" stroke="rgba(255,255,255,0.18)" strokeWidth="1.5" />
-                            </svg>
-                          </div>
-                        </ParallaxFloat>
-                      </Reveal>
-                    </div>
                   </div>
                 </section>
 
                 {/* PROGRAM COMMITTEE */}
-                <section className="section" style={{ borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+                <section className="section" style={{ borderBottom: '1px solid rgba(20, 22, 46,0.06)' }}>
                   <div style={{ maxWidth: '1240px', margin: '0 auto', padding: '0 1.5rem' }}>
                     <SectionHeading kicker="Review Panel" title="Program Committee" ghost="Committee" />
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1.6rem' }}>
@@ -1360,10 +1330,10 @@ export default function AIConference({ playSound }) {
                         <Reveal key={m.initials} delay={i * 0.08}>
                           <SpotlightCard className="bento-card" style={{ padding: '1.6rem', borderRadius: '22px' }}>
                             <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
-                              <div style={{ width: '46px', height: '46px', borderRadius: '14px', background: m.color, color: '#000', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 500, fontSize: '0.9rem', flexShrink: 0, fontFamily: "var(--gc-display)", boxShadow: `0 0 22px ${m.color}44` }}>{m.initials}</div>
+                              <div style={{ width: '46px', height: '46px', borderRadius: '14px', background: m.color, color: '#FFF', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 500, fontSize: '0.9rem', flexShrink: 0, fontFamily: "var(--gc-display)", boxShadow: `0 0 22px ${m.color}44` }}>{m.initials}</div>
                               <div>
                                 <h4 className="gcai-display" style={{ fontSize: '0.98rem', fontWeight: 500, margin: 0 }}>{m.name}</h4>
-                                <span style={{ fontSize: '0.76rem', color: 'rgba(255,255,255,0.45)' }}>{m.org}</span>
+                                <span style={{ fontSize: '0.76rem', color: 'rgba(20, 22, 46,0.45)' }}>{m.org}</span>
                               </div>
                             </div>
                           </SpotlightCard>
@@ -1374,14 +1344,14 @@ export default function AIConference({ playSound }) {
                 </section>
 
                 {/* MAIN SPONSORS */}
-                <section style={{ padding: '5rem 1.5rem', borderBottom: '1px solid rgba(255,255,255,0.06)', background: 'rgba(255,255,255,0.008)', textAlign: 'center' }}>
+                <section style={{ padding: '5rem 1.5rem', borderBottom: '1px solid rgba(20, 22, 46,0.06)', background: 'rgba(20, 22, 46,0.008)', textAlign: 'center' }}>
                   <Reveal>
                     <h2 style={{ fontSize: '0.75rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '5px', color: 'var(--accent)', marginBottom: '3rem', fontFamily: "var(--gc-display)" }}>Main Sponsors</h2>
                     <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center', gap: 'clamp(2.5rem, 8vw, 6rem)' }}>
                       {[
-                        { name: 'Tokens Studio', color: '#FFFFFF' },
-                        { name: 'Specify', color: '#53CBF3' },
-                        { name: 'i-Cultiver', color: '#FF5B84' },
+                        { name: 'Tokens Studio', color: '#14162E' },
+                        { name: 'Specify', color: '#0284C7' },
+                        { name: 'i-Cultiver', color: '#E11D48' },
                       ].map((s) => (
                         <Magnetic key={s.name} strength={0.2}>
                           <span className="gcai-display" style={{ fontSize: 'clamp(1.5rem, 4vw, 2.1rem)', fontWeight: 500, letterSpacing: '-0.5px', color: s.color, opacity: 0.85, textShadow: `0 0 30px ${s.color}33`, cursor: 'none' }}>{s.name}</span>
@@ -1392,7 +1362,7 @@ export default function AIConference({ playSound }) {
                 </section>
 
                 {/* TESTIMONIALS */}
-                <section className="section" style={{ borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+                <section className="section" style={{ borderBottom: '1px solid rgba(20, 22, 46,0.06)' }}>
                   <div style={{ maxWidth: '1140px', margin: '0 auto', padding: '0 1.5rem' }}>
                     <SectionHeading kicker="Community Voices" title="What People Say" ghost="Voices" />
                     <div className="responsive-grid-3" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', perspective: '1200px' }}>
@@ -1400,12 +1370,12 @@ export default function AIConference({ playSound }) {
                         <Reveal key={t.initials} delay={i * 0.1}>
                           <TiltCard max={6} className="bento-card" style={{ padding: '2rem', height: '100%' }}>
                             <div className="serif-font" aria-hidden="true" style={{ fontSize: '3.4rem', lineHeight: 0.6, color: t.color, opacity: 0.5, marginBottom: '1.2rem' }}>“</div>
-                            <p style={{ margin: '0 0 1.6rem', fontSize: '0.9rem', lineHeight: 1.65, color: 'rgba(255,255,255,0.72)' }}>{t.quote}</p>
+                            <p style={{ margin: '0 0 1.6rem', fontSize: '0.9rem', lineHeight: 1.65, color: 'rgba(20, 22, 46,0.72)' }}>{t.quote}</p>
                             <div style={{ display: 'flex', gap: '0.8rem', alignItems: 'center' }}>
-                              <div style={{ width: '42px', height: '42px', borderRadius: '50%', background: t.color, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 500, fontSize: '0.9rem', color: '#000', fontFamily: "var(--gc-display)", boxShadow: `0 0 20px ${t.color}44` }}>{t.initials}</div>
+                              <div style={{ width: '42px', height: '42px', borderRadius: '50%', background: t.color, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 500, fontSize: '0.9rem', color: '#FFF', fontFamily: "var(--gc-display)", boxShadow: `0 0 20px ${t.color}44` }}>{t.initials}</div>
                               <div>
                                 <h4 className="gcai-display" style={{ fontSize: '0.9rem', fontWeight: 500, margin: 0 }}>{t.name}</h4>
-                                <span style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.4)' }}>{t.handle}</span>
+                                <span style={{ fontSize: '0.75rem', color: 'rgba(20, 22, 46,0.4)' }}>{t.handle}</span>
                               </div>
                             </div>
                           </TiltCard>
@@ -1428,7 +1398,7 @@ export default function AIConference({ playSound }) {
                               onMouseEnter={handleHover}
                               style={{ width: '100%', background: 'none', border: 'none', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '1rem', padding: '1.5rem 1.8rem', cursor: 'none', textAlign: 'left' }}
                             >
-                              <span className="gcai-display" style={{ fontSize: '1.02rem', fontWeight: 500, color: '#FFFFFF' }}>{item.q}</span>
+                              <span className="gcai-display" style={{ fontSize: '1.02rem', fontWeight: 500, color: '#14162E' }}>{item.q}</span>
                               <motion.span
                                 animate={{ rotate: faqOpenIndex === idx ? 45 : 0 }}
                                 transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
@@ -1446,7 +1416,7 @@ export default function AIConference({ playSound }) {
                                   transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
                                   style={{ overflow: 'hidden' }}
                                 >
-                                  <p style={{ fontSize: '0.9rem', color: 'rgba(255,255,255,0.62)', lineHeight: 1.65, margin: 0, padding: '0 1.8rem 1.6rem' }}>
+                                  <p style={{ fontSize: '0.9rem', color: 'rgba(20, 22, 46,0.62)', lineHeight: 1.65, margin: 0, padding: '0 1.8rem 1.6rem' }}>
                                     {item.a}
                                   </p>
                                 </motion.div>
@@ -1478,17 +1448,17 @@ export default function AIConference({ playSound }) {
                       <SpotlightCard className="bento-card" style={{ padding: '2.2rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', minHeight: '280px', borderRadius: '22px', height: '100%' }}>
                         <div>
                           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.4rem' }}>
-                            <span className="gcai-display" style={{ fontSize: '2.2rem', fontWeight: 500, color: 'transparent', WebkitTextStroke: '1px rgba(255,222,66,0.4)', lineHeight: 1 }}>
+                            <span className="gcai-display" style={{ fontSize: '2.2rem', fontWeight: 500, color: 'transparent', WebkitTextStroke: '1px rgba(180, 83, 9,0.4)', lineHeight: 1 }}>
                               {String(idx + 1).padStart(2, '0')}
                             </span>
-                            <span style={{ display: 'inline-flex', background: 'rgba(255,222,66,0.06)', border: '1px solid rgba(255,222,66,0.3)', color: 'var(--accent)', padding: '0.3rem 0.75rem', borderRadius: '100px', fontSize: '0.62rem', fontWeight: 500, letterSpacing: '1.5px', fontFamily: "var(--gc-display)" }}>
+                            <span style={{ display: 'inline-flex', background: 'rgba(180, 83, 9,0.06)', border: '1px solid rgba(180, 83, 9,0.3)', color: 'var(--accent)', padding: '0.3rem 0.75rem', borderRadius: '100px', fontSize: '0.62rem', fontWeight: 500, letterSpacing: '1.5px', fontFamily: "var(--gc-display)" }}>
                               TRACK
                             </span>
                           </div>
                           <h3 className="gcai-display" style={{ fontSize: '1.22rem', fontWeight: 500, marginBottom: '0.8rem', lineHeight: 1.3 }}>{sess.title}</h3>
-                          <p style={{ fontSize: '0.87rem', color: 'rgba(255,255,255,0.55)', lineHeight: 1.6 }}>{sess.desc}</p>
+                          <p style={{ fontSize: '0.87rem', color: 'rgba(20, 22, 46,0.55)', lineHeight: 1.6 }}>{sess.desc}</p>
                         </div>
-                        <div style={{ marginTop: '1.6rem', borderTop: '1px solid rgba(255,255,255,0.06)', paddingTop: '1.2rem' }}>
+                        <div style={{ marginTop: '1.6rem', borderTop: '1px solid rgba(20, 22, 46,0.06)', paddingTop: '1.2rem' }}>
                           <button
                             onClick={() => {
                               handleClick();
@@ -1496,7 +1466,7 @@ export default function AIConference({ playSound }) {
                               setActiveTab('abstract');
                             }}
                             onMouseEnter={handleHover}
-                            style={{ background: 'none', border: 'none', color: '#53CBF3', fontSize: '0.8rem', fontWeight: 500, display: 'inline-flex', alignItems: 'center', gap: '0.45rem', cursor: 'none', fontFamily: "var(--gc-display)", letterSpacing: '0.5px' }}
+                            style={{ background: 'none', border: 'none', color: '#0284C7', fontSize: '0.8rem', fontWeight: 500, display: 'inline-flex', alignItems: 'center', gap: '0.45rem', cursor: 'none', fontFamily: "var(--gc-display)", letterSpacing: '0.5px' }}
                           >
                             Submit Abstract to this Track <ArrowUpRight size={14} />
                           </button>
@@ -1523,7 +1493,7 @@ export default function AIConference({ playSound }) {
                 <Reveal>
                   <div className="bento-card" style={{ padding: '2.5rem', marginBottom: '2.5rem' }}>
                     <h3 className="gcai-display" style={{ fontSize: '1.3rem', fontWeight: 500, marginBottom: '1.4rem' }}>Submission Instructions</h3>
-                    <ul style={{ paddingLeft: 0, listStyle: 'none', fontSize: '0.9rem', color: 'rgba(255,255,255,0.72)', display: 'flex', flexDirection: 'column', gap: '0.9rem', lineHeight: 1.6, margin: 0 }}>
+                    <ul style={{ paddingLeft: 0, listStyle: 'none', fontSize: '0.9rem', color: 'rgba(20, 22, 46,0.72)', display: 'flex', flexDirection: 'column', gap: '0.9rem', lineHeight: 1.6, margin: 0 }}>
                       {[
                         'All abstracts must be submitted in English only.',
                         'Abstract word limit: Minimum 100 words – Maximum 350 words.',
@@ -1549,7 +1519,7 @@ export default function AIConference({ playSound }) {
                         <div style={{ textAlign: 'center', padding: '2.5rem 0' }}>
                           <SuccessCheck />
                           <h4 className="gcai-display" style={{ fontSize: '1.25rem', fontWeight: 500, margin: '1.4rem 0 0' }}>Abstract Filed Successfully</h4>
-                          <p style={{ fontSize: '0.88rem', color: 'rgba(255,255,255,0.5)', marginTop: '0.6rem' }}>
+                          <p style={{ fontSize: '0.88rem', color: 'rgba(20, 22, 46,0.5)', marginTop: '0.6rem' }}>
                             Thank you! Your abstract has been successfully queued for the Scientific Review Committee. A confirmation email has been logged.
                           </p>
                         </div>
@@ -1583,7 +1553,7 @@ export default function AIConference({ playSound }) {
                                 onChange={(e) => setAbstractForm({ ...abstractForm, session: e.target.value })}
                                 onMouseEnter={handleHover} className="glass-input" style={{ ...inputBase, height: '50px' }}>
                                 {sessions.map((sess) => (
-                                  <option key={sess.id} value={sess.id} style={{ background: '#080810', color: '#FFF' }}>
+                                  <option key={sess.id} value={sess.id} style={{ background: '#FFFFFF', color: '#14162E' }}>
                                     {sess.title}
                                   </option>
                                 ))}
@@ -1629,7 +1599,7 @@ export default function AIConference({ playSound }) {
                   <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '2.5rem', marginBottom: '3.5rem', alignItems: 'center' }} className="responsive-grid-2">
                     <div>
                       <h3 className="gcai-display" style={{ fontSize: '1.6rem', fontWeight: 500, marginBottom: '1rem' }}>NH Roma Villa Carpegna</h3>
-                      <p style={{ fontSize: '0.95rem', color: 'rgba(255,255,255,0.68)', lineHeight: 1.7, marginBottom: '1.6rem' }}>
+                      <p style={{ fontSize: '0.95rem', color: 'rgba(20, 22, 46,0.68)', lineHeight: 1.7, marginBottom: '1.6rem' }}>
                         NH Roma Villa Carpegna is set just outside the bustling center of Rome, in a quiet, green area close to the Villa Pamphili park.
                         The hotel offers standard conference rooms equipped with state-of-the-art audiovisual setups, fast Wi-Fi networks, and professional delegate lounge facilities.
                       </p>
@@ -1645,11 +1615,11 @@ export default function AIConference({ playSound }) {
                       </div>
                     </div>
                     <TiltCard max={7} style={{ borderRadius: '22px' }}>
-                      <div style={{ aspectRatio: '16/11', borderRadius: '22px', background: 'linear-gradient(150deg, #0a1128 0%, #131c3d 100%)', border: '1px solid rgba(255,255,255,0.07)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 24px 50px rgba(0,0,0,0.4)', position: 'relative', overflow: 'hidden' }}>
-                        <NeuralCanvas density={18000} linkDist={80} style={{ opacity: 0.55 }} />
+                      <div style={{ aspectRatio: '16/11', borderRadius: '22px', background: 'linear-gradient(150deg, #0a1128 0%, #131c3d 100%)', border: '1px solid rgba(20, 22, 46,0.07)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 24px 50px rgba(0,0,0,0.4)', position: 'relative', overflow: 'hidden' }}>
+                        <NeuralCanvas density={18000} linkDist={80} palette={['255, 222, 66', '83, 203, 243', '255, 91, 132']} style={{ opacity: 0.55 }} />
                         <div style={{ position: 'relative', textAlign: 'center' }}>
-                          <MapPin size={30} style={{ color: 'var(--accent)', filter: 'drop-shadow(0 0 12px rgba(255,222,66,0.6))' }} />
-                          <div className="gcai-display" style={{ marginTop: '0.6rem', fontSize: '0.72rem', letterSpacing: '3px', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)' }}>Conference Venue</div>
+                          <MapPin size={30} style={{ color: '#ffde42', filter: 'drop-shadow(0 0 12px rgba(255, 210, 60, 0.6))' }} />
+                          <div className="gcai-display" style={{ marginTop: '0.6rem', fontSize: '0.72rem', letterSpacing: '3px', textTransform: 'uppercase', color: 'rgb(255 255 255 / 0.75)' }}>Conference Venue</div>
                         </div>
                       </div>
                     </TiltCard>
@@ -1658,9 +1628,9 @@ export default function AIConference({ playSound }) {
 
                 <div className="responsive-grid-3" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1.8rem', marginBottom: '3.5rem' }}>
                   {[
-                    { Icon: Plane, title: 'By Air', color: '255, 222, 66', text: 'Participants can fly into Leonardo da Vinci–Fiumicino Airport (FCO) (30km from hotel) or Ciampino Airport (CIA). Taxi, train, and shuttle systems link the terminals directly to the hotel district.' },
-                    { Icon: TrainFront, title: 'By Train', color: '83, 203, 243', text: 'Arrive at Roma Termini central station. From there, take the Metro Line A to Cornelia station, which is a short taxi ride or walk from the NH Roma Villa Carpegna.' },
-                    { Icon: Bus, title: 'Local Transit', color: '255, 91, 132', text: "Rome has a comprehensive subway (Metro), streetcar, and bus system. Bus lines connect the hotel area directly to St. Peter's Square and the Vatican City center." },
+                    { Icon: Plane, title: 'By Air', color: '217, 119, 6', text: 'Participants can fly into Leonardo da Vinci–Fiumicino Airport (FCO) (30km from hotel) or Ciampino Airport (CIA). Taxi, train, and shuttle systems link the terminals directly to the hotel district.' },
+                    { Icon: TrainFront, title: 'By Train', color: '2, 132, 199', text: 'Arrive at Roma Termini central station. From there, take the Metro Line A to Cornelia station, which is a short taxi ride or walk from the NH Roma Villa Carpegna.' },
+                    { Icon: Bus, title: 'Local Transit', color: '225, 29, 72', text: "Rome has a comprehensive subway (Metro), streetcar, and bus system. Bus lines connect the hotel area directly to St. Peter's Square and the Vatican City center." },
                   ].map((t, i) => (
                     <Reveal key={t.title} delay={i * 0.08}>
                       <SpotlightCard className="bento-card" color={t.color} style={{ padding: '2rem', borderRadius: '22px', height: '100%' }}>
@@ -1670,7 +1640,7 @@ export default function AIConference({ playSound }) {
                           </div>
                           <h4 className="gcai-display" style={{ fontSize: '1.1rem', fontWeight: 500, margin: 0 }}>{t.title}</h4>
                         </div>
-                        <p style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.6)', lineHeight: 1.6, margin: 0 }}>{t.text}</p>
+                        <p style={{ fontSize: '0.85rem', color: 'rgba(20, 22, 46,0.6)', lineHeight: 1.6, margin: 0 }}>{t.text}</p>
                       </SpotlightCard>
                     </Reveal>
                   ))}
@@ -1680,7 +1650,7 @@ export default function AIConference({ playSound }) {
                 <Reveal>
                   <div className="bento-card" style={{ padding: 'clamp(2rem, 5vw, 3rem) clamp(1.5rem, 4vw, 2.5rem)' }}>
                     <h3 className="gcai-display" style={{ fontSize: '1.3rem', fontWeight: 500, marginBottom: '0.5rem' }}>Visa Support Invitation Letter</h3>
-                    <p style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.45)', marginBottom: '2rem' }}>
+                    <p style={{ fontSize: '0.85rem', color: 'rgba(20, 22, 46,0.45)', marginBottom: '2rem' }}>
                       If you require an official visa invitation letter to attend GCAI 2026, please complete the request form below.
                     </p>
 
@@ -1688,7 +1658,7 @@ export default function AIConference({ playSound }) {
                       <div style={{ textAlign: 'center', padding: '2rem 0' }}>
                         <SuccessCheck size={60} />
                         <h4 className="gcai-display" style={{ fontSize: '1.15rem', fontWeight: 500, margin: '1.2rem 0 0' }}>Request Filed!</h4>
-                        <p style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.5)', marginTop: '0.5rem' }}>
+                        <p style={{ fontSize: '0.82rem', color: 'rgba(20, 22, 46,0.5)', marginTop: '0.5rem' }}>
                           Thank you! Your visa support inquiry has been logged. Our coordinator will email your visa letter within 3 business days.
                         </p>
                       </div>
@@ -1760,7 +1730,7 @@ export default function AIConference({ playSound }) {
                 <Reveal>
                   <div className="bento-card" style={{ padding: '2.5rem', marginBottom: '2.5rem' }}>
                     <h3 className="gcai-display" style={{ fontSize: '1.3rem', fontWeight: 500, marginBottom: '1.2rem' }}>Why Sponsor GCAI 2026?</h3>
-                    <p style={{ fontSize: '0.95rem', color: 'rgba(255,255,255,0.68)', lineHeight: 1.7, margin: 0 }}>
+                    <p style={{ fontSize: '0.95rem', color: 'rgba(20, 22, 46,0.68)', lineHeight: 1.7, margin: 0 }}>
                       GCAI 2026 brings together the world&apos;s leading minds in artificial intelligence, bio-computing, and neural modeling.
                       Sponsoring the summit places your brand at the forefront of scientific innovation, offering direct visibility to researchers, delegates, and decision-makers.
                     </p>
@@ -1782,8 +1752,8 @@ export default function AIConference({ playSound }) {
                         <tr>
                           <th>Benefits / Features</th>
                           <th style={{ color: 'var(--accent)' }}>Gold ($5,000)</th>
-                          <th style={{ color: '#53CBF3' }}>Silver ($3,000)</th>
-                          <th style={{ color: '#FF5B84' }}>Exhibitor ($1,500)</th>
+                          <th style={{ color: '#0284C7' }}>Silver ($3,000)</th>
+                          <th style={{ color: '#E11D48' }}>Exhibitor ($1,500)</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -1810,7 +1780,7 @@ export default function AIConference({ playSound }) {
                   <div className="conic-frame">
                     <div className="bento-card" style={{ padding: 'clamp(2rem, 5vw, 3rem) clamp(1.5rem, 4vw, 2.5rem)' }}>
                       <h3 className="gcai-display" style={{ fontSize: '1.3rem', fontWeight: 500, marginBottom: '0.5rem' }}>Apply to Sponsor / Exhibit</h3>
-                      <p style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.45)', marginBottom: '2rem' }}>
+                      <p style={{ fontSize: '0.85rem', color: 'rgba(20, 22, 46,0.45)', marginBottom: '2rem' }}>
                         Select your package option and tell us about your brand. Our industry relations coordinator will contact you shortly.
                       </p>
 
@@ -1818,7 +1788,7 @@ export default function AIConference({ playSound }) {
                         <div style={{ textAlign: 'center', padding: '2rem 0' }}>
                           <SuccessCheck size={60} />
                           <h4 className="gcai-display" style={{ fontSize: '1.15rem', fontWeight: 500, margin: '1.2rem 0 0' }}>Application Filed!</h4>
-                          <p style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.5)', marginTop: '0.5rem' }}>
+                          <p style={{ fontSize: '0.82rem', color: 'rgba(20, 22, 46,0.5)', marginTop: '0.5rem' }}>
                             Thank you! We have received your sponsorship inquiry. Our representative will contact you via email within 2 business days.
                           </p>
                         </div>
@@ -1857,10 +1827,10 @@ export default function AIConference({ playSound }) {
                               <select value={sponsorForm.tier}
                                 onChange={(e) => setSponsorForm({ ...sponsorForm, tier: e.target.value })}
                                 className="glass-input" style={{ ...inputBase, height: '50px' }}>
-                                <option value="Gold Sponsor" style={{ background: '#080810', color: '#FFF' }}>Gold Sponsor ($5,000)</option>
-                                <option value="Silver Sponsor" style={{ background: '#080810', color: '#FFF' }}>Silver Sponsor ($3,000)</option>
-                                <option value="Bronze Sponsor" style={{ background: '#080810', color: '#FFF' }}>Bronze Sponsor ($1,500)</option>
-                                <option value="Exhibitor Booth" style={{ background: '#080810', color: '#FFF' }}>Exhibitor Booth ($1,000)</option>
+                                <option value="Gold Sponsor" style={{ background: '#FFFFFF', color: '#14162E' }}>Gold Sponsor ($5,000)</option>
+                                <option value="Silver Sponsor" style={{ background: '#FFFFFF', color: '#14162E' }}>Silver Sponsor ($3,000)</option>
+                                <option value="Bronze Sponsor" style={{ background: '#FFFFFF', color: '#14162E' }}>Bronze Sponsor ($1,500)</option>
+                                <option value="Exhibitor Booth" style={{ background: '#FFFFFF', color: '#14162E' }}>Exhibitor Booth ($1,000)</option>
                               </select>
                             </div>
                           </div>
@@ -1902,7 +1872,7 @@ export default function AIConference({ playSound }) {
                 <Reveal>
                   <div className="bento-card" style={{ padding: '2.5rem', marginBottom: '3rem' }}>
                     <h3 className="gcai-display" style={{ fontSize: '1.3rem', fontWeight: 500, marginBottom: '1.2rem' }}>Registration Packages</h3>
-                    <p style={{ fontSize: '0.95rem', color: 'rgba(255,255,255,0.68)', lineHeight: 1.7, marginBottom: '1.6rem' }}>
+                    <p style={{ fontSize: '0.95rem', color: 'rgba(20, 22, 46,0.68)', lineHeight: 1.7, marginBottom: '1.6rem' }}>
                       Register to attend the GCAI 2026 conference in Budapest, Hungary. We offer registration tiers for Oral Presenters, Poster Presenters, Delegates, and Virtual Attendees.
                       Early bird discount options expire August 15, 2026.
                     </p>
@@ -1925,15 +1895,15 @@ export default function AIConference({ playSound }) {
                           <div>
                             <span className={`ticket-tag ${p.highlight ? 'hot' : ''}`}>{p.tag}</span>
                             <h3 className="gcai-display" style={{ fontSize: '1.25rem', fontWeight: 500, marginBottom: '0.6rem' }}>{p.type}</h3>
-                            <p style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.55)', lineHeight: 1.55, margin: 0 }}>{p.desc}</p>
+                            <p style={{ fontSize: '0.85rem', color: 'rgba(20, 22, 46,0.55)', lineHeight: 1.55, margin: 0 }}>{p.desc}</p>
                           </div>
                           <div>
                             <div className="ticket-divider" />
                             <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.4rem', marginBottom: '1.2rem' }}>
-                              <span className="ticket-price" style={{ color: p.highlight ? 'var(--accent)' : '#FFF', textShadow: p.highlight ? '0 0 26px rgba(255,222,66,0.35)' : 'none' }}>
+                              <span className="ticket-price" style={{ color: p.highlight ? '#B45309' : '#14162E' }}>
                                 ${p.price.toLocaleString()}
                               </span>
-                              <span style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.35)', fontFamily: "var(--gc-display)", textTransform: 'uppercase', letterSpacing: '1px' }}>/ pass</span>
+                              <span style={{ fontSize: '0.72rem', color: 'rgba(20, 22, 46,0.35)', fontFamily: "var(--gc-display)", textTransform: 'uppercase', letterSpacing: '1px' }}>/ pass</span>
                             </div>
                             <button onClick={() => openTicketModal(p.type)} onMouseEnter={handleHover} className="conf-btn-gold" style={{ width: '100%', padding: '0.9rem' }}>
                               Register Pass
@@ -1956,7 +1926,7 @@ export default function AIConference({ playSound }) {
             <motion.div
               initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
               style={{
-                position: 'fixed', inset: 0, background: 'rgba(0, 0, 0, 0.8)',
+                position: 'fixed', inset: 0, background: 'rgba(20, 22, 46, 0.35)',
                 backdropFilter: 'blur(18px)', WebkitBackdropFilter: 'blur(18px)',
                 zIndex: 99999, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '1rem'
               }}
@@ -1972,22 +1942,22 @@ export default function AIConference({ playSound }) {
                 <div style={{
                   padding: 'clamp(2rem, 5vw, 3rem) clamp(1.6rem, 4vw, 2.8rem)',
                   borderRadius: '22px',
-                  background: 'linear-gradient(170deg, #0B0B16, #060609)',
-                  border: '1px solid rgba(255, 255, 255, 0.1)',
-                  boxShadow: '0 40px 90px rgba(0, 0, 0, 0.85)',
+                  background: '#FFFFFF',
+                  border: '1px solid rgba(20, 22, 46, 0.1)',
+                  boxShadow: '0 40px 90px rgba(20, 22, 46, 0.25)',
                   position: 'relative',
                 }}>
                   <button
                     onClick={() => setTicketModalOpen(false)}
                     style={{
                       position: 'absolute', top: '1.4rem', right: '1.4rem',
-                      background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)',
+                      background: 'rgba(20, 22, 46,0.05)', border: '1px solid rgba(20, 22, 46,0.1)',
                       borderRadius: '10px', padding: '0.5rem',
-                      color: 'rgba(255,255,255,0.5)', cursor: 'none',
+                      color: 'rgba(20, 22, 46,0.5)', cursor: 'none',
                       display: 'flex', transition: 'color 0.2s'
                     }}
-                    onMouseEnter={(e) => { e.currentTarget.style.color = '#FFF'; handleHover(); }}
-                    onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.5)'}
+                    onMouseEnter={(e) => { e.currentTarget.style.color = '#14162E'; handleHover(); }}
+                    onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(20, 22, 46,0.5)'}
                   >
                     <X size={18} />
                   </button>
@@ -1995,7 +1965,7 @@ export default function AIConference({ playSound }) {
                   <h3 className="gcai-display" style={{ fontSize: '1.5rem', fontWeight: 500, marginBottom: '0.5rem' }}>
                     Register Delegate Pass
                   </h3>
-                  <p style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.45)', marginBottom: '2.2rem' }}>
+                  <p style={{ fontSize: '0.85rem', color: 'rgba(20, 22, 46,0.45)', marginBottom: '2.2rem' }}>
                     Registering pass type: <strong style={{ color: 'var(--accent)' }}>{selectedTicketType}</strong>. All lead alerts are dispatched to conference organizers.
                   </p>
 
@@ -2003,7 +1973,7 @@ export default function AIConference({ playSound }) {
                     <div style={{ textAlign: 'center', padding: '2.5rem 0' }}>
                       <SuccessCheck />
                       <h4 className="gcai-display" style={{ fontSize: '1.25rem', fontWeight: 500, margin: '1.4rem 0 0' }}>Registration Logged!</h4>
-                      <p style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.45)', marginTop: '0.5rem' }}>
+                      <p style={{ fontSize: '0.85rem', color: 'rgba(20, 22, 46,0.45)', marginTop: '0.5rem' }}>
                         Thank you! We have registered your inquiry. Our support representative will contact you via WhatsApp shortly.
                       </p>
                     </div>
@@ -2042,17 +2012,17 @@ export default function AIConference({ playSound }) {
         </AnimatePresence>
 
         {/* FOOTER */}
-        <footer style={{ borderTop: '1px solid rgba(255, 255, 255, 0.07)', padding: '3.5rem 1.5rem', position: 'relative', overflow: 'hidden' }}>
-          <div aria-hidden="true" style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 60% 120% at 50% 100%, rgba(255,222,66,0.045), transparent 60%)' }} />
+        <footer style={{ borderTop: '1px solid rgba(20, 22, 46, 0.07)', padding: '3.5rem 1.5rem', position: 'relative', overflow: 'hidden' }}>
+          <div aria-hidden="true" style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 60% 120% at 50% 100%, rgba(180, 83, 9,0.045), transparent 60%)' }} />
           <div style={{ maxWidth: '1000px', margin: '0 auto', textAlign: 'center', position: 'relative' }}>
             <div className="conf-logo" style={{ justifyContent: 'center', marginBottom: '1.2rem' }}>
               <div className="conf-logo-orb" />
               GCAI<span style={{ color: 'var(--accent)' }}>&nbsp;CON</span>&nbsp;2026
             </div>
-            <p style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.4)', margin: '0 0 1.6rem', fontFamily: "var(--gc-display)", letterSpacing: '1px' }}>
+            <p style={{ fontSize: '0.8rem', color: 'rgba(20, 22, 46,0.4)', margin: '0 0 1.6rem', fontFamily: "var(--gc-display)", letterSpacing: '1px' }}>
               Budapest, Hungary • September 14 – 16, 2026
             </p>
-            <span style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.3)' }}>© {new Date().getFullYear()} GCAI CON 2026. All rights reserved.</span>
+            <span style={{ fontSize: '0.75rem', color: 'rgba(20, 22, 46,0.3)' }}>© {new Date().getFullYear()} GCAI CON 2026. All rights reserved.</span>
           </div>
         </footer>
 
