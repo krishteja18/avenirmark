@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Calendar, Check, X, MapPin, Download, ArrowUpRight, ArrowDown, Award, BookOpen, User, Shield, Menu, Globe, Sparkles, Plane, TrainFront, Bus } from 'lucide-react';
 import {
-  NeuralCanvas, Aurora, ScrambleText, KineticTitle, Reveal, TiltCard, SpotlightCard,
-  Magnetic, CountUp, FlipUnit, Marquee, SectionHeading, ScrollProgress, SuccessCheck,
+  ScrambleText, Reveal, TiltCard, SpotlightCard,
+  Magnetic, CountUp, FlipUnit, Marquee, SectionHeading, SuccessCheck,
 } from './conference/fx';
 
 export default function AIConference({ playSound }) {
@@ -303,12 +303,6 @@ export default function AIConference({ playSound }) {
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-        @property --angle {
-          syntax: '<angle>';
-          initial-value: 0deg;
-          inherits: false;
-        }
-
         .gcai-root {
           --gc-display: 'Poppins', var(--font-display), sans-serif;
           --gc-body: 'Poppins', var(--font-body), sans-serif;
@@ -328,16 +322,6 @@ export default function AIConference({ playSound }) {
           letter-spacing: 0.01em;
         }
 
-        /* ------------------------------------------------ ATMOSPHERE */
-        .gcai-noise {
-          position: fixed;
-          inset: 0;
-          z-index: 9990;
-          pointer-events: none;
-          opacity: 0.028;
-          background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-        }
-
         .gcai-grid-bg {
           background-image:
             linear-gradient(rgba(20, 22, 46, 0.045) 1px, transparent 1px),
@@ -349,9 +333,8 @@ export default function AIConference({ playSound }) {
 
         /* ------------------------------------------------ HEADER */
         .conf-banner-bar {
-          background: linear-gradient(90deg, rgba(217, 119, 6, 0.09), rgba(2, 132, 199, 0.07) 50%, rgba(225, 29, 72, 0.08));
+          background: linear-gradient(90deg, #FBF3E7, #EEF5FA 50%, #FAEEF0);
           border-bottom: 1px solid rgba(20, 22, 46, 0.08);
-          backdrop-filter: blur(10px);
           padding: 0.5rem 1.5rem;
           text-align: center;
           font-size: 0.7rem;
@@ -367,13 +350,11 @@ export default function AIConference({ playSound }) {
           position: fixed;
           top: 30px; left: 0; width: 100%;
           z-index: 1000;
-          transition: background 0.4s, border-color 0.4s, backdrop-filter 0.4s;
+          transition: background 0.4s, border-color 0.4s;
           border-bottom: 1px solid transparent;
         }
         .conf-header.is-scrolled {
-          background: rgb(255 255 255 / 0.78);
-          backdrop-filter: blur(20px) saturate(1.4);
-          -webkit-backdrop-filter: blur(20px) saturate(1.4);
+          background: rgb(255 255 255 / 0.96);
           border-bottom-color: rgba(20, 22, 46, 0.08);
         }
 
@@ -394,11 +375,6 @@ export default function AIConference({ playSound }) {
           border-radius: 50%;
           background: radial-gradient(circle at 35% 35%, #ffe97a, #ffde42 55%, #B8960A);
           box-shadow: 0 0 10px rgba(216, 160, 12, 0.7), 0 0 26px rgba(216, 160, 12, 0.3);
-          animation: orb-pulse 2.6s ease-in-out infinite;
-        }
-        @keyframes orb-pulse {
-          0%, 100% { transform: scale(1); box-shadow: 0 0 10px rgba(216, 160, 12, 0.7), 0 0 26px rgba(216, 160, 12, 0.25); }
-          50% { transform: scale(1.25); box-shadow: 0 0 16px rgba(216, 160, 12, 0.9), 0 0 40px rgba(216, 160, 12, 0.4); }
         }
 
         .conf-nav-link {
@@ -469,7 +445,6 @@ export default function AIConference({ playSound }) {
           letter-spacing: 1px;
           transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
           cursor: none;
-          backdrop-filter: blur(8px);
         }
         .conf-btn-ghost:hover {
           background: rgba(2, 132, 199, 0.1);
@@ -502,7 +477,6 @@ export default function AIConference({ playSound }) {
           width: 6px; height: 6px; border-radius: 50%;
           background: #D97706;
           box-shadow: 0 0 8px rgba(217, 119, 6, 0.7);
-          animation: orb-pulse 2s ease-in-out infinite;
         }
 
         .section-title {
@@ -539,7 +513,6 @@ export default function AIConference({ playSound }) {
           border-radius: 100px;
           border: 1px solid rgba(20, 22, 46, 0.12);
           background: rgb(255 255 255 / 0.65);
-          backdrop-filter: blur(10px);
           font-family: var(--gc-display);
           font-size: 0.72rem;
           font-weight: 600;
@@ -555,15 +528,11 @@ export default function AIConference({ playSound }) {
           line-height: 1.02;
           letter-spacing: -0.025em;
           margin: 0;
-          background: linear-gradient(115deg, #14162E 25%, #D97706 42%, #0284C7 58%, #14162E 78%);
-          background-size: 220% auto;
+          background: linear-gradient(115deg, #14162E 30%, #D97706 50%, #0284C7 65%, #14162E 85%);
           -webkit-background-clip: text;
           background-clip: text;
           -webkit-text-fill-color: transparent;
-          animation: title-shimmer 7s linear infinite;
-          filter: drop-shadow(0 8px 28px rgba(20, 22, 46, 0.10));
         }
-        @keyframes title-shimmer { to { background-position: 220% center; } }
 
         .hero-meta-chip {
           display: inline-flex;
@@ -675,18 +644,15 @@ export default function AIConference({ playSound }) {
           -webkit-mask-composite: xor;
           mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
           mask-composite: exclude;
-          animation: conic-spin 5s linear infinite;
           pointer-events: none;
           z-index: 2;
         }
-        @keyframes conic-spin { to { --angle: 360deg; } }
 
         .avatar-ring {
           position: relative;
           border-radius: 50%;
           padding: 3px;
-          background: conic-gradient(from var(--angle, 0deg), var(--ring-a, #D97706), transparent 30%, var(--ring-a, #D97706) 55%, transparent 80%, var(--ring-a, #D97706));
-          animation: conic-spin 4s linear infinite;
+          background: conic-gradient(from 0deg, var(--ring-a, #D97706), transparent 30%, var(--ring-a, #D97706) 55%, transparent 80%, var(--ring-a, #D97706));
         }
 
         /* ------------------------------------------------ TALK TIMELINE */
@@ -875,13 +841,11 @@ export default function AIConference({ playSound }) {
         }
 
         @media (prefers-reduced-motion: reduce) {
-          .fx-marquee-track, .conic-frame::before, .avatar-ring, .hero-title { animation: none !important; }
+          .fx-marquee-track { animation: none !important; }
         }
       `}</style>
 
       {/* FILM GRAIN */}
-      <div className="gcai-noise" aria-hidden="true" />
-      <ScrollProgress />
 
       <div className="gcai-root">
 
@@ -951,14 +915,14 @@ export default function AIConference({ playSound }) {
               <motion.div
                 initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
                 onClick={() => setMobileMenuOpen(false)}
-                style={{ position: 'fixed', inset: 0, background: 'rgba(20, 22, 46, 0.3)', backdropFilter: 'blur(6px)', zIndex: 9998 }}
+                style={{ position: 'fixed', inset: 0, background: 'rgba(20, 22, 46, 0.35)', zIndex: 9998 }}
               />
               <motion.div
                 initial={{ x: '100%' }} animate={{ x: 0 }} exit={{ x: '100%' }}
                 transition={{ type: 'spring', damping: 26, stiffness: 220 }}
                 style={{
                   position: 'fixed', top: 0, right: 0, bottom: 0, width: '300px',
-                  background: 'rgb(255 255 255 / 0.96)', backdropFilter: 'blur(24px)',
+                  background: '#FFFFFF',
                   borderLeft: '1px solid rgba(20, 22, 46, 0.08)', zIndex: 9999,
                   padding: '2rem 1.8rem', display: 'flex', flexDirection: 'column', gap: '1.5rem'
                 }}
@@ -1007,75 +971,46 @@ export default function AIConference({ playSound }) {
             {activeTab === 'home' && (
               <motion.div
                 key="home"
-                initial={{ opacity: 0, y: 20, filter: 'blur(6px)' }}
-                animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-                exit={{ opacity: 0, filter: 'blur(6px)' }}
-                transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.2 }}
               >
                 {/* HERO */}
                 <section className="gcai-grid-bg" style={{ position: 'relative', minHeight: 'calc(100vh - 108px)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '4rem 1.5rem 5rem', textAlign: 'center', overflow: 'hidden' }}>
-                  <Aurora />
-                  <NeuralCanvas />
-
                   <div style={{ maxWidth: '1050px', margin: '0 auto', position: 'relative', zIndex: 5 }}>
 
-                    <motion.div
-                      initial={{ opacity: 0, y: -16 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-                      style={{ marginBottom: '2.2rem' }}
-                    >
+                    <div style={{ marginBottom: '2.2rem' }}>
                       <span className="hero-eyebrow">
                         <Sparkles size={13} style={{ color: 'var(--accent)' }} />
                         Global Conference on Artificial Intelligence
                       </span>
-                    </motion.div>
+                    </div>
 
                     <h2 className="serif-font" style={{ fontSize: 'clamp(1.6rem, 3.6vw, 2.8rem)', fontWeight: 400, color: 'rgba(20, 22, 46, 0.9)', margin: '0 0 0.8rem 0', letterSpacing: '0.5px' }}>
                       <ScrambleText text="The Future of" delay={300} />
                     </h2>
 
-                    <motion.h1
-                      className="hero-title"
-                      initial={{ opacity: 0, letterSpacing: '0.12em', filter: 'blur(14px)' }}
-                      animate={{ opacity: 1, letterSpacing: '-0.045em', filter: 'blur(0px)' }}
-                      transition={{ duration: 1.3, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                    >
+                    <h1 className="hero-title">
                       AI Systems
-                    </motion.h1>
+                    </h1>
 
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.9, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                      style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '0.8rem', margin: '2.4rem 0 0' }}
-                    >
+                    <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '0.8rem', margin: '2.4rem 0 0' }}>
                       <span className="hero-meta-chip"><MapPin size={13} style={{ color: 'var(--accent)' }} /> Budapest, Hungary</span>
                       <span className="hero-meta-chip"><Calendar size={13} style={{ color: '#0284C7' }} /> September 14 – 16, 2026</span>
                       <span className="hero-meta-chip"><Globe size={13} style={{ color: '#E11D48' }} /> Hybrid • Live + Virtual</span>
-                    </motion.div>
+                    </div>
 
-                    {/* FLIP COUNTDOWN */}
-                    <motion.div
-                      initial={{ opacity: 0, y: 24 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 1.1, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                      style={{ display: 'flex', justifyContent: 'center', gap: 'clamp(0.8rem, 3vw, 2rem)', margin: '3.2rem 0 3rem' }}
-                    >
+                    {/* COUNTDOWN */}
+                    <div style={{ display: 'flex', justifyContent: 'center', gap: 'clamp(0.8rem, 3vw, 2rem)', margin: '3.2rem 0 3rem' }}>
                       <FlipUnit value={timeLeft.days} label="Days" />
                       <FlipUnit value={timeLeft.hours} label="Hours" />
                       <FlipUnit value={timeLeft.minutes} label="Minutes" />
                       <FlipUnit value={timeLeft.seconds} label="Seconds" />
-                    </motion.div>
+                    </div>
 
                     {/* CTA ROW */}
-                    <motion.div
-                      className="hero-cta-row"
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 1.3, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                      style={{ display: 'flex', justifyContent: 'center', gap: '1.2rem', flexWrap: 'wrap' }}
-                    >
+                    <div className="hero-cta-row" style={{ display: 'flex', justifyContent: 'center', gap: '1.2rem', flexWrap: 'wrap' }}>
                       <Magnetic>
                         <button onClick={() => { handleClick(); setActiveTab('registration'); }} onMouseEnter={handleHover} className="conf-btn-gold" style={{ padding: '1rem 2.8rem', fontSize: '0.88rem' }}>
                           Register Pass Now <ArrowUpRight size={16} />
@@ -1086,21 +1021,14 @@ export default function AIConference({ playSound }) {
                           Explore Tracks
                         </button>
                       </Magnetic>
-                    </motion.div>
+                    </div>
 
-                    <motion.div
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ delay: 2 }}
-                      style={{ marginTop: '4.5rem' }}
-                    >
+                    <div style={{ marginTop: '4.5rem' }}>
                       <div className="scroll-hint">
                         <span>Scroll</span>
-                        <motion.div animate={{ y: [0, 7, 0] }} transition={{ duration: 1.6, repeat: Infinity, ease: 'easeInOut' }}>
-                          <ArrowDown size={15} />
-                        </motion.div>
+                        <ArrowDown size={15} />
                       </div>
-                    </motion.div>
+                    </div>
                   </div>
                 </section>
 
@@ -1435,10 +1363,10 @@ export default function AIConference({ playSound }) {
             {activeTab === 'sessions' && (
               <motion.div
                 key="sessions"
-                initial={{ opacity: 0, y: 20, filter: 'blur(6px)' }}
-                animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-                exit={{ opacity: 0, filter: 'blur(6px)' }}
-                transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.2 }}
                 style={{ maxWidth: '1240px', margin: '0 auto', padding: '4rem 1.5rem 6rem' }}
               >
                 <SectionHeading kicker="GCAI 2026 Tracks" title="Scientific Tracks" ghost="Tracks" />
@@ -1482,10 +1410,10 @@ export default function AIConference({ playSound }) {
             {activeTab === 'abstract' && (
               <motion.div
                 key="abstract"
-                initial={{ opacity: 0, y: 20, filter: 'blur(6px)' }}
-                animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-                exit={{ opacity: 0, filter: 'blur(6px)' }}
-                transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.2 }}
                 style={{ maxWidth: '960px', margin: '0 auto', padding: '4rem 1.5rem 6rem' }}
               >
                 <SectionHeading kicker="Call For Papers" title="Abstract Submission" ghost="Submit" />
@@ -1587,10 +1515,10 @@ export default function AIConference({ playSound }) {
             {activeTab === 'venue' && (
               <motion.div
                 key="venue"
-                initial={{ opacity: 0, y: 20, filter: 'blur(6px)' }}
-                animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-                exit={{ opacity: 0, filter: 'blur(6px)' }}
-                transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.2 }}
                 style={{ maxWidth: '1000px', margin: '0 auto', padding: '4rem 1.5rem 6rem' }}
               >
                 <SectionHeading kicker="Rome, Italy" title="Venue & Travel Guide" ghost="Venue" />
@@ -1616,7 +1544,6 @@ export default function AIConference({ playSound }) {
                     </div>
                     <TiltCard max={7} style={{ borderRadius: '22px' }}>
                       <div style={{ aspectRatio: '16/11', borderRadius: '22px', background: 'linear-gradient(150deg, #0a1128 0%, #131c3d 100%)', border: '1px solid rgba(20, 22, 46,0.07)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 24px 50px rgba(0,0,0,0.4)', position: 'relative', overflow: 'hidden' }}>
-                        <NeuralCanvas density={18000} linkDist={80} palette={['255, 222, 66', '83, 203, 243', '255, 91, 132']} style={{ opacity: 0.55 }} />
                         <div style={{ position: 'relative', textAlign: 'center' }}>
                           <MapPin size={30} style={{ color: '#ffde42', filter: 'drop-shadow(0 0 12px rgba(255, 210, 60, 0.6))' }} />
                           <div className="gcai-display" style={{ marginTop: '0.6rem', fontSize: '0.72rem', letterSpacing: '3px', textTransform: 'uppercase', color: 'rgb(255 255 255 / 0.75)' }}>Conference Venue</div>
@@ -1719,10 +1646,10 @@ export default function AIConference({ playSound }) {
             {activeTab === 'sponsors' && (
               <motion.div
                 key="sponsors"
-                initial={{ opacity: 0, y: 20, filter: 'blur(6px)' }}
-                animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-                exit={{ opacity: 0, filter: 'blur(6px)' }}
-                transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.2 }}
                 style={{ maxWidth: '1000px', margin: '0 auto', padding: '4rem 1.5rem 6rem' }}
               >
                 <SectionHeading kicker="Industry Partners" title="Sponsors & Exhibitors" ghost="Partners" />
@@ -1861,10 +1788,10 @@ export default function AIConference({ playSound }) {
             {activeTab === 'registration' && (
               <motion.div
                 key="registration"
-                initial={{ opacity: 0, y: 20, filter: 'blur(6px)' }}
-                animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-                exit={{ opacity: 0, filter: 'blur(6px)' }}
-                transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.2 }}
                 style={{ maxWidth: '1100px', margin: '0 auto', padding: '4rem 1.5rem 6rem' }}
               >
                 <SectionHeading kicker="Checkout" title="Registration Passes" ghost="Tickets" />
@@ -1927,7 +1854,6 @@ export default function AIConference({ playSound }) {
               initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
               style={{
                 position: 'fixed', inset: 0, background: 'rgba(20, 22, 46, 0.35)',
-                backdropFilter: 'blur(18px)', WebkitBackdropFilter: 'blur(18px)',
                 zIndex: 99999, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '1rem'
               }}
             >
