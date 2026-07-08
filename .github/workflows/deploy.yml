@@ -34,3 +34,7 @@ jobs:
           local-dir: ./dist/
           server-dir: /public_html/
           state-name: .ftp-deploy-sync-state.json
+          exclude: |
+            **/api/blogs.json
+            **/api/uploads/**
+
