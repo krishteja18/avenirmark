@@ -9,9 +9,15 @@ export default function BlogList({ playSound }) {
   const [hoveredCard, setHoveredCard] = useState(null);
 
   useEffect(() => {
-    // Fetch blogs from API
+    // Fetch blogs from API with fallback to static json for local Vite testing
     fetch('/api/blogs.php')
-      .then((res) => res.json())
+      .then((res) => {
+        const contentType = res.headers.get('content-type');
+        if (!contentType || !contentType.includes('application/json')) {
+          throw new Error('Response is not JSON (raw PHP or static text served locally)');
+        }
+        return res.json();
+      })
       .then((resData) => {
         if (resData.success && Array.isArray(resData.data)) {
           setBlogs(resData.data);
@@ -19,8 +25,21 @@ export default function BlogList({ playSound }) {
         setLoading(false);
       })
       .catch((err) => {
-        console.error('Error fetching blogs:', err);
-        setLoading(false);
+        console.warn('PHP API not available, falling back to local static JSON:', err);
+        fetch('/api/blogs.json')
+          .then((res) => res.json())
+          .then((jsonData) => {
+            if (Array.isArray(jsonData)) {
+              setBlogs(jsonData);
+            } else if (jsonData && Array.isArray(jsonData.data)) {
+              setBlogs(jsonData.data);
+            }
+            setLoading(false);
+          })
+          .catch((jsonErr) => {
+            console.error('Error fetching fallback json:', jsonErr);
+            setLoading(false);
+          });
       });
   }, []);
 

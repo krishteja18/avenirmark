@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Calendar, Clock, BookOpen, Share2, Check } from 'lucide-react';
+import { ArrowLeft, Calendar, Clock, BookOpen, Share2, Check, MessageSquare, Tag, ArrowRight, User } from 'lucide-react';
 
 export default function BlogDetail({ slug, playSound }) {
   const [blog, setBlog] = useState(null);
@@ -8,8 +8,15 @@ export default function BlogDetail({ slug, playSound }) {
   const [copied, setCopied] = useState(false);
 
   useEffect(() => {
+    // Fetch blogs from API with fallback to static json for local Vite testing
     fetch('/api/blogs.php')
-      .then((res) => res.json())
+      .then((res) => {
+        const contentType = res.headers.get('content-type');
+        if (!contentType || !contentType.includes('application/json')) {
+          throw new Error('Response is not JSON (raw PHP or static text served locally)');
+        }
+        return res.json();
+      })
       .then((resData) => {
         if (resData.success && Array.isArray(resData.data)) {
           const found = resData.data.find((b) => b.slug === slug);
@@ -18,8 +25,19 @@ export default function BlogDetail({ slug, playSound }) {
         setLoading(false);
       })
       .catch((err) => {
-        console.error('Error fetching blog detail:', err);
-        setLoading(false);
+        console.warn('PHP API not available, falling back to local static JSON:', err);
+        fetch('/api/blogs.json')
+          .then((res) => res.json())
+          .then((jsonData) => {
+            const list = Array.isArray(jsonData) ? jsonData : (jsonData && Array.isArray(jsonData.data) ? jsonData.data : []);
+            const found = list.find((b) => b.slug === slug);
+            setBlog(found || null);
+            setLoading(false);
+          })
+          .catch((jsonErr) => {
+            console.error('Error fetching fallback json for detail:', jsonErr);
+            setLoading(false);
+          });
       });
   }, [slug]);
 
@@ -52,71 +70,57 @@ export default function BlogDetail({ slug, playSound }) {
   const renderContent = (content) => {
     if (!content) return '';
 
-    // If it contains HTML tags, render it as-is (trusted content from admin)
     const isHtml = /<[a-z][\s\S]*>/i.test(content);
     if (isHtml) {
       return { __html: content };
     }
 
-    // Otherwise, parse basic Markdown rules to HTML
     let html = content
       .replace(/&/g, '&amp;')
       .replace(/</g, '&lt;')
       .replace(/>/g, '&gt;')
-      // Headings
       .replace(/^### (.*?)$/gm, '<h3 class="blog-h3">$1</h3>')
       .replace(/^## (.*?)$/gm, '<h2 class="blog-h2">$1</h2>')
       .replace(/^# (.*?)$/gm, '<h1 class="blog-h1">$1</h1>')
-      // Bold
       .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-      // Italics
       .replace(/\*(.*?)\*/g, '<em>$1</em>')
-      // Blockquotes
       .replace(/^> (.*?)$/gm, '<blockquote class="blog-blockquote">$1</blockquote>')
-      // Links [text](url)
       .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" class="blog-link" target="_blank" rel="noopener noreferrer">$1</a>')
-      // List items * or -
       .replace(/^\s*[\*\-]\s+(.*?)$/gm, '<li class="blog-li">$1</li>')
-      // Newlines / Paragraphs
       .replace(/\r\n/g, '\n')
       .replace(/\n\n+/g, '</p><p class="blog-p">')
       .replace(/\n/g, '<br />');
 
-    // Wrap in initial paragraph if it doesn't start with heading
     if (!html.startsWith('<h')) {
       html = '<p class="blog-p">' + html + '</p>';
     }
 
-    // Clean up empty paragraphs
     html = html.replace(/<p class="blog-p"><\/p>/g, '');
-    
-    // Group lists: wrap sibling <li> elements in <ul>
     html = html.replace(/(<li class="blog-li">.*?<\/li>)+/gs, '<ul class="blog-ul">$0</ul>');
 
     return { __html: html };
   };
 
-  // Estimate read time
   const getReadTime = (text) => {
-    if (!text) return '1 min read';
+    if (!text) return '3 min read';
     const words = text.trim().split(/\s+/).length;
-    const minutes = Math.ceil(words / 225); // average reading speed
+    const minutes = Math.ceil(words / 225);
     return `${minutes} min read`;
   };
 
   if (loading) {
     return (
-      <div style={{ textAlign: 'center', padding: '10rem 2rem', color: 'var(--text-secondary)' }}>
+      <div style={{ textAlign: 'center', padding: '10rem 2rem', color: 'var(--text-secondary)', minHeight: '80vh' }}>
         <div className="spinner" style={{
-          width: '40px',
-          height: '40px',
+          width: '44px',
+          height: '44px',
           border: '3px solid var(--border)',
           borderTop: '3px solid var(--accent)',
           borderRadius: '50%',
           margin: '0 auto 1.5rem auto',
           animation: 'spin 1s linear infinite'
         }} />
-        <p>Loading article...</p>
+        <p style={{ fontWeight: 600 }}>Loading article...</p>
       </div>
     );
   }
@@ -126,12 +130,13 @@ export default function BlogDetail({ slug, playSound }) {
       <div style={{ 
         textAlign: 'center', 
         padding: '10rem 2rem', 
-        maxWidth: '600px', 
-        margin: '0 auto' 
+        maxWidth: '650px', 
+        margin: '0 auto',
+        minHeight: '80vh' 
       }}>
-        <BookOpen size={48} style={{ color: 'var(--text-muted)', marginBottom: '1.5rem', opacity: 0.5 }} />
-        <h2 style={{ fontSize: '2rem', fontWeight: 800, color: 'var(--text-primary)' }}>Article Not Found</h2>
-        <p style={{ color: 'var(--text-secondary)', marginTop: '0.8rem', marginBottom: '2rem' }}>
+        <BookOpen size={48} style={{ color: 'var(--text-muted)', marginBottom: '1.5rem', opacity: 0.4 }} />
+        <h2 style={{ fontSize: '2.2rem', fontWeight: 800, color: 'var(--text-primary)', fontFamily: 'var(--font-display)' }}>Article Not Found</h2>
+        <p style={{ color: 'var(--text-secondary)', marginTop: '0.8rem', marginBottom: '2.5rem', lineHeight: 1.6 }}>
           The article you are looking for does not exist, has been removed, or is currently saved as a draft.
         </p>
         <a 
@@ -140,16 +145,16 @@ export default function BlogDetail({ slug, playSound }) {
           className="btn-premium"
           style={{ cursor: 'none' }}
         >
-          <ArrowLeft size={16} /> Back to Blogs
+          <ArrowLeft size={16} /> Return to Journal
         </a>
       </div>
     );
   }
 
   return (
-    <article style={{ backgroundColor: 'var(--bg-primary)', minHeight: '100vh', position: 'relative' }}>
+    <article style={{ backgroundColor: 'var(--bg-primary)', minHeight: '100vh', position: 'relative', paddingBottom: '6rem' }}>
       
-      {/* Decorative backdrop glow */}
+      {/* Dynamic backdrop glow */}
       <div style={{
         position: 'absolute',
         top: 0, left: '50%',
@@ -157,19 +162,20 @@ export default function BlogDetail({ slug, playSound }) {
         width: '100%',
         maxWidth: '1400px',
         height: '600px',
-        background: 'radial-gradient(circle at 50% 0%, rgba(255,222,66,0.035), transparent 70%)',
+        background: 'radial-gradient(ellipse at 50% 0%, rgba(255, 222, 66, 0.05), transparent 70%)',
         pointerEvents: 'none',
         zIndex: 0
       }} />
 
-      <div style={{ maxWidth: '800px', margin: '0 auto', padding: '8rem 1.5rem 6rem 1.5rem', position: 'relative', zIndex: 1 }}>
+      {/* TOP HERO CONTAINER (Wide 1240px Container) */}
+      <div style={{ maxWidth: '1240px', margin: '0 auto', padding: '7.5rem 1.5rem 2rem 1.5rem', position: 'relative', zIndex: 1 }}>
         
-        {/* Navigation / Actions Bar */}
+        {/* Navigation & Action Header */}
         <div style={{ 
           display: 'flex', 
           justifyContent: 'space-between', 
           alignItems: 'center',
-          marginBottom: '3rem'
+          marginBottom: '2.5rem'
         }}>
           <a
             href="#blogs"
@@ -182,13 +188,13 @@ export default function BlogDetail({ slug, playSound }) {
               color: 'var(--text-secondary)',
               textDecoration: 'none',
               fontWeight: 700,
-              fontSize: '0.95rem',
-              transition: 'color 0.3s ease',
+              fontSize: '0.9rem',
+              transition: 'color 0.2s',
               cursor: 'none'
             }}
             className="back-link"
           >
-            <ArrowLeft size={16} style={{ color: 'var(--accent)' }} /> Back to Blogs
+            <ArrowLeft size={16} style={{ color: 'var(--accent)' }} /> Back to Journal
           </a>
 
           <button
@@ -198,167 +204,287 @@ export default function BlogDetail({ slug, playSound }) {
               display: 'inline-flex',
               alignItems: 'center',
               gap: '0.5rem',
-              background: 'transparent',
-              border: 'none',
-              color: 'var(--text-secondary)',
-              fontWeight: 600,
-              fontSize: '0.9rem',
-              transition: 'color 0.3s ease',
+              background: 'var(--bg-secondary)',
+              border: '1px solid var(--border)',
+              padding: '0.5rem 1.2rem',
+              borderRadius: '50px',
+              color: 'var(--text-primary)',
+              fontWeight: 700,
+              fontSize: '0.85rem',
+              transition: 'all 0.2s',
               cursor: 'none'
             }}
-            className="share-btn"
           >
             {copied ? (
               <>
-                <Check size={16} style={{ color: 'var(--accent)' }} /> Link Copied!
+                <Check size={15} style={{ color: '#10B981' }} /> Link Copied!
               </>
             ) : (
               <>
-                <Share2 size={16} /> Share Link
+                <Share2 size={15} /> Share Article
               </>
             )}
           </button>
         </div>
 
-        {/* Article Meta */}
-        <div style={{ 
-          display: 'flex', 
-          alignItems: 'center', 
-          gap: '1.5rem', 
-          color: 'var(--text-secondary)',
-          fontSize: '0.9rem',
-          marginBottom: '1.5rem'
-        }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-            <Calendar size={15} style={{ color: 'var(--text-muted)' }} />
-            <span>{formatDate(blog.createdAt)}</span>
+        {/* Title & Excerpt Header Block */}
+        <div style={{ maxWidth: '950px', marginBottom: '2.5rem' }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '1rem', color: 'var(--text-muted)', fontSize: '0.85rem', marginBottom: '1.2rem', fontWeight: 600 }}>
+            <span style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', color: 'var(--accent)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '1px' }}>
+              <Tag size={14} /> Insights &amp; Strategy
+            </span>
+            <span>•</span>
+            <span style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+              <Calendar size={14} /> {formatDate(blog.createdAt)}
+            </span>
+            <span>•</span>
+            <span style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+              <Clock size={14} /> {getReadTime(blog.content)}
+            </span>
           </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-            <Clock size={15} style={{ color: 'var(--text-muted)' }} />
-            <span>{getReadTime(blog.content)}</span>
-          </div>
+
+          <h1 style={{
+            fontSize: 'clamp(2.2rem, 5.5vw, 3.8rem)',
+            lineHeight: 1.12,
+            fontFamily: 'var(--font-display)',
+            fontWeight: 900,
+            color: 'var(--text-primary)',
+            letterSpacing: '-0.03em',
+            marginBottom: '1.2rem'
+          }}>
+            {blog.title}
+          </h1>
+
+          {blog.shortDescription && (
+            <p style={{
+              fontSize: '1.2rem',
+              color: 'var(--text-secondary)',
+              lineHeight: 1.6,
+              margin: 0
+            }}>
+              {blog.shortDescription}
+            </p>
+          )}
         </div>
 
-        {/* Title */}
-        <h1 style={{
-          fontSize: 'clamp(2rem, 5vw, 3.2rem)',
-          lineHeight: 1.15,
-          fontFamily: 'var(--font-display)',
-          fontWeight: 800,
-          color: 'var(--text-primary)',
-          marginBottom: '2rem'
-        }}>
-          {blog.title}
-        </h1>
-
-        {/* Banner Image */}
-        {blog.bannerImage && (
-          <div style={{
-            borderRadius: '24px',
-            overflow: 'hidden',
-            boxShadow: 'var(--shadow-md)',
-            border: '1px solid var(--border)',
-            marginBottom: '3rem',
-            width: '100%'
-          }}>
-            <img
-              src={blog.bannerImage}
-              alt={blog.bannerImageAlt || blog.title}
-              style={{
+        {/* MAIN 2-COLUMN LAYOUT (Content Left 68% + Sticky Sidebar Right 32%) */}
+        <div 
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'minmax(0, 1fr) 340px',
+            gap: '3.5rem',
+            alignItems: 'start',
+            marginTop: '2rem'
+          }}
+          className="blog-detail-grid"
+        >
+          {/* LEFT COLUMN: Main Banner Image & Article Body */}
+          <div>
+            {/* Banner Image */}
+            {blog.bannerImage && (
+              <div style={{
+                borderRadius: '24px',
+                overflow: 'hidden',
+                boxShadow: 'var(--shadow-md)',
+                border: '1px solid var(--border)',
+                marginBottom: '3rem',
                 width: '100%',
-                height: 'auto',
-                display: 'block',
-                maxHeight: '500px',
-                objectFit: 'cover'
+                maxHeight: '520px',
+                background: '#1b2751'
+              }}>
+                <img
+                  src={blog.bannerImage}
+                  alt={blog.bannerImageAlt || blog.title}
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    maxHeight: '520px',
+                    objectFit: 'cover',
+                    display: 'block'
+                  }}
+                />
+              </div>
+            )}
+
+            {/* Render Content */}
+            <div 
+              className="blog-content-body"
+              dangerouslySetInnerHTML={renderContent(blog.content)}
+              style={{
+                fontSize: '1.1rem',
+                lineHeight: 1.75,
+                color: 'var(--text-primary)',
+                fontFamily: 'var(--font-body)',
               }}
             />
-          </div>
-        )}
 
-        {/* Article Content Area */}
-        <div 
-          dangerouslySetInnerHTML={renderContent(blog.content)}
-          className="blog-content-body"
-          style={{
-            fontFamily: 'var(--font-body)',
-            fontSize: '1.15rem',
-            lineHeight: '1.8',
-            color: 'var(--text-secondary)',
-          }}
-        />
+            {/* Bottom Author Sign-off Footer */}
+            <div style={{
+              marginTop: '4rem',
+              paddingTop: '2rem',
+              borderTop: '1px solid var(--border)',
+              display: 'flex',
+              flexWrap: 'wrap',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              gap: '1.5rem'
+            }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                <div style={{
+                  width: '48px', height: '48px', borderRadius: '50%',
+                  background: 'linear-gradient(135deg, #1b2751, #0F172A)',
+                  color: 'var(--accent)',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  fontWeight: 800, fontSize: '1rem',
+                  border: '2px solid var(--border)'
+                }}>
+                  AM
+                </div>
+                <div>
+                  <h4 style={{ fontSize: '1rem', fontWeight: 800, margin: 0, color: 'var(--text-primary)' }}>Written by Avenirmark Editorial</h4>
+                  <span style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>Digital Strategy &amp; Brand Systems Specialists</span>
+                </div>
+              </div>
+
+              <a
+                href="#blogs"
+                onClick={handleClick}
+                onMouseEnter={handleHover}
+                className="btn-premium-outline"
+                style={{ padding: '0.65rem 1.4rem', fontSize: '0.85rem' }}
+              >
+                <ArrowLeft size={14} /> Back to All Posts
+              </a>
+            </div>
+          </div>
+
+          {/* RIGHT COLUMN: Sticky Interactive Sidebar */}
+          <div style={{ position: 'sticky', top: '100px', display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+            
+            {/* Author Profile Card */}
+            <div style={{
+              background: 'var(--bg-secondary)',
+              borderRadius: '24px',
+              padding: '2rem',
+              border: '1px solid var(--border)',
+              boxShadow: 'var(--shadow-sm)'
+            }}>
+              <span style={{ fontSize: '0.75rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '1.5px', color: 'var(--accent)', display: 'block', marginBottom: '0.8rem' }}>
+                Published By
+              </span>
+              <h3 style={{ fontSize: '1.3rem', fontWeight: 800, color: 'var(--text-primary)', margin: 0, fontFamily: 'var(--font-display)' }}>
+                Avenirmark Agency
+              </h3>
+              <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', lineHeight: 1.5, marginTop: '0.5rem', marginBottom: '1.5rem' }}>
+                Banjara Hills digital growth agency specializing in branding, high-conversion web portals, and AI systems.
+              </p>
+              
+              <a
+                href="https://wa.me/919966093777?text=Hi%20AvenirMark,%20I%20read%20your%20blog%20post%20and%20want%20to%20discuss%20a%20project."
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={handleClick}
+                onMouseEnter={handleHover}
+                className="btn-premium"
+                style={{ width: '100%', justifyContent: 'center', fontSize: '0.85rem', padding: '0.8rem' }}
+              >
+                <MessageSquare size={15} /> Talk to Strategist
+              </a>
+            </div>
+
+            {/* Consultation CTA Widget */}
+            <div style={{
+              background: 'linear-gradient(135deg, #1b2751 0%, #0F172A 100%)',
+              borderRadius: '24px',
+              padding: '2rem',
+              color: '#FFFFFF',
+              border: '1px solid rgba(255,255,255,0.1)',
+              boxShadow: '0 15px 35px rgba(27,39,81,0.15)'
+            }}>
+              <span style={{ fontSize: '0.75rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '1.5px', color: 'var(--accent)' }}>
+                Growth Opportunity
+              </span>
+              <h4 style={{ fontSize: '1.3rem', fontWeight: 800, color: '#FFFFFF', margin: '0.5rem 0 0.8rem 0', fontFamily: 'var(--font-display)' }}>
+                Need help scaling your brand?
+              </h4>
+              <p style={{ fontSize: '0.85rem', color: '#CBD5E1', lineHeight: 1.5, marginBottom: '1.5rem' }}>
+                Book a 1-on-1 strategy session to audit your digital funnel and deploy high-converting campaigns.
+              </p>
+
+              <a
+                href="#contact"
+                onClick={handleClick}
+                onMouseEnter={handleHover}
+                className="btn-premium"
+                style={{ width: '100%', justifyContent: 'center', fontSize: '0.85rem', padding: '0.8rem', background: '#FFFFFF', color: '#1b2751', border: '1px solid #FFFFFF' }}
+              >
+                Schedule Briefing <ArrowRight size={14} />
+              </a>
+            </div>
+
+          </div>
+
+        </div>
 
       </div>
 
+      {/* Global CSS for Blog Typography Parsing */}
       <style>{`
-        @keyframes spin {
-          0% { transform: rotate(0deg); }
-          100% { transform: rotate(360deg); }
-        }
-        .back-link:hover, .share-btn:hover {
-          color: var(--text-primary) !important;
-        }
-        
-        /* Rich Typography styles for blog body */
-        .blog-content-body .blog-p {
-          margin-bottom: 1.8rem;
-        }
         .blog-content-body .blog-h1 {
           font-family: var(--font-display);
           font-size: 2.2rem;
           font-weight: 800;
           color: var(--text-primary);
-          margin: 2.8rem 0 1.2rem 0;
-          line-height: 1.2;
+          margin: 2.5rem 0 1rem 0;
+          line-height: 1.25;
         }
         .blog-content-body .blog-h2 {
           font-family: var(--font-display);
           font-size: 1.8rem;
           font-weight: 800;
           color: var(--text-primary);
-          margin: 2.5rem 0 1.1rem 0;
-          line-height: 1.2;
+          margin: 2.2rem 0 1rem 0;
+          line-height: 1.3;
         }
         .blog-content-body .blog-h3 {
           font-family: var(--font-display);
           font-size: 1.4rem;
-          font-weight: 700;
+          font-weight: 800;
           color: var(--text-primary);
-          margin: 2.2rem 0 1rem 0;
-          line-height: 1.2;
+          margin: 1.8rem 0 0.8rem 0;
+        }
+        .blog-content-body .blog-p {
+          margin-bottom: 1.5rem;
+          color: var(--text-secondary);
         }
         .blog-content-body .blog-blockquote {
           border-left: 4px solid var(--accent);
-          padding-left: 1.5rem;
+          padding: 1rem 1.5rem;
           margin: 2rem 0;
+          background: var(--bg-secondary);
+          border-radius: 0 16px 16px 0;
           font-style: italic;
           color: var(--text-primary);
-          font-size: 1.25rem;
-          background: var(--bg-tertiary);
-          padding-top: 1rem;
-          padding-bottom: 1rem;
-          border-radius: 0 12px 12px 0;
+          font-size: 1.15rem;
         }
         .blog-content-body .blog-ul {
-          margin-bottom: 1.8rem;
-          padding-left: 1.5rem;
+          margin: 1.5rem 0;
+          padding-left: 1.8rem;
         }
         .blog-content-body .blog-li {
           margin-bottom: 0.6rem;
-          list-style-type: square;
+          color: var(--text-secondary);
         }
         .blog-content-body .blog-link {
-          color: var(--text-muted);
+          color: var(--accent);
           text-decoration: underline;
-          text-underline-offset: 3px;
-          font-weight: 600;
-          cursor: none;
-        }
-        .blog-content-body .blog-link:hover {
-          color: var(--text-primary);
-        }
-        .blog-content-body strong {
-          color: var(--text-primary);
           font-weight: 700;
+        }
+        @media (max-width: 900px) {
+          .blog-detail-grid {
+            grid-template-columns: 1fr !important;
+            gap: 2.5rem !important;
+          }
         }
       `}</style>
     </article>
