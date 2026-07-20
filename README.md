@@ -73,3 +73,5 @@ This builds and bundles optimized static assets (HTML, minified JS, and CSS) int
 This project is fully ready for zero-configuration, continuous-integration hosting on **Vercel**:
 1. Simply connect your GitHub repository `krishteja18/avenirmark` to your Vercel account.
 2. Vercel will automatically detect Vite, configure the build commands, and deploy any changes on your `main` branch inside 30 seconds!
+
+<!-- Deployment Test: Exclude rule validation for blogs database -->
