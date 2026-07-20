@@ -15,19 +15,25 @@ function readDB() {
         return [];
     }
     
+    clearstatcache(true, DB_FILE);
+    
     $fp = fopen(DB_FILE, 'r');
     if (!$fp) {
         return [];
     }
     
-    // Acquire shared lock
     flock($fp, LOCK_SH);
-    
     $size = filesize(DB_FILE);
-    $data = $size > 0 ? fread($fp, $size) : '[]';
-    
+    $data = '';
+    if ($size > 0) {
+        $data = fread($fp, $size);
+    }
     flock($fp, LOCK_UN);
     fclose($fp);
+    
+    if (empty($data)) {
+        $data = @file_get_contents(DB_FILE);
+    }
     
     $blogs = json_decode($data, true);
     return is_array($blogs) ? $blogs : [];
@@ -35,19 +41,21 @@ function readDB() {
 
 // Helper to write database with exclusive lock
 function writeDB($data) {
+    clearstatcache(true, DB_FILE);
+    $jsonContent = json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+    
     $fp = fopen(DB_FILE, 'w');
     if (!$fp) {
         return false;
     }
     
-    // Acquire exclusive lock
     flock($fp, LOCK_EX);
-    
-    $result = fwrite($fp, json_encode($data, JSON_PRETTY_PRINT));
-    
+    $result = fwrite($fp, $jsonContent);
+    fflush($fp);
     flock($fp, LOCK_UN);
     fclose($fp);
     
+    clearstatcache(true, DB_FILE);
     return $result !== false;
 }
 
