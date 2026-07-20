@@ -74,4 +74,4 @@ This project is fully ready for zero-configuration, continuous-integration hosti
 1. Simply connect your GitHub repository `krishteja18/avenirmark` to your Vercel account.
 2. Vercel will automatically detect Vite, configure the build commands, and deploy any changes on your `main` branch inside 30 seconds!
 
-<!-- Deployment Test: Exclude rule validation for blogs database -->
+<!-- Deployment Test: FTP exclusion rule final validation -->
