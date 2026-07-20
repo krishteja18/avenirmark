@@ -8,24 +8,23 @@ export default function BlogDetail({ slug, playSound }) {
   const [copied, setCopied] = useState(false);
 
   useEffect(() => {
-    // Fetch blogs from API with fallback to static json for local Vite testing
+    // Fetch blogs from API
     fetch('/api/blogs.php')
       .then((res) => {
-        const contentType = res.headers.get('content-type');
-        if (!contentType || !contentType.includes('application/json')) {
-          throw new Error('Response is not JSON (raw PHP or static text served locally)');
-        }
+        if (!res.ok) throw new Error('HTTP status not OK');
         return res.json();
       })
       .then((resData) => {
-        if (resData.success && Array.isArray(resData.data)) {
+        if (resData && resData.success && Array.isArray(resData.data)) {
           const found = resData.data.find((b) => b.slug === slug);
           setBlog(found || null);
+          setLoading(false);
+        } else {
+          throw new Error('Invalid JSON structure');
         }
-        setLoading(false);
       })
       .catch((err) => {
-        console.warn('PHP API not available, falling back to local static JSON:', err);
+        console.warn('PHP API not available or invalid, trying static fallback:', err);
         fetch('/api/blogs.json')
           .then((res) => res.json())
           .then((jsonData) => {
