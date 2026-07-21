@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Calendar, Clock, BookOpen, Share2, Check, MessageSquare, Tag, ArrowRight, User } from 'lucide-react';
+import { ArrowLeft, Calendar, Clock, BookOpen, Share2, Check, MessageSquare, Tag, ArrowRight, User, Layers } from 'lucide-react';
 
 export default function BlogDetail({ slug, playSound }) {
   const [blog, setBlog] = useState(null);
+  const [allBlogs, setAllBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [copied, setCopied] = useState(false);
 
@@ -16,6 +17,7 @@ export default function BlogDetail({ slug, playSound }) {
       })
       .then((resData) => {
         if (resData && resData.success && Array.isArray(resData.data)) {
+          setAllBlogs(resData.data);
           const found = resData.data.find((b) => b.slug === slug);
           setBlog(found || null);
           setLoading(false);
@@ -29,6 +31,7 @@ export default function BlogDetail({ slug, playSound }) {
           .then((res) => res.json())
           .then((jsonData) => {
             const list = Array.isArray(jsonData) ? jsonData : (jsonData && Array.isArray(jsonData.data) ? jsonData.data : []);
+            setAllBlogs(list);
             const found = list.find((b) => b.slug === slug);
             setBlog(found || null);
             setLoading(false);
@@ -60,7 +63,7 @@ export default function BlogDetail({ slug, playSound }) {
     const date = new Date(dateStr);
     return date.toLocaleDateString('en-US', {
       year: 'numeric',
-      month: 'long',
+      month: 'short',
       day: 'numeric',
     });
   };
@@ -106,6 +109,9 @@ export default function BlogDetail({ slug, playSound }) {
     const minutes = Math.ceil(words / 225);
     return `${minutes} min read`;
   };
+
+  // Other blogs excluding current post
+  const existingBlogs = allBlogs.filter((b) => b.slug !== slug);
 
   if (loading) {
     return (
@@ -159,23 +165,35 @@ export default function BlogDetail({ slug, playSound }) {
         top: 0, left: '50%',
         transform: 'translateX(-50%)',
         width: '100%',
-        maxWidth: '1400px',
+        maxWidth: '1440px',
         height: '600px',
         background: 'radial-gradient(ellipse at 50% 0%, rgba(255, 222, 66, 0.05), transparent 70%)',
         pointerEvents: 'none',
         zIndex: 0
       }} />
 
-      {/* TOP HERO CONTAINER (Wide 1240px Container) */}
-      <div style={{ maxWidth: '1240px', margin: '0 auto', padding: '7.5rem 1.5rem 2rem 1.5rem', position: 'relative', zIndex: 1 }}>
+      {/* TOP CONTAINER */}
+      <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '7rem 1.5rem 2rem 1.5rem', position: 'relative', zIndex: 1 }}>
         
-        {/* Navigation & Action Header */}
-        <div style={{ 
-          display: 'flex', 
-          justifyContent: 'space-between', 
-          alignItems: 'center',
-          marginBottom: '2.5rem'
-        }}>
+        {/* Navigation & Action Header (Sticky) */}
+        <div 
+          style={{ 
+            position: 'sticky',
+            top: '98px',
+            zIndex: 40,
+            display: 'flex', 
+            justifyContent: 'space-between', 
+            alignItems: 'center',
+            padding: '0.85rem 1.6rem',
+            marginBottom: '2.5rem',
+            background: 'var(--bg-primary)',
+            borderRadius: '50px',
+            border: '1px solid var(--border)',
+            boxShadow: '0 8px 30px rgba(27, 39, 81, 0.08)',
+            transition: 'all 0.3s ease'
+          }}
+          className="blog-top-sticky-nav"
+        >
           <a
             href="#blogs"
             onClick={handleClick}
@@ -184,7 +202,7 @@ export default function BlogDetail({ slug, playSound }) {
               display: 'inline-flex',
               alignItems: 'center',
               gap: '0.5rem',
-              color: 'var(--text-secondary)',
+              color: 'var(--text-primary)',
               textDecoration: 'none',
               fontWeight: 700,
               fontSize: '0.9rem',
@@ -203,7 +221,7 @@ export default function BlogDetail({ slug, playSound }) {
               display: 'inline-flex',
               alignItems: 'center',
               gap: '0.5rem',
-              background: 'var(--bg-secondary)',
+              background: 'var(--bg-primary)',
               border: '1px solid var(--border)',
               padding: '0.5rem 1.2rem',
               borderRadius: '50px',
@@ -226,59 +244,148 @@ export default function BlogDetail({ slug, playSound }) {
           </button>
         </div>
 
-        {/* Title & Excerpt Header Block */}
-        <div style={{ maxWidth: '950px', marginBottom: '2.5rem' }}>
-          <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '1rem', color: 'var(--text-muted)', fontSize: '0.85rem', marginBottom: '1.2rem', fontWeight: 600 }}>
-            <span style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', color: 'var(--accent)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '1px' }}>
-              <Tag size={14} /> Insights &amp; Strategy
-            </span>
-            <span>•</span>
-            <span style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-              <Calendar size={14} /> {formatDate(blog.createdAt)}
-            </span>
-            <span>•</span>
-            <span style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-              <Clock size={14} /> {getReadTime(blog.content)}
-            </span>
-          </div>
-
-          <h1 style={{
-            fontSize: 'clamp(2.2rem, 5.5vw, 3.8rem)',
-            lineHeight: 1.12,
-            fontFamily: 'var(--font-display)',
-            fontWeight: 900,
-            color: 'var(--text-primary)',
-            letterSpacing: '-0.03em',
-            marginBottom: '1.2rem'
-          }}>
-            {blog.title}
-          </h1>
-
-          {blog.shortDescription && (
-            <p style={{
-              fontSize: '1.2rem',
-              color: 'var(--text-secondary)',
-              lineHeight: 1.6,
-              margin: 0
-            }}>
-              {blog.shortDescription}
-            </p>
-          )}
-        </div>
-
-        {/* MAIN 2-COLUMN LAYOUT (Content Left 68% + Sticky Sidebar Right 32%) */}
+        {/* 3-COLUMN RESPONSIVE LAYOUT (Left Sticky: Existing Blogs | Center: Main Scrollable Article | Right Sticky: Sidebar Cards) */}
         <div 
           style={{
             display: 'grid',
-            gridTemplateColumns: 'minmax(0, 1fr) 340px',
-            gap: '3.5rem',
+            gridTemplateColumns: '270px minmax(0, 1fr) 320px',
+            gap: '2.5rem',
             alignItems: 'start',
-            marginTop: '2rem'
+            marginTop: '1.5rem'
           }}
-          className="blog-detail-grid"
+          className="blog-detail-3col-grid"
         >
-          {/* LEFT COLUMN: Main Banner Image & Article Body */}
-          <div>
+          {/* LEFT COLUMN: Sticky Existing Blogs List */}
+          <aside 
+            style={{ 
+              position: 'sticky', 
+              top: '135px', 
+              alignSelf: 'start',
+              display: 'flex', 
+              flexDirection: 'column', 
+              gap: '1.2rem',
+              maxHeight: 'calc(100vh - 150px)',
+              overflowY: 'auto',
+              paddingBottom: '3rem'
+            }} 
+            className="blog-sticky-sidebar left-sidebar"
+          >
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0 0.4rem 0.2rem 0.4rem' }}>
+              <Layers size={15} style={{ color: 'var(--accent)' }} />
+              <span style={{ fontSize: '0.75rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '1.5px', color: 'var(--accent)' }}>
+                Existing Blogs
+              </span>
+            </div>
+
+            {existingBlogs.length === 0 ? (
+              <div style={{
+                background: 'var(--bg-secondary)',
+                borderRadius: '20px',
+                padding: '1.4rem',
+                border: '1px solid var(--border)',
+                color: 'var(--text-muted)',
+                fontSize: '0.85rem'
+              }}>
+                No other published articles yet.
+              </div>
+            ) : (
+              existingBlogs.map((item) => (
+                <a
+                  key={item.id}
+                  href={`#blog/${item.slug}`}
+                  onClick={handleClick}
+                  onMouseEnter={handleHover}
+                  style={{
+                    textDecoration: 'none',
+                    display: 'block',
+                    padding: '1.1rem',
+                    borderRadius: '20px',
+                    background: 'var(--bg-secondary)',
+                    border: '1px solid var(--border)',
+                    boxShadow: 'var(--shadow-sm)',
+                    transition: 'all 0.25s ease',
+                  }}
+                  className="existing-blog-item"
+                >
+                  {item.bannerImage && (
+                    <div style={{ width: '100%', height: '100px', borderRadius: '12px', overflow: 'hidden', marginBottom: '0.7rem', background: '#1b2751' }}>
+                      <img 
+                        src={item.bannerImage} 
+                        alt={item.title} 
+                        style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+                      />
+                    </div>
+                  )}
+                  <h4 style={{
+                    fontSize: '0.92rem',
+                    fontWeight: 800,
+                    color: 'var(--text-primary)',
+                    lineHeight: 1.35,
+                    margin: '0 0 0.4rem 0',
+                    display: '-webkit-box',
+                    WebkitLineClamp: 2,
+                    WebkitBoxOrient: 'vertical',
+                    overflow: 'hidden',
+                    fontFamily: 'var(--font-display)'
+                  }}>
+                    {item.title}
+                  </h4>
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: '0.5rem' }}>
+                    <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', fontWeight: 600 }}>
+                      {formatDate(item.createdAt)}
+                    </span>
+                    <span style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--accent)', display: 'inline-flex', alignItems: 'center', gap: '0.2rem' }}>
+                      Read <ArrowRight size={12} />
+                    </span>
+                  </div>
+                </a>
+              ))
+            )}
+          </aside>
+
+          {/* CENTER COLUMN: Scrollable Main Article Content */}
+          <main style={{ width: '100%' }}>
+            
+            {/* Title & Excerpt Header */}
+            <div style={{ marginBottom: '2.5rem' }}>
+              <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '1rem', color: 'var(--text-muted)', fontSize: '0.85rem', marginBottom: '1.2rem', fontWeight: 600 }}>
+                <span style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', color: 'var(--accent)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '1px' }}>
+                  <Tag size={14} /> Insights &amp; Strategy
+                </span>
+                <span>•</span>
+                <span style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+                  <Calendar size={14} /> {formatDate(blog.createdAt)}
+                </span>
+                <span>•</span>
+                <span style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+                  <Clock size={14} /> {getReadTime(blog.content)}
+                </span>
+              </div>
+
+              <h1 style={{
+                fontSize: 'clamp(2rem, 4.5vw, 3.4rem)',
+                lineHeight: 1.15,
+                fontFamily: 'var(--font-display)',
+                fontWeight: 900,
+                color: 'var(--text-primary)',
+                letterSpacing: '-0.03em',
+                marginBottom: '1.2rem'
+              }}>
+                {blog.title}
+              </h1>
+
+              {blog.shortDescription && (
+                <p style={{
+                  fontSize: '1.15rem',
+                  color: 'var(--text-secondary)',
+                  lineHeight: 1.6,
+                  margin: 0
+                }}>
+                  {blog.shortDescription}
+                </p>
+              )}
+            </div>
+
             {/* Banner Image */}
             {blog.bannerImage && (
               <div style={{
@@ -288,7 +395,7 @@ export default function BlogDetail({ slug, playSound }) {
                 border: '1px solid var(--border)',
                 marginBottom: '3rem',
                 width: '100%',
-                maxHeight: '520px',
+                maxHeight: '500px',
                 background: '#1b2751'
               }}>
                 <img
@@ -297,7 +404,7 @@ export default function BlogDetail({ slug, playSound }) {
                   style={{
                     width: '100%',
                     height: '100%',
-                    maxHeight: '520px',
+                    maxHeight: '500px',
                     objectFit: 'cover',
                     display: 'block'
                   }}
@@ -305,13 +412,13 @@ export default function BlogDetail({ slug, playSound }) {
               </div>
             )}
 
-            {/* Render Content */}
+            {/* Main Rendered Text Content */}
             <div 
               className="blog-content-body"
               dangerouslySetInnerHTML={renderContent(blog.content)}
               style={{
                 fontSize: '1.1rem',
-                lineHeight: 1.75,
+                lineHeight: 1.78,
                 color: 'var(--text-primary)',
                 fontFamily: 'var(--font-body)',
               }}
@@ -355,16 +462,94 @@ export default function BlogDetail({ slug, playSound }) {
                 <ArrowLeft size={14} /> Back to All Posts
               </a>
             </div>
-          </div>
 
-          {/* RIGHT COLUMN: Sticky Interactive Sidebar */}
-          <div style={{ position: 'sticky', top: '100px', display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-            
-            {/* Author Profile Card */}
+            {/* WhatsApp Contact Banner */}
+            <div style={{
+              marginTop: '2rem',
+              padding: '1.5rem 1.8rem',
+              borderRadius: '24px',
+              background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, var(--bg-secondary) 100%)',
+              border: '1px solid rgba(16, 185, 129, 0.3)',
+              display: 'flex',
+              flexWrap: 'wrap',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              gap: '1.2rem',
+              boxShadow: 'var(--shadow-sm)'
+            }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                <div style={{
+                  width: '44px',
+                  height: '44px',
+                  borderRadius: '50%',
+                  background: '#10B981',
+                  color: '#FFFFFF',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  boxShadow: '0 4px 15px rgba(16, 185, 129, 0.3)',
+                  flexShrink: 0
+                }}>
+                  <MessageSquare size={22} />
+                </div>
+                <div>
+                  <h4 style={{ fontSize: '1.05rem', fontWeight: 800, margin: 0, color: 'var(--text-primary)' }}>
+                    Have questions about this article?
+                  </h4>
+                  <span style={{ fontSize: '0.88rem', color: 'var(--text-secondary)' }}>
+                    For more details, contact us directly on WhatsApp.
+                  </span>
+                </div>
+              </div>
+
+              <a
+                href={`https://wa.me/919966093777?text=Hi%20AvenirMark,%20I%20read%20your%20blog%20post%20"${encodeURIComponent(blog.title)}"%20and%20would%20like%20more%20details.`}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={handleClick}
+                onMouseEnter={handleHover}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.6rem',
+                  background: '#10B981',
+                  color: '#FFFFFF',
+                  padding: '0.75rem 1.6rem',
+                  borderRadius: '50px',
+                  fontWeight: 800,
+                  fontSize: '0.88rem',
+                  textDecoration: 'none',
+                  boxShadow: '0 4px 15px rgba(16, 185, 129, 0.25)',
+                  transition: 'all 0.25s ease',
+                  cursor: 'none'
+                }}
+                className="whatsapp-contact-btn"
+              >
+                <MessageSquare size={16} /> Contact on WhatsApp
+              </a>
+            </div>
+          </main>
+
+          {/* RIGHT COLUMN: Sticky Sidebar Cards */}
+          <aside 
+            style={{ 
+              position: 'sticky', 
+              top: '135px', 
+              alignSelf: 'start',
+              display: 'flex', 
+              flexDirection: 'column', 
+              gap: '1.4rem',
+              maxHeight: 'calc(100vh - 150px)',
+              overflowY: 'auto',
+              paddingBottom: '3rem'
+            }}
+            className="blog-sticky-sidebar right-sidebar"
+          >
+            {/* Publisher Profile Card */}
             <div style={{
               background: 'var(--bg-secondary)',
               borderRadius: '24px',
-              padding: '2rem',
+              padding: '1.8rem',
               border: '1px solid var(--border)',
               boxShadow: 'var(--shadow-sm)'
             }}>
@@ -391,11 +576,11 @@ export default function BlogDetail({ slug, playSound }) {
               </a>
             </div>
 
-            {/* Consultation CTA Widget */}
+            {/* Growth Consultation Widget */}
             <div style={{
               background: 'linear-gradient(135deg, #1b2751 0%, #0F172A 100%)',
               borderRadius: '24px',
-              padding: '2rem',
+              padding: '1.8rem',
               color: '#FFFFFF',
               border: '1px solid rgba(255,255,255,0.1)',
               boxShadow: '0 15px 35px rgba(27,39,81,0.15)'
@@ -403,7 +588,7 @@ export default function BlogDetail({ slug, playSound }) {
               <span style={{ fontSize: '0.75rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '1.5px', color: 'var(--accent)' }}>
                 Growth Opportunity
               </span>
-              <h4 style={{ fontSize: '1.3rem', fontWeight: 800, color: '#FFFFFF', margin: '0.5rem 0 0.8rem 0', fontFamily: 'var(--font-display)' }}>
+              <h4 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#FFFFFF', margin: '0.5rem 0 0.8rem 0', fontFamily: 'var(--font-display)' }}>
                 Need help scaling your brand?
               </h4>
               <p style={{ fontSize: '0.85rem', color: '#CBD5E1', lineHeight: 1.5, marginBottom: '1.5rem' }}>
@@ -420,15 +605,25 @@ export default function BlogDetail({ slug, playSound }) {
                 Schedule Briefing <ArrowRight size={14} />
               </a>
             </div>
-
-          </div>
+          </aside>
 
         </div>
 
       </div>
 
-      {/* Global CSS for Blog Typography Parsing */}
+      {/* Global CSS & Responsive Media Queries */}
       <style>{`
+        .existing-blog-item:hover {
+          border-color: var(--accent) !important;
+          transform: translateY(-3px);
+        }
+        .blog-sticky-sidebar {
+          scrollbar-width: none;
+          -ms-overflow-style: none;
+        }
+        .blog-sticky-sidebar::-webkit-scrollbar {
+          display: none;
+        }
         .blog-content-body .blog-h1 {
           font-family: var(--font-display);
           font-size: 2.2rem;
@@ -479,10 +674,24 @@ export default function BlogDetail({ slug, playSound }) {
           text-decoration: underline;
           font-weight: 700;
         }
-        @media (max-width: 900px) {
-          .blog-detail-grid {
+        @media (max-width: 1180px) {
+          .blog-detail-3col-grid {
+            grid-template-columns: minmax(0, 1fr) 300px !important;
+            gap: 2rem !important;
+          }
+          .left-sidebar {
+            display: none !important;
+          }
+        }
+        @media (max-width: 768px) {
+          .blog-detail-3col-grid {
             grid-template-columns: 1fr !important;
             gap: 2.5rem !important;
+          }
+          .right-sidebar {
+            position: relative !important;
+            top: 0 !important;
+            max-height: none !important;
           }
         }
       `}</style>
