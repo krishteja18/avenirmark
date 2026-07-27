@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Send, ArrowUp } from 'lucide-react';
+import { navigateTo } from '../App';
 
 export default function Footer({ playSound }) {
   const [email, setEmail] = useState('');
