@@ -383,7 +383,7 @@ export default function AdminDashboard({ csrfToken, username, onLogout, playSoun
                           {/* Public View link */}
                           {blog.published && (
                             <a
-                              href={`#blog/${blog.slug}`}
+                              href={`/blog/${blog.slug}`}
                               target="_blank"
                               rel="noopener noreferrer"
                               onMouseEnter={handleHover}

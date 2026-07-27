@@ -20,18 +20,43 @@ import AdminDashboard from './components/AdminDashboard';
 import AIConference from './components/AIConference';
 import Chatbot from './components/Chatbot';
 
+export function navigateTo(url, replace = false) {
+  if (replace) {
+    window.history.replaceState({}, '', url);
+  } else {
+    window.history.pushState({}, '', url);
+  }
+  window.dispatchEvent(new Event('popstate'));
+}
+
+export function getRouteFromLocation() {
+  const pathname = window.location.pathname.replace(/\/$/, '') || '/';
+  const hash = window.location.hash;
+
+  // Support legacy hash URLs if user typed /#blogs or /#blog/slug or clicked old link
+  if (hash === '#about-us') return { name: 'about-us' };
+  if (hash === '#blogs') return { name: 'blogs' };
+  if (hash.startsWith('#blog/')) {
+    return { name: 'blog-detail', slug: hash.substring(6) };
+  }
+  if (hash === '#admin') return { name: 'admin' };
+  if (hash === '#ai-conference') return { name: 'ai-conference' };
+
+  // Clean path routing
+  if (pathname === '/about-us') return { name: 'about-us' };
+  if (pathname === '/blogs') return { name: 'blogs' };
+  if (pathname.startsWith('/blog/')) {
+    const slug = pathname.substring(6);
+    if (slug) return { name: 'blog-detail', slug };
+  }
+  if (pathname === '/admin') return { name: 'admin' };
+  if (pathname === '/ai-conference') return { name: 'ai-conference' };
+
+  return { name: 'home' };
+}
+
 export default function App() {
-  const [currentRoute, setCurrentRoute] = useState(() => {
-    const hash = window.location.hash;
-    if (hash === '#about-us') return { name: 'about-us' };
-    if (hash === '#blogs') return { name: 'blogs' };
-    if (hash.startsWith('#blog/')) {
-      return { name: 'blog-detail', slug: hash.substring(6) };
-    }
-    if (hash === '#admin') return { name: 'admin' };
-    if (hash === '#ai-conference') return { name: 'ai-conference' };
-    return { name: 'home' };
-  });
+  const [currentRoute, setCurrentRoute] = useState(getRouteFromLocation);
 
   const [adminAuth, setAdminAuth] = useState({ authenticated: false, csrfToken: '', username: '' });
   const [checkingAuth, setCheckingAuth] = useState(true);
@@ -73,7 +98,7 @@ export default function App() {
           csrfToken: '',
           username: ''
         });
-        window.location.hash = '';
+        navigateTo('/', true);
       })
       .catch((err) => {
         console.error('Logout error:', err);
@@ -82,35 +107,23 @@ export default function App() {
           csrfToken: '',
           username: ''
         });
-        window.location.hash = '';
+        navigateTo('/', true);
       });
   };
 
-  // Listen to hash change for premium SPA routing
+  // Listen to popstate & hashchange for clean SPA path routing
   useEffect(() => {
-    const handleHashChange = () => {
-      const hash = window.location.hash;
-      if (hash === '#about-us') {
-        setCurrentRoute({ name: 'about-us' });
-        window.scrollTo({ top: 0, behavior: 'auto' });
-      } else if (hash === '#blogs') {
-        setCurrentRoute({ name: 'blogs' });
-        window.scrollTo({ top: 0, behavior: 'auto' });
-      } else if (hash.startsWith('#blog/')) {
-        setCurrentRoute({ name: 'blog-detail', slug: hash.substring(6) });
-        window.scrollTo({ top: 0, behavior: 'auto' });
-      } else if (hash === '#admin') {
-        setCurrentRoute({ name: 'admin' });
-        window.scrollTo({ top: 0, behavior: 'auto' });
-      } else if (hash === '#ai-conference') {
-        setCurrentRoute({ name: 'ai-conference' });
-        window.scrollTo({ top: 0, behavior: 'auto' });
-      } else {
-        setCurrentRoute({ name: 'home' });
-      }
+    const handleLocationChange = () => {
+      setCurrentRoute(getRouteFromLocation());
+      window.scrollTo({ top: 0, behavior: 'auto' });
     };
-    window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
+
+    window.addEventListener('popstate', handleLocationChange);
+    window.addEventListener('hashchange', handleLocationChange);
+    return () => {
+      window.removeEventListener('popstate', handleLocationChange);
+      window.removeEventListener('hashchange', handleLocationChange);
+    };
   }, []);
 
   // Buttery-smooth Lenis Scroll initialization

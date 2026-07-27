@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
 
+import { navigateTo } from '../App';
+
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -23,34 +25,36 @@ export default function Header() {
     setIsMenuOpen(false);
 
     if (id === 'about us') {
-      window.location.hash = '#about-us';
+      navigateTo('/about-us');
       return;
     }
 
     if (id === 'blog') {
-      window.location.hash = '#blogs';
+      navigateTo('/blogs');
       return;
     }
 
     if (id === 'ai-conference') {
-      window.location.hash = '#ai-conference';
+      navigateTo('/ai-conference');
       return;
     }
 
-    const element = document.getElementById(id);
-    if (element) {
-      // Offset for floating header
-      const headerOffset = 80;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+    const isHomePage = window.location.pathname === '/' || window.location.pathname === '';
+    if (isHomePage) {
+      const element = document.getElementById(id);
+      if (element) {
+        const headerOffset = 80;
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+        window.history.pushState({}, '', '/#' + id);
+      }
     } else {
-      // Return to home page and scroll to section
-      window.location.hash = '#' + id;
+      navigateTo('/#' + id);
     }
   };
 
@@ -79,10 +83,11 @@ export default function Header() {
           href="/"
           onClick={(e) => {
             e.preventDefault();
-            if (window.location.hash === '#about-us') {
-              window.location.hash = '';
+            if (window.location.pathname !== '/' && window.location.pathname !== '') {
+              navigateTo('/');
             } else {
               window.scrollTo({ top: 0, behavior: 'smooth' });
+              window.history.pushState({}, '', '/');
             }
           }}
           style={{
@@ -121,7 +126,7 @@ export default function Header() {
           {['services', 'about us', 'process', 'portfolio', 'blog', 'ai-conference'].map((section) => (
             <a
               key={section}
-              href={section === 'blog' ? '#blogs' : section === 'ai-conference' ? '#ai-conference' : `#${section}`}
+              href={section === 'blog' ? '/blogs' : section === 'about us' ? '/about-us' : section === 'ai-conference' ? '/ai-conference' : `/#${section}`}
               onClick={(e) => handleNavClick(e, section)}
               style={{
                 fontFamily: 'var(--font-body)',
@@ -151,7 +156,7 @@ export default function Header() {
           className="desktop-nav-cta"
         >
           <a
-            href="#contact"
+            href="/#contact"
             onClick={(e) => handleNavClick(e, 'contact')}
             className="btn-premium"
             style={{
@@ -212,7 +217,7 @@ export default function Header() {
           {['services', 'about us', 'process', 'portfolio', 'blog', 'ai-conference'].map((section, index) => (
             <a
               key={section}
-              href={section === 'blog' ? '#blogs' : section === 'ai-conference' ? '#ai-conference' : `#${section}`}
+              href={section === 'blog' ? '/blogs' : section === 'about us' ? '/about-us' : section === 'ai-conference' ? '/ai-conference' : `/#${section}`}
               onClick={(e) => handleNavClick(e, section)}
               style={{
                 fontFamily: 'var(--font-display)',

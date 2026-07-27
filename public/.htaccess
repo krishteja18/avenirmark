@@ -12,4 +12,9 @@ AddDefaultCharset UTF-8
     
     # Route sitemap.xml to the dynamic sitemap.php generator
     RewriteRule ^sitemap\.xml$ sitemap.php [L]
+
+    # SPA Fallback: Rewrite non-file and non-directory requests to index.html
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^ index.html [L]
 </IfModule>

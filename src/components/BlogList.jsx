@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Calendar, Search, ArrowRight, BookOpen } from 'lucide-react';
+import { navigateTo } from '../App';
 
 export default function BlogList({ playSound }) {
   const [blogs, setBlogs] = useState([]);
@@ -291,8 +292,12 @@ export default function BlogList({ playSound }) {
                     marginBottom: '1rem',
                   }}>
                     <a 
-                      href={`#blog/${blog.slug}`} 
-                      onClick={handleClick}
+                      href={`/blog/${blog.slug}`} 
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleClick();
+                        navigateTo(`/blog/${blog.slug}`);
+                      }}
                       style={{ 
                         color: 'inherit', 
                         textDecoration: 'none',
@@ -321,8 +326,12 @@ export default function BlogList({ playSound }) {
                   {/* Read More link */}
                   <div style={{ marginTop: 'auto' }}>
                     <a
-                      href={`#blog/${blog.slug}`}
-                      onClick={handleClick}
+                      href={`/blog/${blog.slug}`}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleClick();
+                        navigateTo(`/blog/${blog.slug}`);
+                      }}
                       style={{
                         display: 'inline-flex',
                         alignItems: 'center',

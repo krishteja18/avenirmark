@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Calendar, Clock, BookOpen, Share2, Check, MessageSquare, Tag, ArrowRight, User, Layers } from 'lucide-react';
+import { navigateTo } from '../App';
 
 export default function BlogDetail({ slug, playSound }) {
   const [blog, setBlog] = useState(null);
@@ -145,8 +146,8 @@ export default function BlogDetail({ slug, playSound }) {
           The article you are looking for does not exist, has been removed, or is currently saved as a draft.
         </p>
         <a 
-          href="#blogs" 
-          onClick={handleClick}
+          href="/blogs" 
+          onClick={(e) => { e.preventDefault(); handleClick(); navigateTo('/blogs'); }}
           className="btn-premium"
           style={{ cursor: 'none' }}
         >
@@ -195,8 +196,8 @@ export default function BlogDetail({ slug, playSound }) {
           className="blog-top-sticky-nav"
         >
           <a
-            href="#blogs"
-            onClick={handleClick}
+            href="/blogs"
+            onClick={(e) => { e.preventDefault(); handleClick(); navigateTo('/blogs'); }}
             onMouseEnter={handleHover}
             style={{
               display: 'inline-flex',
@@ -292,8 +293,8 @@ export default function BlogDetail({ slug, playSound }) {
               existingBlogs.map((item) => (
                 <a
                   key={item.id}
-                  href={`#blog/${item.slug}`}
-                  onClick={handleClick}
+                  href={`/blog/${item.slug}`}
+                  onClick={(e) => { e.preventDefault(); handleClick(); navigateTo(`/blog/${item.slug}`); }}
                   onMouseEnter={handleHover}
                   style={{
                     textDecoration: 'none',
@@ -453,8 +454,8 @@ export default function BlogDetail({ slug, playSound }) {
               </div>
 
               <a
-                href="#blogs"
-                onClick={handleClick}
+                href="/blogs"
+                onClick={(e) => { e.preventDefault(); handleClick(); navigateTo('/blogs'); }}
                 onMouseEnter={handleHover}
                 className="btn-premium-outline"
                 style={{ padding: '0.65rem 1.4rem', fontSize: '0.85rem' }}

@@ -32,22 +32,26 @@ export default function Footer({ playSound }) {
     if (playSound) playSound('click');
 
     if (id === 'about us') {
-      window.location.hash = '#about-us';
+      navigateTo('/about-us');
       return;
     }
 
     if (id === 'blog') {
-      window.location.hash = '#blogs';
+      navigateTo('/blogs');
       return;
     }
 
-    const el = document.getElementById(id);
-    if (el) {
-      const offset = 80;
-      const pos = el.getBoundingClientRect().top + window.pageYOffset - offset;
-      window.scrollTo({ top: pos, behavior: 'smooth' });
+    const isHomePage = window.location.pathname === '/' || window.location.pathname === '';
+    if (isHomePage) {
+      const el = document.getElementById(id);
+      if (el) {
+        const offset = 80;
+        const pos = el.getBoundingClientRect().top + window.pageYOffset - offset;
+        window.scrollTo({ top: pos, behavior: 'smooth' });
+        window.history.pushState({}, '', '/#' + id);
+      }
     } else {
-      window.location.hash = '#' + id;
+      navigateTo('/#' + id);
     }
   };
 
@@ -376,7 +380,7 @@ export default function Footer({ playSound }) {
           © {new Date().getFullYear()} Avenirmark Agency. All rights reserved.
         </span>
         <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)', display: 'flex', gap: '1.2rem' }}>
-          <a href="#admin" style={{ color: 'inherit', textDecoration: 'none', cursor: 'none' }} onMouseEnter={handleHover}>Admin Portal</a>
+          <a href="/admin" onClick={(e) => { e.preventDefault(); navigateTo('/admin'); }} style={{ color: 'inherit', textDecoration: 'none', cursor: 'none' }} onMouseEnter={handleHover}>Admin Portal</a>
           <a href="#" style={{ color: 'inherit', textDecoration: 'none', cursor: 'none' }} onMouseEnter={handleHover}>Privacy Policy</a>
           <a href="#" style={{ color: 'inherit', textDecoration: 'none', cursor: 'none' }} onMouseEnter={handleHover}>Terms of Service</a>
         </span>

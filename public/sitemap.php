@@ -17,14 +17,19 @@ $staticPages = [
         'priority' => '1.0'
     ],
     [
-        'loc' => $domain . '/#about-us',
+        'loc' => $domain . '/about-us',
         'changefreq' => 'monthly',
         'priority' => '0.8'
     ],
     [
-        'loc' => $domain . '/#blogs',
+        'loc' => $domain . '/blogs',
         'changefreq' => 'daily',
         'priority' => '0.9'
+    ],
+    [
+        'loc' => $domain . '/ai-conference',
+        'changefreq' => 'monthly',
+        'priority' => '0.8'
     ]
 ];
 
@@ -59,7 +64,7 @@ foreach ($blogs as $blog) {
     if (isset($blog['published']) && $blog['published'] === true) {
         $slug = isset($blog['slug']) ? $blog['slug'] : '';
         if ($slug) {
-            $loc = $domain . '/#blog/' . $slug;
+            $loc = $domain . '/blog/' . $slug;
             // Use edit date or creation date if available for lastmod
             $lastmod = isset($blog['updatedAt']) ? $blog['updatedAt'] : (isset($blog['createdAt']) ? $blog['createdAt'] : '');
             
